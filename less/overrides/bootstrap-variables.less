@@ -1,0 +1,10 @@
+// Larger screen / wider desktop
+@screen-xlg:                 1600px;
+@screen-xlg-min:             @screen-xlg;
+@screen-xlg-desktop:         @screen-xlg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xxs-max:             (@screen-xs-min - 1);
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
