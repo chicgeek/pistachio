@@ -1,6 +1,5 @@
 //
-// Column mixin override
-// This is for our bespoke grid with support for xxs and xlg columns
+// This is for our bespoke bootstrap grid with support for xxs and xlg columns
 // ------------------------
 
 .make-grid-columns() {
@@ -121,6 +120,6 @@
 //
 // Columns, offsets, pushes, and pulls for the extra large desktop device range.
 
-@media (min-width: @screen-xlg-desktop) {
+@media (min-width: @screen-xlg-min) {
     .make-grid(xlg);
 }
