@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && node ./node_modules/.bin/gulp build"
+    "start": "npm install && node ./node_modules/.bin/gulp build",
+    "dev": "node ./node_modules/.bin/gulp dev && node ./dev/app.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "bootstrap": "^3.3.5"
   },
   "devDependencies": {
+    "express": "^4.13.1",
     "gulp": "^3.9.0",
     "gulp-less-sourcemap": "^1.4.2"
   }

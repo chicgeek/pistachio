@@ -32,3 +32,13 @@ gulp.task('build:less', function(cb) {
         cb();
     });
 });
+
+gulp.task('dev', ['dev:publish']);
+
+gulp.task('dev:publish', function(cb) {
+    gulp.src('./css/**/*', {base: './'})
+    .pipe(gulp.dest('./dev/public'))
+    .on('end', function() {
+        console.log('Published CSS to dev site!');
+    })
+})
