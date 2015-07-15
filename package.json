@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/graze/pistachio/issues"
   },
-  "homepage": "https://github.com/graze/pistachio"
+  "homepage": "https://github.com/graze/pistachio",
+  "dependencies": {
+    "bootstrap": "^3.3.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less-sourcemap": "^1.4.2"
+  }
 }
