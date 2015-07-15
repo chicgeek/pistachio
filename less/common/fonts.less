@@ -1,0 +1,39 @@
+//
+// Graze web fonts
+// --------------------------------------------------
+
+@font-path: '../fonts';
+
+@font-face {
+    font-family: 'graze-font-cursive';
+    src: url('@{font-path}graze-font-cursive.eot');
+    src: url('@{font-path}graze-font-cursive.eot?#iefix') format('embedded-opentype'),
+         url('@{font-path}graze-font-cursive.svg#graze-font-cursive') format('svg'),
+         url('@{font-path}graze-font-cursive.woff') format('woff'),
+         url('@{font-path}graze-font-cursive.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'graze-font';
+    src: url('@{font-path}graze-font.eot');
+    src: url('@{font-path}graze-font.eot?#iefix') format('embedded-opentype'),
+         url('@{font-path}graze-font.svg#graze-font') format('svg'),
+         url('@{font-path}graze-font.woff') format('woff'),
+         url('@{font-path}graze-font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.graze-font-cursive() {
+    font-family: "graze-font-cursive", @font-family-serif;
+    font-weight: @font-weight-strong;
+    //letter-spacing: -0.02em;
+}
+
+.graze-font() {
+    font-family: "graze-font", @font-family-sans-serif;
+    font-weight: @font-weight-strong;
+    //letter-spacing: -0.04em;
+}
