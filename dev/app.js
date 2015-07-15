@@ -30,6 +30,20 @@ app.get('/:module', function(req, res) {
     });
 });
 
+app.get('/', function(req, res) {
+    var pages = fs.readdirSync(__dirname + '/pages');
+    var pageList = '';
+
+    pages.map(function(page) {
+        if (page !== 'example.html' ) {
+            page = page.replace('.html', '');
+            pageList += '<li><a href="/' + page + '">' + page + '</a></li>';
+        }
+    });
+
+    res.send(renderLayout('<div class="container"><div class="row"><div class="col-md-12"><ul>' + pageList + '</ul></div></div></div>'));
+});
+
 var server = app.listen(3000, function () {
   var port = server.address().port;
 

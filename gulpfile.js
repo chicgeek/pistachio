@@ -11,9 +11,13 @@ var buildLess = function(cb) {
     .on('end', function() {
         console.log('compiled CSS');
 
-        if (cb) {
-            cb();
-        }
+        gulp.src('./css/**/*', {base: './'})
+        .pipe(gulp.dest('./dev/public'))
+        .on('end', function() {
+            if (cb) {
+                cb();
+            }
+        });
     });
 }
 
@@ -41,4 +45,4 @@ gulp.task('dev:publish', function(cb) {
     .on('end', function() {
         console.log('Published CSS to dev site!');
     })
-})
+});

@@ -1,0 +1,20 @@
+// Master button styling
+.button-style(@colour: @colour-grey-lightest, @text: @colour-accent) {
+    @colour-dark: darken(@colour, 5%);
+    @colour-light: lighten(@colour, 10%);
+    color: @text;
+    border: 1px solid @colour-dark;
+    #gradient > .vertical(@colour-light, @colour);
+    border-radius: @dimension-border-radius;
+    .box-shadow(inset 0 -.1em 0 @colour-dark);
+
+    &:hover,
+    &:focus {
+        #gradient > .vertical(darken(@colour-light, 4%), @colour-dark);
+    }
+
+    &:active {
+        .box-shadow(inset 0 1px 4px @colour-dark);
+        color: darken(@text, 10%);
+    }
+}
