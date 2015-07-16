@@ -44,5 +44,11 @@ gulp.task('dev:publish', function(cb) {
     .pipe(gulp.dest('./dev/public'))
     .on('end', function() {
         console.log('Published CSS to dev site!');
-    })
+    });
+
+    gulp.src('./fonts/**/*', {base: './'})
+    .pipe(gulp.dest('./dev/public'))
+    .on('end', function() {
+        console.log('Published fonts to dev site!');
+    });
 });
