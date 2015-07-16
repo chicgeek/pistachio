@@ -1,6 +1,6 @@
 //
 // Scaffolding
-// --------------------------------------------------
+// ---
 
 
 // Reset the box-sizing
@@ -40,10 +40,10 @@ textarea {
 
 
 // Links
-
 a {
     color: @link-color;
     text-decoration: none;
+    font-weight: @font-weight-strong;
 
     &:hover,
     &:focus {
@@ -63,8 +63,8 @@ img {
 
 // Horizontal rules
 hr {
-  margin-top:    @line-height-computed;
-  margin-bottom: @line-height-computed;
+  margin-top:    @dimension-spacing-default;
+  margin-bottom: @dimension-spacing-default;
   border: 0;
   border-top: 1px solid @hr-border;
 }

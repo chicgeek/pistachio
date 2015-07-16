@@ -1,3 +1,4 @@
+//
 // Colours
 //---
 
@@ -6,26 +7,33 @@
 @colour-black:         #000000;
 @colour-grey-darkest:  #222222;
 @colour-grey-dark:     #333333;
-@colour-grey:          #7A7A7A;
+@colour-grey:          #555555;
 @colour-grey-light:    #999999;
 @colour-grey-lighter:  #cccccc;
 @colour-grey-lightest: #eeeeee;
 
 // Accents
+@colour-brand:         #00989e;
 @colour-accent:        #80a000;
+@colour-error:         #ab1818;
 
 // States
 @colour-state-danger:  #ab1818;
 
-
+//
 // Dimensions
-// ---
+//---
+
+// Spacing
+@dimension-spacing-default:     floor((@font-size-base-px * @line-height-base));
+@dimension-padding-base:        6px;
+@dimension-padding-lg:          12px;
 
 // Border Radius
-@dimension-border-radius: 4px;
-@dimension-border-radius-lg: 8px;
+@dimension-border-radius:       4px;
+@dimension-border-radius-lg:    8px;
 
-
+//
 // Breakpoints
 //---
 
@@ -51,13 +59,13 @@
 @screen-md-max:         (@screen-lg-min - 1);
 @screen-lg-max:         (@screen-xlg-min - 1);
 
-
+//
 // Grid
 //---
 @grid-columns:              12;
 @grid-gutter-width:         30px;
 
-
+//
 // Container sizes
 //---
 // Small screen / tablet
@@ -72,20 +80,24 @@
 @container-large-desktop:      (1140px + @grid-gutter-width);
 @container-lg:                 @container-large-desktop;
 
-
+//
 // Scaffolding
 //---
 @body-bg:               #fff;
-@text-color:            @colour-grey-dark;
-@link-color:            green;
-@link-hover-color:      darken(@link-color, 15%);
+@text-color:            @colour-grey;
+@link-color:            @colour-accent;
+@link-hover-color:      darken(@colour-accent, 5%);
 @link-hover-decoration: underline;
 @hr-border:             @colour-grey-lighter;
 
+//
+// Cursors
+//---
+@cursor-disabled:       not-allowed;
 
+//
 // Typography
 //---
-
 @font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -94,11 +106,33 @@
 @font-size-base-px:       16px;
 @font-size-base-rem:      1rem;
 
+@font-size-lg-px:         ceil(@font-size-base-px * 1.25);
+@font-size-lg-rem:        (@font-size-base-rem * 1.25);
+
+@font-size-sm-px:         ceil(@font-size-base-px * 0.85);
+@font-size-sm-rem:        (@font-size-base-rem * 0.85);
+
 @font-weight-weak:        300;
 @font-weight-base:        400;
 @font-weight-strong:      500;
 
 @line-height-base:        1.5;
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed:    floor((@font-size-base-px * @line-height-base));
 
+//
+// Forms
+// ---
+@input-bg:                       #fff;
+@input-bg-disabled:              @colour-grey-lighter;
+@input-bg-optional:              @colour-grey-lightest;
+
+
+@input-color:                    @colour-grey;
+@input-border:                   @colour-grey-lighter;
+@input-border-radius:            @dimension-border-radius;
+
+@input-color-placeholder:        @colour-grey-light;
+
+@input-height-base:              (@dimension-spacing-default + (@dimension-padding-base * 2) + 2);
+
+@input-group-addon-bg:           @colour-grey-lighter;
+@input-group-addon-border-color: @input-border;
