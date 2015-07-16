@@ -4,73 +4,82 @@
             <h2>Forms</h2>
 
             <form id="example" role="form" method="post" action="javascript:void(0);">
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="example@address.com">
+                </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="email" class="control-label">email</label>
-                            <input type="email" class="form-control" id="email" name="email" required placeholder="example@address.com">
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-sm-6">
-                                <label for="first-name" class="control-label">first name</label>
-                                <input type="text" class="form-control" id="first-name" name="first-name" required>
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="last-name" class="control-label">last name</label>
-                                <input type="text" class="form-control" id="last-name" name="last-name" required>
-                            </div>
-                        </div>
-                        <div class="form-group optional">
-                            <label class="control-label" for="optional-field">what is your favourite type of pokemon?</label>
-                            <input type="text" value="" class="form-control" id="optional-field" name="optional-field" placeholder="Snorlax obviously">
-                        </div>
+                    <div class="form-group col-sm-6">
+                        <label for="first-name">first name</label>
+                        <input type="text" class="form-control" id="first-name" name="first-name" required>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label class="control-label" for="radio-block">radio default</label><br>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="radio-block" value="One" checked="checked"> One
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="radio-block" value="Two"> Two
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="radio-block" value="Three"> Three
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="radio-inline">radio inline</label><br>
-                            <label class="radio-inline">
-                                <input type="radio" name="radio-inline" value="One" checked="checked"> One
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="radio-inline" value="Two"> Two
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="radio-inline" value="Three"> Three
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">check yourself before you wreck yourself
-                                </label>
-                            </div>
-                        </div>
+                    <div class="form-group col-sm-6">
+                        <label for="last-name">last name</label>
+                        <input type="text" class="form-control" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="label-info" data-label-info="(optional)" for="optional-field">what is your favourite type of pokemon?</label>
+                    <input type="text" value="" class="form-control" id="optional-field" name="optional-field" placeholder="Snorlax obviously">
+                    <p class="form-group__help-block">supporting help text</p>
+                </div>
+                <div class="form-group">
+                    <label for="radio-block">radio default</label><br>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="radio-block" value="One" checked="checked"> One
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="radio-block" value="Two"> Two
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="radio-block" value="Three"> Three
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="radio-inline">radio inline</label><br>
+                    <label class="radio-inline">
+                        <input type="radio" name="radio-inline" value="One" checked="checked"> One
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="radio-inline" value="Two"> Two
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="radio-inline" value="Three"> Three
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">check yourself before you wreck yourself
+                        </label>
                     </div>
                 </div>
             </form>
-            <div class="row">
-                <div class="col-xs-12">
-                    <button type="submit" id="submit-button" class="button button--secondary">back</button>
-                    <button type="submit" id="submit-button" class="button button--primary">continue</button>
-                </div>
+
+            <button type="submit" id="submit-button" class="button button--secondary">back</button>
+            <button type="submit" id="submit-button" class="button button--primary">continue</button>
+
+            <h2>Validation states</h2>
+            <div class="form-group form-group--has-validation">
+                <label for="password">Default</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group form-group--has-validation form-group--has-feedback form-group--has-success">
+                <label for="password">Success</label>
+                <input type="password" class="form-control" id="password" name="password" value="blah blah" required>
+                <i class="form-control-feedback icon-tick"></i>
+            </div>
+            <div class="form-group form-group--has-validation form-group--has-feedback form-group--has-error">
+                <label for="password">Error</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+                <i class="form-control-feedback icon-remove"></i>
+                <small class="form-group__help-block">password is required and cannot be empty</small>
             </div>
         </div>
     </div>
