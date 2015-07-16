@@ -2,13 +2,6 @@
 // Forms
 // ---
 
-label {
-      display: inline-block;
-      max-width: 100%; // Force IE8 to wrap long content
-      margin-bottom: 5px;
-      font-weight: @font-weight-strong;
-}
-
 // Normalize form controls
 //---
 
@@ -41,8 +34,58 @@ select[size] {
     height: auto;
 }
 
-// Common form controls
+// Search inputs in iOS
 //
+// This overrides the extra rounded corners on search inputs in iOS so that our
+// `.form-control` class can properly style them. Note that this cannot simply
+// be added to `.form-control` as it's not specific enough. For details, see
+// https://github.com/twbs/bootstrap/issues/11586.
+
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
+// Special styles for iOS temporal inputs
+//
+// In Mobile Safari, setting `display: block` on temporal inputs causes the
+// text within the input to become vertically misaligned. As a workaround, we
+// set a pixel line-height that matches the given height of the input, but only
+// for Safari. See https://bugs.webkit.org/show_bug.cgi?id=139848
+//
+// Note that as of 8.3, iOS doesn't support `datetime` or `week`.
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"] {
+        &.form-control {
+            line-height: @input-height-base;
+        }
+    }
+}
+
+// Labels
+//---
+label {
+    display: inline-block;
+    max-width: 100%; // Force IE8 to wrap long content
+    margin-bottom: @dimension-padding-base;
+    font-weight: @font-weight-strong;
+}
+
+// add extra info after the label based on value of data-label-info
+.label-info:after {
+    content: attr(data-label-info) "";
+    padding-left: @dimension-padding-base;
+    color: @colour-grey-light;
+    font-size: @font-size-sm-px;
+    font-size: @font-size-sm-rem;
+    font-weight: normal;
+}
+
+// Common form controls
+//---
 // Shared size and type resets for form controls. Apply `.form-control` to any
 // of the following form controls:
 //
@@ -108,66 +151,67 @@ select[size] {
     }
 }
 
-
-// Search inputs in iOS
-//
-// This overrides the extra rounded corners on search inputs in iOS so that our
-// `.form-control` class can properly style them. Note that this cannot simply
-// be added to `.form-control` as it's not specific enough. For details, see
-// https://github.com/twbs/bootstrap/issues/11586.
-
-input[type="search"] {
-    -webkit-appearance: none;
-}
-
-
-// Special styles for iOS temporal inputs
-//
-// In Mobile Safari, setting `display: block` on temporal inputs causes the
-// text within the input to become vertically misaligned. As a workaround, we
-// set a pixel line-height that matches the given height of the input, but only
-// for Safari. See https://bugs.webkit.org/show_bug.cgi?id=139848
-//
-// Note that as of 8.3, iOS doesn't support `datetime` or `week`.
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    input[type="date"],
-    input[type="time"],
-    input[type="datetime-local"],
-    input[type="month"] {
-        &.form-control {
-            line-height: @input-height-base;
-        }
-    }
-}
-
-
-// Form groups
-//
-// Designed to help with the organization and spacing of vertical forms. For
-// horizontal forms, use the predefined grid classes.
+// Form groups and validation
+//---
 
 .form-group {
     margin-bottom: @dimension-spacing-default;
+}
 
-    &.optional {
-        label {
-            &:after {
-                content: " (optional)";
-                color: @colour-grey-light;
-                font-size: @font-size-sm-px;
-                font-size: @font-size-sm-rem;
-                font-weight: normal;
-            }
-        }
+// Help text in form-group
+.form-group__help-block {
+    display: block;
+    margin-top: @dimension-padding-base;
+    margin-bottom: @dimension-padding-lg;
+    color: @colour-grey-light;
+}
+
+// Modifier for form-group to indicate this group will use inline validation
+.form-group--has-validation {
+    .form-group__help-block {
+        position: absolute;
+        right: 5px;
+        text-align: right;
     }
 }
 
+// Validation feedback states
+.form-group--has-feedback {
+    // Enable absolute positioning
+    position: relative;
+
+    // Ensure icons don't overlap text
+    .form-control {
+        padding-right: (@input-height-base * 1.25);
+    }
+}
+
+.form-group--has-success {
+    .form-control-validation(@colour-accent; @colour-accent; @colour-white);
+}
+
+.form-group--has-error {
+    .form-control-validation(@colour-error; @colour-error; @colour-white);
+}
+
+// Feedback icon
+.form-control-feedback {
+    position: absolute;
+    top: ((@font-size-base-px * @line-height-base) + @dimension-padding-base);
+    bottom: 0;
+    right: 0;
+    z-index: 2; // Ensure icon is above input groups
+    display: block;
+    width: @input-height-base;
+    height: @input-height-base;
+    line-height: @input-height-base;
+    text-align: center;
+    pointer-events: none;
+}
 
 
 // Checkboxes and radios
-//
-// Indent the labels to position radios/checkboxes as hanging controls.
+//---
 
 .radio,
 .checkbox {
@@ -184,6 +228,7 @@ input[type="search"] {
         cursor: pointer;
     }
 }
+
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -252,85 +297,4 @@ input[type="checkbox"] {
             cursor: @cursor-disabled;
         }
     }
-}
-
-
-// Static form control text
-//
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form-control-static {
-    // Size it appropriately next to real form controls
-    padding-top: (@dimension-padding-base + 1);
-    padding-bottom: (@dimension-padding-base + 1);
-    // Remove default margin from `p`
-    margin-bottom: 0;
-    min-height: (@dimension-padding-base + @font-size-base-px);
-
-    &.input-lg,
-    &.input-sm {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-// Form control feedback states
-//
-// Apply contextual and semantic states to individual form controls.
-
-.has-feedback {
-    // Enable absolute positioning
-    position: relative;
-
-    // Ensure icons don't overlap text
-    .form-control {
-        padding-right: (@input-height-base * 1.25);
-    }
-}
-
-// Feedback icon
-.form-control-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2; // Ensure icon is above input groups
-    display: block;
-    width: @input-height-base;
-    height: @input-height-base;
-    line-height: @input-height-base;
-    text-align: center;
-    pointer-events: none;
-}
-
-// Feedback states
-.has-success {
-    .form-control-validation(@colour-accent; @colour-accent; @colour-white);
-}
-
-.has-error {
-    .form-control-validation(@colour-error; @colour-error; @colour-white);
-}
-
-// // Reposition feedback icon if input has visible label above
-.has-feedback label {
-
-    & ~ .form-control-feedback {
-        top: (@dimension-spacing-default + 5); // Height of the `label` and its margin
-    }
-    &.sr-only ~ .form-control-feedback {
-     top: 0;
-    }
-}
-
-// Help text
-//
-// Apply to any element you wish to create light text for placement immediately
-// below a form control. Use for general help, formatting, or instructional text.
-
-.help-block {
-    display: block; // account for any element using help-block
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: @colour-grey-light; // lighten the text some for contrast
 }
