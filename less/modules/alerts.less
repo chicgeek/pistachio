@@ -1,0 +1,92 @@
+//
+// Alerts
+//---
+
+//
+// Base styles
+//---
+// Should never be used with base styles, only variants
+.alert {
+    position: relative;
+    box-shadow: 0px 1px 2px @colour-grey-lighter;
+    padding: @dimension-spacing-default;
+    padding-left: (3 * @dimension-padding-base);
+    margin-bottom: @dimension-spacing-default;
+    border-radius: @dimension-border-radius;
+
+    // Improve alignment and spacing of inner content
+    & > :first-of-type:not(.close), {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Dismissable alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert--dismissable {
+    padding-right: (@dimension-spacing-default * 2);
+}
+
+//
+// Alternate styles
+//---
+.alert--success {
+    .alert-variant(@colour-state-success, darken(@colour-state-success, 60%));
+}
+.alert--info {
+    .alert-variant(@colour-state-info, darken(@colour-state-info, 60%));
+}
+.alert--warning {
+    .alert-variant(@colour-state-warning, darken(@colour-state-warning, 50%));
+}
+.alert--danger {
+    .alert-variant(lighten(@colour-state-danger, 40%), darken(@colour-state-danger, 20%));
+}
+
+//
+// Close button base styles - overriden in .alert-variant
+//---
+.close {
+    position: absolute;
+    top: @dimension-spacing-default;
+    right: (@dimension-spacing-default / 2);
+    font-size: (@font-size-base-px * 1.5);
+    font-size: (@font-size-base-rem * 1.5);
+    line-height: 1;
+    color: inherit;
+    .opacity(.5);
+
+    &:hover,
+    &:focus {
+        .opacity(0.6);
+        outline: none;
+    }
+
+    span {
+        display: block;
+        height: @dimension-spacing-default;
+        width: @dimension-spacing-default;
+        line-height: .8;
+    }
+
+    // Additional properties for button version
+    // iOS requires the button element instead of an anchor tag.
+    // If you want the anchor version, it requires `href="#"`.
+    // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+    button& {
+        display: block;
+        border-radius: 50%;
+        height: @dimension-spacing-default;
+        width: @dimension-spacing-default;
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        -webkit-appearance: none;
+    }
+}
