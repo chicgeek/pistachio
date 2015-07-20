@@ -115,15 +115,36 @@
 // Images
 //---
 .img-responsive(@display: block) {
-  display: @display;
-  max-width: 100%; // Part 1: Set a maximum relative to the parent
-  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+    display: @display;
+    max-width: 100%; // Part 1: Set a maximum relative to the parent
+    height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+//
+// Icons
+//---
+.icon() {
+    font-family: "pistachio-icon-font";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 //
 // Alert variants
 //---
-.alert-variant(@background; @text-color;) {
+.alert-variant(@icon-unicode, @background, @text-color) {
     color: @text-color;
     background-color: lighten(@background, 2.5%);
     color: @text-color;
@@ -148,12 +169,7 @@
         }
     }
 
-    // to do - add icons once we have icons innit
-    // &:before {
-    //     .fontAwesome(@icon-unicode);
-    //     font-size: 1.4em;
-    //     position: absolute;
-    //     top: @alert-padding;
-    //     left: @alert-padding;
-    // }
+    &:before {
+        content: @icon-unicode;
+    }
 }

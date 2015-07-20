@@ -9,7 +9,7 @@
 .alert {
     position: relative;
     box-shadow: 0px 1px 2px @colour-grey-lighter;
-    padding: @dimension-spacing-default;
+    padding: @dimension-spacing-default @dimension-spacing-default @dimension-spacing-default (@dimension-spacing-default * 2);
     margin-bottom: @dimension-spacing-default;
     border-radius: @dimension-border-radius;
 
@@ -20,6 +20,20 @@
 
     & > :last-child {
         margin-bottom: 0;
+    }
+
+    p {
+        margin-bottom: 0.5em;
+    }
+
+    // position for icons
+    &:before {
+        .icon();
+        position: absolute;
+        top: @dimension-spacing-default;
+        left: (@dimension-spacing-default / 3);
+        font-size: (@font-size-base-px * 1.5);
+        font-size: (@font-size-base-rem * 1.5);
     }
 }
 
@@ -35,16 +49,19 @@
 // Alternate styles
 //---
 .alert--success {
-    .alert-variant(@colour-state-success, darken(@colour-state-success, 60%));
+    .alert-variant(@icon-success, @colour-state-success, @colour-state-success-text);
 }
+
 .alert--info {
-    .alert-variant(@colour-state-info, darken(@colour-state-info, 60%));
+    .alert-variant(@icon-info, @colour-state-info, @colour-state-info-text);
 }
+
 .alert--warning {
-    .alert-variant(@colour-state-warning, darken(@colour-state-warning, 50%));
+    .alert-variant(@icon-warning, @colour-state-warning, @colour-state-warning-text);
 }
+
 .alert--danger {
-    .alert-variant(lighten(@colour-state-danger, 40%), darken(@colour-state-danger, 20%));
+    .alert-variant(@icon-danger, lighten(@colour-state-danger, 40%), @colour-state-danger-text);
 }
 
 //

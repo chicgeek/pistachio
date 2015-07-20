@@ -11,13 +11,13 @@
         <div class="row">
             <div class="col-sm-2">
                 <nav>
-                    <h4><a href="/">__pistachio</a></h4>
+                    <h2><a href="/">pistachio</a></h2>
 
                     <ul>
                     {{#each pages}}
                         <li>
                         {{#if current}}
-                            <a href="/{{ name }}" style="color: white; background: #80A000">{{ name }}</a>
+                            <a href="/{{ name }}" class="active">{{ name }}</a>
                         {{else}}
                             <a href="/{{ name }}">{{ name }}</a>
                         {{/if}}
@@ -26,7 +26,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-sm-10" style="border-left: solid gainsboro 1px">
+            <div class="col-sm-10">
                 {{{ body }}}
             </div>
         </div>
