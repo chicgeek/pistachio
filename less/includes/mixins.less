@@ -5,7 +5,7 @@
     outline: 3px solid @colour;
     outline-offset: 0;
     background-color: @colour;
-    color: #fff;
+    color: @colour-white;
     text-decoration: none;
 }
 
@@ -28,7 +28,7 @@
 //---
 .button-style(@colour: @colour-grey-lightest, @text: @colour-accent) {
     @colour-dark: darken(@colour, 5%);
-    @colour-light: lighten(@colour, 10%);
+    @colour-light: lighten(@colour, 8%);
     color: @text;
     border: 1px solid @colour-dark;
     #gradient > .vertical(@colour-light, @colour);
@@ -38,6 +38,8 @@
     &:hover,
     &:focus {
         #gradient > .vertical(darken(@colour-light, 4%), @colour-dark);
+        text-decoration: none;
+        color: @text;
     }
 
     &:focus {
