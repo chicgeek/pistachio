@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pistachio.</title>
+    <link rel="stylesheet" type="text/css" href="/css/pistachio.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <nav>
+                    <h4><a href="/">__pistachio</a></h4>
+
+                    <ul>
+                    {{#each pages}}
+                        <li>
+                        {{#if current}}
+                            <a href="/{{ name }}" style="color: white; background: #80A000">{{ name }}</a>
+                        {{else}}
+                            <a href="/{{ name }}">{{ name }}</a>
+                        {{/if}}
+                        </li>
+                    {{/each}}
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-10" style="border-left: solid gainsboro 1px">
+                {{{ body }}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

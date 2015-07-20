@@ -1,15 +1,8 @@
 var express = require('express');
 var fs = require('fs');
+var exphbs  = require('express-handlebars');
 
 var app = express();
-
-// Template for all pages
-var pageLayout = fs.readFileSync(__dirname + '/layout.html', 'utf8');
-
-// Adds content to template
-var renderLayout = function(data) {
-    return pageLayout.replace('{{ page }}', data);
-}
 
 // Looks up page and renders it if found
 var renderPage = function(name, cb) {
@@ -18,30 +11,56 @@ var renderPage = function(name, cb) {
             return renderPage('example', cb);
         }
 
-        return cb(renderLayout(data));
+        return cb(data);
     });
 }
+
+var getAllPages = function(currentPage) {
+    var pages = fs.readdirSync(__dirname + '/pages');
+    var pageNames = [];
+
+    pages.map(function(page) {
+        var pageName = page.replace('.html', '');
+        var pageInfo = {
+            name: pageName,
+            current: currentPage === pageName
+        }
+
+        if (page !== 'example.html' ) {
+            pageNames.push(pageInfo);
+        }
+    });
+
+    return pageNames;
+}
+
+app.engine('.hbs', exphbs({
+    defaultLayout: 'layout',
+    extname: '.hbs',
+    layoutsDir: __dirname + '/views/layouts'
+}));
+
+app.set('view engine', '.hbs');
+app.set('views', __dirname + '/views/');
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/:module', function(req, res) {
     renderPage(req.params.module, function(page) {
-        res.send(page);
+        res.render('index', {
+            content: page,
+            pages: getAllPages(req.params.module)
+        })
     });
 });
 
 app.get('/', function(req, res) {
-    var pages = fs.readdirSync(__dirname + '/pages');
-    var pageList = '';
-
-    pages.map(function(page) {
-        if (page !== 'example.html' ) {
-            page = page.replace('.html', '');
-            pageList += '<li><a href="/' + page + '">' + page + '</a></li>';
-        }
+    renderPage(req.params.module, function(page) {
+        res.render('index', {
+            content: '<h1>home</h1>',
+            pages: getAllPages()
+        })
     });
-
-    res.send(renderLayout('<div class="container"><div class="row"><div class="col-md-12"><ul>' + pageList + '</ul></div></div></div>'));
 });
 
 var server = app.listen(3000, function () {
