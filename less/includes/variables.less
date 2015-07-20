@@ -18,6 +18,9 @@
 @colour-error:         #ab1818;
 
 // States
+@colour-state-success: #ebf0dd;
+@colour-state-info:    #e3f1fa;
+@colour-state-warning: #f1d3b0;
 @colour-state-danger:  #ab1818;
 
 //
@@ -63,7 +66,7 @@
 // Grid
 //---
 @grid-columns:              12;
-@grid-gutter-width:         30px;
+@grid-gutter-width:         @dimension-spacing-default;
 
 //
 // Container sizes
@@ -86,7 +89,7 @@
 @body-bg:               #fff;
 @text-color:            @colour-grey;
 @link-color:            @colour-accent;
-@link-hover-color:      darken(@colour-accent, 5%);
+@link-hover-color:      darken(@link-color, 10%);
 @link-hover-decoration: underline;
 @hr-border:             @colour-grey-lighter;
 
@@ -100,7 +103,6 @@
 //---
 @font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
-@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
 @font-size-base-px:       16px;

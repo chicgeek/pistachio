@@ -41,7 +41,7 @@
     }
 
     &:focus {
-        .button-focus(@colour-accent);
+        .button-focus(@colour-dark);
     }
 
     &:active {
@@ -118,4 +118,42 @@
   display: @display;
   max-width: 100%; // Part 1: Set a maximum relative to the parent
   height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+//
+// Alert variants
+//---
+.alert-variant(@background; @text-color;) {
+    color: @text-color;
+    background-color: lighten(@background, 2.5%);
+    color: @text-color;
+    border-left: 6px solid darken(@background, 5%);
+
+    a {
+        color: darken(@text-color, 10%);
+
+        &:focus,
+        &:active {
+            .tab-focus(@text-color);
+        }
+    }
+
+    .close {
+        color: darken(@text-color, 10%);
+
+        &:hover,
+        &:focus {
+            background-color: @text-color;
+            color: @colour-white;
+        }
+    }
+
+    // to do - add icons once we have icons innit
+    // &:before {
+    //     .fontAwesome(@icon-unicode);
+    //     font-size: 1.4em;
+    //     position: absolute;
+    //     top: @alert-padding;
+    //     left: @alert-padding;
+    // }
 }

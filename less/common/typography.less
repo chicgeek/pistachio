@@ -4,13 +4,12 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: @font-weight-strong;
-    margin: (@font-size-base-px * 3) 0 @font-size-base-px;
-    margin: (@font-size-base-rem * 3) 0 @font-size-base-rem;
+    margin: 2.4em 0 1em;
 }
 
 h1 {
-    font-size: (@font-size-base-px * 2.4);
-    font-size: (@font-size-base-rem * 2.4);
+    font-size: (@font-size-base-px * 2);
+    font-size: (@font-size-base-rem * 2);
     color: @colour-brand;
     .graze-font();
 }
@@ -42,8 +41,8 @@ h6 {
 }
 
 p {
-    margin-bottom: (@font-size-base-px * 1.2);
-    margin-bottom: (@font-size-base-rem * 1.2);
+    margin: (@font-size-base-px * 1.2) 0 @font-size-base-px;
+    margin: (@font-size-base-rem * 1.2) 0 @font-size-base-rem;
 }
 
 b,
@@ -60,4 +59,8 @@ strong {
         font-size: (@font-size-base-px * 1.3);
         font-size: (@font-size-base-rem * 1.3);
     }
+}
+
+.voice {
+    .graze-font-cursive();
 }

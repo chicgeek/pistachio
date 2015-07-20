@@ -19,6 +19,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="disabled">disabled</label>
+                    <input type="text" class="form-control" id="email" name="email" disabled placeholder="disabled">
+                </div>
+                <div class="form-group">
                     <label class="label-info" data-label-info="(optional)" for="optional-field">what is your favourite type of pokemon?</label>
                     <input type="text" value="" class="form-control" id="optional-field" name="optional-field" placeholder="Snorlax obviously">
                     <p class="form-group__help-block">supporting help text</p>
@@ -29,35 +33,40 @@
                             <input type="checkbox">check yourself before you wreck yourself
                         </label>
                     </div>
+                    <div class="checkbox disabled">
+                        <label>
+                            <input type="checkbox" disabled>disabled
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="radio-block">radio default</label><br>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="radio-block" value="One" checked="checked"> One
+                            <input type="radio" name="radio-block" value="One" checked="checked"> one
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="radio-block" value="Two"> Two
+                            <input type="radio" name="radio-block" value="Two"> two
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="radio disabled">
                         <label>
-                            <input type="radio" name="radio-block" value="Three"> Three
+                            <input type="radio" name="radio-block" value="Three" disabled> disabled
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="radio-inline">radio inline</label><br>
                     <label class="radio-inline">
-                        <input type="radio" name="radio-inline" value="One" checked="checked"> One
+                        <input type="radio" name="radio-inline" value="One" checked="checked"> one
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="radio-inline" value="Two"> Two
+                        <input type="radio" name="radio-inline" value="Two"> two
                     </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="radio-inline" value="Three"> Three
+                    <label class="radio-inline disabled">
+                        <input type="radio" name="radio-inline" value="Three" disabled> Disabled
                     </label>
                 </div>
                 <button class="button button--secondary">back</button>
