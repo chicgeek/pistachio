@@ -68,4 +68,21 @@
     </div>
     <button class="button button--secondary">back</button>
     <button type="submit" id="submit-button" class="button button--primary">continue</button>
+
+    <h2>Validation states</h2>
+    <div class="form-group form-group--has-validation">
+        <label for="password">Default</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <div class="form-group form-group--has-validation form-group--has-feedback form-group--has-success">
+        <label for="password">Success</label>
+        <input type="password" class="form-control" id="password" name="password" value="blah blah" required>
+        <i class="form-control-feedback icon-ok-circled"></i>
+    </div>
+    <div class="form-group form-group--has-validation form-group--has-feedback form-group--has-error">
+        <label for="password">Error</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+        <i class="form-control-feedback icon-attention-circled"></i>
+        <small class="form-group__help-block">password is required and cannot be empty</small>
+    </div>
 </form>
