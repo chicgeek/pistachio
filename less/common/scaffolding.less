@@ -2,7 +2,6 @@
 // Scaffolding
 // ---
 
-
 // Reset the box-sizing
 * {
     .box-sizing(border-box);
@@ -12,14 +11,18 @@
     .box-sizing(border-box);
 }
 
-
-// Body reset
+// html defaults
 html {
     font-size: 100%;
+    font-family: @font-family-base;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+// body defaults
 body {
+    margin: 0;
     font-family: @font-family-base;
     font-size: @font-size-base-px;
     font-size: @font-size-base-rem;
@@ -37,7 +40,6 @@ textarea {
     font-size: inherit;
     line-height: inherit;
 }
-
 
 // Links
 a {
@@ -64,17 +66,8 @@ img {
 
 // Horizontal rules
 hr {
+    height: 0;
     margin: 2em 0;
     border: 0;
     border-top: 1px solid @hr-border;
-}
-
-// iOS "clickable elements" fix for role="button"
-//
-// Fixes "clickability" issue (and more generally, the firing of events such as focus as well)
-// for traditionally non-focusable elements with role="button"
-// see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
-
-[role="button"] {
-    cursor: pointer;
 }
