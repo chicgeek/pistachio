@@ -39,3 +39,59 @@
     font-size: @font-size-lg-px;
     font-size: @font-size-lg-rem;
 }
+
+// Block button (100% width)
+.button--block {
+    .button-block();
+}
+
+// Vertically space out multiple block buttons
+.button--block + .button--block {
+    margin-top: @dimension-padding-base;
+}
+
+//
+// Responsive block buttons
+// ---
+
+// Local mixins
+.button-block() {
+    display: block;
+    width: 100%;
+}
+
+.button-block-reset() {
+    display: inline-block;
+    width: auto;
+}
+
+// Buttons that are block (100% width) at certain breakpoints
+// mostly used for mobile so we don't account for all breakpoints
+.button--block-xs,
+.button--block-sm {
+    .button-block();
+}
+
+@media (min-width: @screen-xs-min) {
+    .button--block-xs {
+        .button-block-reset();
+    }
+}
+
+@media (max-width: @screen-xxs-max) {
+    .button--block-xs + .button--block-xs {
+        margin-top: @dimension-padding-base;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .button--block-sm {
+        .button-block-reset();
+    }
+}
+
+@media (max-width: @screen-xs-max) {
+    .button--block-sm + .button--block-sm {
+        margin-top: @dimension-padding-base;
+    }
+}
