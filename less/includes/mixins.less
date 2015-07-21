@@ -1,6 +1,6 @@
 //
 // Focus states
-//---
+// ---
 .tab-focus(@colour: @colour-accent) {
     outline: 3px solid @colour;
     outline-offset: 0;
@@ -25,7 +25,7 @@
 
 //
 // Button styles
-//---
+// ---
 .button-style(@colour: @colour-grey-lightest, @text: @colour-accent) {
     @colour-dark: darken(@colour, 5%);
     @colour-light: lighten(@colour, 8%);
@@ -52,7 +52,7 @@
 
 //
 // Form states
-//---
+// ---
 .form-control-validation(@text-color: @text-color; @border-color: #ccc; @background-color: #f5f5f5) {
     // Color the label and help text
     label,
@@ -88,7 +88,7 @@
 
 //
 // Responsive visibility
-//---
+// ---
 .responsive-visibility() {
     display: block !important;
     table&  { display: table !important; }
@@ -103,7 +103,7 @@
 
 //
 // Hide text
-//---
+// ---
 .text-hide() {
     font: ~"0/0" a;
     color: transparent;
@@ -114,7 +114,7 @@
 
 //
 // Images
-//---
+// ---
 .img-responsive(@display: block) {
     display: @display;
     max-width: 100%; // Part 1: Set a maximum relative to the parent
@@ -123,7 +123,7 @@
 
 //
 // Icons
-//---
+// ---
 .icon() {
     font-family: "pistachio-icon-font";
     font-style: normal;
@@ -144,7 +144,7 @@
 
 //
 // Alert variants
-//---
+// ---
 .alert-variant(@icon-unicode, @background, @text-color) {
     color: @text-color;
     background-color: lighten(@background, 2.5%);
