@@ -1,0 +1,67 @@
+//
+// Panels
+//---
+
+.panel {
+    position: relative;
+    margin-bottom: @dimension-spacing-default;
+    border: 1px solid @colour-grey-lighter;
+    border-radius: @dimension-border-radius;
+    background-color: @colour-white;
+
+    h1:first-of-type,
+    h2:first-of-type,
+    h3:first-of-type {
+        margin-top: 0;
+    }
+}
+
+a.panel {
+    .transition(all 0.2s linear);
+    display: block;
+    color: @text-color;
+    font-weight: @font-weight-base;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        text-decoration: none;
+        background-color: @colour-white;
+        border-color: @link-color;
+        color: @text-color;
+        .box-shadow(0 0 8px @colour-accent);
+    }
+}
+
+.panel--shadow {
+    box-shadow: 0px 2px 3px @colour-grey-lighter;
+}
+
+.panel__header-img {
+    border-radius: (@dimension-border-radius - 1) (@dimension-border-radius - 1) 0 0;
+}
+
+.panel__header {
+    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    border-radius: (@dimension-border-radius - 1) (@dimension-border-radius - 1) 0 0;
+    background-color: @colour-grey-lightest;
+    font-weight: @font-weight-strong;
+}
+
+.panel__footer {
+    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    border-top: 1px solid @colour-grey-lighter;
+}
+
+.panel__body {
+    padding: @dimension-spacing-default;
+
+    // Improve alignment and spacing of inner content
+    & > :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}

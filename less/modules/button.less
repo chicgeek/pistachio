@@ -9,11 +9,15 @@
     vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
-    white-space: nowrap;
     font-weight: normal;
     text-align: center;
     padding: .5em 1em;
     .button-style();
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
 }
 
 // Button Colours
@@ -22,13 +26,8 @@
 }
 
 .button--secondary {
-    .button-style(@colour-grey-light, @colour-white);
+    .button-style(@colour-brand, @colour-white);
 }
-
-.button--danger {
-    .button-style(@colour-state-danger, @colour-white);
-}
-
 
 // Button Sizing
 .button--sm {
