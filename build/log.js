@@ -2,6 +2,7 @@ var gutil = require('gulp-util');
 
 var logDivider = '=';
 
+// Basic logging factory function
 var log = function logMessage(colour) {
     return function logger(message) {
         gutil.log(gutil.colors[colour](logDivider.repeat(message.length)));
@@ -18,6 +19,11 @@ if (! String.prototype.repeat) {
     }
 }
 
+/**
+ * Logging utils
+ *
+ * @type object
+ */
 module.exports = {
     // Lovely green successful log
     success: log('green'),
