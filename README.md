@@ -29,7 +29,7 @@ $ npm run docs
 Developing
 ---
 
-Once installed simply run to watch LESS and recompie the CSS:
+Once installed simply run to watch LESS and recompile the CSS:
 
 ```
 $ npm run dev
