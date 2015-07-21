@@ -1,21 +1,38 @@
-Pistachio.
+Pistachio
 ===
 
-graze's front end framework
+Graze's front end framework.
 
 Getting Started
 ---
-```
-npm install
-npm run dev
-```
 
-Then visit the site in your browser at http://localhost:3000
-
+####Via NPM (quickest)
 ```
-gulp watch
+$ npm install graze/pistachio
 ```
 
-To automatically compile css when you make a change to any .less file
+####Via git
+```
+$ git clone https://github.com/graze/pistachio.git ./pistachio
+$ cd pistachio && npm install
+```
 
+Documentation and examples
+---
+
+Once installed simply run to view the docs:
+
+```
+$ npm run docs
+```
+
+Developing
+---
+
+Once installed simply run to watch LESS and recompie the CSS:
+
+```
+$ npm run dev
+```
+*(in a separate terminal window/tab if docs are running)*
 

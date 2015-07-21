@@ -1,6 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var exphbs  = require('express-handlebars');
+var cmd = require('node-cmd');
 
 var app = express();
 
@@ -43,7 +44,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 app.set('views', __dirname + '/views/');
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../'));
 
 app.get('/:module', function(req, res) {
     renderPage(req.params.module, function(page) {
@@ -67,4 +68,6 @@ var server = app.listen(3000, function () {
   var port = server.address().port;
 
   console.log('Example app listening at http://localhost:%s', port);
+
+  cmd.run('open http://localhost:' + port);
 });
