@@ -24,7 +24,7 @@
 }
 
 //
-// Button styles
+// Buttons
 // ---
 .button-style(@colour: @colour-grey-lightest, @text: @colour-accent) {
     @colour-dark: darken(@colour, 5%);
@@ -48,6 +48,16 @@
     &:active {
         .box-shadow(inset 0 1px 4px @colour-dark);
     }
+}
+
+.button-block() {
+    display: block;
+    width: 100%;
+}
+
+.button-block-reset() {
+    display: inline-block;
+    width: auto;
 }
 
 //
