@@ -9,16 +9,47 @@
     .clearfix();
 }
 
-.center-block {
-    .center-block();
-}
-
 .pull-right {
     float: right !important;
 }
 
 .pull-left {
     float: left !important;
+}
+
+//
+// Typography
+// ---
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+//
+// Lists
+// ---
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+    .list-unstyled();
+    margin-left: -@dimension-padding-base;
+
+    > li {
+        display: inline-block;
+        padding-left: @dimension-padding-base;
+        padding-right: @dimension-padding-base;
+    }
 }
 
 //
@@ -44,16 +75,18 @@
 //
 // Images
 // ---
+.center-block {
+    .center-block();
+}
+
 .img-responsive {
     .img-responsive();
 }
 
-// Rounded corners
 .img-rounded {
     border-radius: @dimension-border-radius-lg;
 }
 
-// Perfect circle
 .img-circle {
     border-radius: 50%;
 }
