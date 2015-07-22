@@ -47,8 +47,12 @@
 
     > li {
         display: inline-block;
-        padding-left: @dimension-padding-base;
-        padding-right: @dimension-padding-base;
+        padding: 0 @dimension-padding-base;
+        margin: 0.5em 0;
+
+        &:before {
+            display: none;
+        }
     }
 }
 

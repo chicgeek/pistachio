@@ -59,6 +59,26 @@ a {
     }
 }
 
+// Lists
+ol {
+    padding: 0 0 0 1.5em;
+    margin: 1em 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 0;
+
+    li {
+        &:before {
+            content: "\25cf"; //html entity "black circle"
+            color: @colour-brand;
+            padding-right: @dimension-padding-base;
+        }
+    }
+}
+
 // Images
 img {
     vertical-align: middle;
