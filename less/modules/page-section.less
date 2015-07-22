@@ -1,0 +1,42 @@
+//
+// Page Sections
+// ---
+
+.page-section {
+    padding: 3em 0;
+}
+
+.page-section--lg {
+    padding: 6em 0;
+}
+
+.page-section--alternate {
+    background-color: @colour-grey-lightest;
+}
+
+.page-section--brand {
+    background-color: @colour-brand;
+    color: @colour-white;
+}
+
+.page-section--image,
+.page-section--image-dark {
+    background-repeat: 0;
+    background-position: center center;
+    background-size: cover;
+}
+
+.page-section--image-dark {
+    color: @colour-white;
+}
+
+.page-section__content {
+    // Improve alignment and spacing of inner content
+    & > :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
