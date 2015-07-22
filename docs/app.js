@@ -58,7 +58,7 @@ app.get('/:module', function(req, res) {
 app.get('/', function(req, res) {
     renderPage(req.params.module, function(page) {
         res.render('index', {
-            content: '<h1>home</h1>',
+            content: '<div class="container"><div class="row"><div class="col-xs-12"><h1>Pistachio</h1><p>the graze css framework</p></div></div></div>',
             pages: getAllPages()
         })
     });
