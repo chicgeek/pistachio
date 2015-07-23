@@ -39,7 +39,7 @@ app.get('/:module', function(req, res) {
     if (pages.pageExists(req.params.module)) {
         return res.render(req.params.module, {
             pages: pages.getAllPageInfo(req.params.module),
-            title: req.params.module
+            title: req.params.module.replace(/(-|_)/, ' ')
         });
     }
 });
