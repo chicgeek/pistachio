@@ -1,0 +1,113 @@
+//
+// Tables
+// ---
+
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: @dimension-padding-base;
+    background-color: @table-bg;
+
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            > th,
+            > td {
+                padding: @dimension-padding-base @dimension-padding-lg;
+                line-height: @line-height-base;
+                vertical-align: top;
+                border-top: 1px solid @table-border-color;
+            }
+        }
+    }
+
+    th {
+        text-align: left;
+    }
+
+    tfoot {
+        font-size: @font-size-sm-px;
+        font-size: @font-size-sm-rem;
+    }
+
+    // Bottom align for column headings
+    > thead > tr > th {
+        vertical-align: bottom;
+    }
+
+    // Remove top border from thead
+    > caption + thead,
+    > colgroup + thead,
+    > thead:first-child {
+        > tr:first-child {
+            > th,
+            > td {
+                border-top: 0;
+            }
+        }
+    }
+
+    // Row hover effect
+    > tbody > tr:hover {
+      background-color: @table-bg-hover;
+    }
+
+    // Striped rows
+    > tbody > tr:nth-of-type(odd) {
+        background-color: @table-bg-accent;
+
+        &:hover {
+            background-color: @table-bg-hover;
+        }
+    }
+
+    // fixes for using bootstrap grid classes on table cells
+    td,
+    th {
+        &[class*="col-"] {
+            position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+            float: none;
+            display: table-cell;
+        }
+    }
+
+    col[class*="col-"] {
+        position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+        float: none;
+        display: table-column;
+    }
+}
+
+//
+// Responsive table wrapper
+// ---
+.table-responsive {
+    overflow-x: auto;
+    min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+    @media screen and (max-width: @screen-xs-max) {
+        width: 100%;
+        margin-bottom: @dimension-spacing-default;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid @table-border-color;
+
+        // Tighten up spacing
+        > table {
+            margin-bottom: 0;
+
+            // Ensure the content doesn't wrap
+            > thead,
+            > tbody,
+            > tfoot {
+                > tr {
+                    > th,
+                    > td {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}
