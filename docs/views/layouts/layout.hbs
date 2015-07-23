@@ -28,38 +28,38 @@
     </script>
 </head>
 <body>
+
+<header class="page-section page-section--sm page-section--brand">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <nav>
-                    <ul class="list-inline">
-                    {{#each pages}}
-                        <li>
-                        {{#if current}}
-                            <a href="/{{ path }}" class="active">{{ name }}</a>
-                        {{else}}
-                            <a href="/{{ path }}">{{ name }}</a>
-                        {{/if}}
-                        </li>
-                    {{/each}}
-                    </ul>
-                </nav>
-                <hr>
+            <div class="col-xs-12 page-section__content">
+                <p class="lead">Pistachio | <small class="voice">sweet as a nut...</small></p>
             </div>
         </div>
     </div>
-
-    {{{ body }}}
-
-    <footer class="page-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 page-section__content">
-                    <hr>
-                    <p>&copy; Pistachio</p>
-                </div>
+</header>
+<nav class="page-section page-section--xs page-section--alternate">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 page-section__content">
+                <ul class="list-inline">
+                {{#each pages}}
+                    <li>
+                    {{#if current}}
+                        <a href="/{{ path }}" class="active">{{ name }}</a>
+                    {{else}}
+                        <a href="/{{ path }}">{{ name }}</a>
+                    {{/if}}
+                    </li>
+                {{/each}}
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+</nav>
+
+<section class="page-section page-section--xs">
+    {{{ body }}}
+</section>
 </body>
 </html>
