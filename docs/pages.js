@@ -4,6 +4,11 @@ var path = require('path');
 // Cache pages so we don't thrash file lookups
 var pageList = [];
 
+// Pages to exlucde from list
+var exclusionList = [
+    'index.hbs'
+];
+
 module.exports = {
     // Returns an array of pages found in the views dir
     getPageList: function() {
@@ -14,7 +19,8 @@ module.exports = {
         var pages = fs.readdirSync(__dirname + '/views');
 
         pages = pages.filter(function(page) {
-            return path.extname(page) === '.hbs';
+            return path.extname(page) === '.hbs'
+                   && exclusionList.indexOf(page) === -1;
         });
 
         return pageList = pages.map(function(page) {
