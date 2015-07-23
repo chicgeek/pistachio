@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Browser Support</h1>
+
+            <blockquote>
+                <p class="lead"><i>Browsers are the most hostile software development environment imaginable.</i></p>
+                <p>- Douglas Crockford</p>
+            </blockquote>
+
+            <h2>Cutting the Mustard</h2>
+
+            <p>In order to create enhanced experiences for users with modern browsers, we need to be able to tell whether we have the support for some baseline features. Our approach is taken from FT Labs Origami <a href="http://origami.ft.com/docs/developer-guide/using-modules/#core-vs-enhanced-experience">core/enhanced check</a> and implements a small piece of inline JS which switches a class in the <code>&lt;html&gt;</code> tag.</p>
+
+            <h3>Javascript:</h3>
+            <pre>
+                <code class="javascript">
+{{ getFile '/js/cuts-the-mustard.js' }}
+                </code>
+            </pre>
+
+            <h3>CSS:</h3>
+            <div class="row">
+                <div class="col-md-6 experience-enhanced">
+                    <div class="panel">
+                        <div class="panel__body">
+                            <h4>.experience-enhanced .if-js</h4>
+                            <p class="if-js"><i class="icon-ok-circled"></i> Visible <b>with</b> compatible JS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 experience-core">
+                    <div class="panel">
+                        <div class="panel__body">
+                            <h4>.experience-core .if-js</h4>
+                            <p class="if-js"><i class="icon-ok-circled"></i> Visible <b>without</b> compatible JS</p>
+                            <p><small>(not visible)</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

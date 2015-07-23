@@ -2,72 +2,57 @@ var express = require('express');
 var fs = require('fs');
 var exphbs  = require('express-handlebars');
 var cmd = require('node-cmd');
+var pages = require('./pages');
 
 var app = express();
 
-// Looks up page and renders it if found
-var renderPage = function(name, cb) {
-    fs.readFile(__dirname + '/pages/' + name + '.html', 'utf8', function(err, data) {
-        if (err) {
-            return renderPage('example', cb);
-        }
-
-        return cb(data);
-    });
-}
-
-var getAllPages = function(currentPage) {
-    var pages = fs.readdirSync(__dirname + '/pages');
-    var pageNames = [];
-
-    pages.map(function(page) {
-        var pageName = page.replace('.html', '');
-        var pageInfo = {
-            name: pageName,
-            current: currentPage === pageName
-        }
-
-        if (page !== 'example.html' ) {
-            pageNames.push(pageInfo);
-        }
-    });
-
-    return pageNames;
-}
-
+// Setup handlebars engine
 app.engine('.hbs', exphbs({
     defaultLayout: 'layout',
     extname: '.hbs',
-    layoutsDir: __dirname + '/views/layouts'
+    layoutsDir: __dirname + '/views/layouts',
+    helpers: {
+        // Returns a utf8 formatted string of a static file
+        getFile: function getFile(path) {
+            path = __dirname + '/..' + path;
+
+            if (! fs.existsSync(path)) {
+                return false;
+            }
+
+            return fs.readFileSync(path, 'utf8').trim();
+        }
+    }
 }));
 
+// Set view engine
 app.set('view engine', '.hbs');
+// Set views dir (necessary, because we don't have this file in the root directory)
 app.set('views', __dirname + '/views/');
-
+// Serve all static files from root dir (OK for documentation, but not recomended for production sites)
 app.use(express.static(__dirname + '/../'));
+// Set app port
+app.set('port', process.env.PORT || 3000);
 
+// All page routing
 app.get('/:module', function(req, res) {
-    renderPage(req.params.module, function(page) {
-        res.render('index', {
-            content: page,
-            pages: getAllPages(req.params.module)
-        })
-    });
+    if (pages.pageExists(req.params.module)) {
+        return res.render(req.params.module, {
+            pages: pages.getAllPageInfo(req.params.module),
+            title: req.params.module.replace(/(-|_)/, ' ')
+        });
+    }
 });
 
+// Home page routing
 app.get('/', function(req, res) {
-    renderPage(req.params.module, function(page) {
-        res.render('index', {
-            content: '<div class="container"><div class="row"><div class="col-xs-12"><h1>Pistachio</h1><p>the graze css framework</p></div></div></div>',
-            pages: getAllPages()
-        })
-    });
+    res.render('index', {
+        pages: pages.getAllPageInfo(),
+        title: 'home'
+    })
 });
 
-var server = app.listen(3000, function () {
-  var port = server.address().port;
-
-  console.log('Example app listening at http://localhost:%s', port);
-
-  cmd.run('open http://localhost:' + port);
+// Launch app
+var server = app.listen(app.get('port'), function () {
+    console.log('Example app listening on localhost at port', app.get('port'));
 });

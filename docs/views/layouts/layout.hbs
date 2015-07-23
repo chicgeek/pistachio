@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="experience-core">
 <head>
     <meta charset="utf-8">
-    <title>Pistachio.</title>
-    <link rel="stylesheet" type="text/css" href="/css/pistachio.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Pistachio | {{ title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/pistachio.css">
+
+    {{!-- Syntax highlighter --}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github-gist.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style type="text/css">
+    /* Highlighter changes */
+    .hljs {
+        font-size: 14px;
+        background: #f7f7f7;
+    }
+    </style>
+
+    {{!-- Cutting the mustard --}}
+    <script type="text/javascript">
+    {{{ getFile '/js/cuts-the-mustard.js' }}}
+    </script>
 </head>
 <body>
     <div class="container">
@@ -16,9 +36,9 @@
                     {{#each pages}}
                         <li>
                         {{#if current}}
-                            <a href="/{{ name }}" class="active">{{ name }}</a>
+                            <a href="/{{ path }}" class="active">{{ name }}</a>
                         {{else}}
-                            <a href="/{{ name }}">{{ name }}</a>
+                            <a href="/{{ path }}">{{ name }}</a>
                         {{/if}}
                         </li>
                     {{/each}}
