@@ -53,6 +53,20 @@ strong {
     font-weight: @font-weight-strong;
 }
 
+blockquote {
+    .inner-content-fix();
+    .lead();
+    margin: 0 0 @dimension-spacing-default;
+    font-style: italic;
+
+    footer {
+        font-size: @font-size-base-px;
+        font-size: @font-size-base-rem;
+        font-weight: @font-weight-base;
+        color: @colour-grey-light;
+    }
+}
+
 .lead {
     font-size: (@font-size-base-px * 1.1);
     font-size: (@font-size-base-rem * 1.1);
