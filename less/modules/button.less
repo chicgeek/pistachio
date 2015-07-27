@@ -42,16 +42,11 @@
 
 // Bespoke buttons with icons
 .button--continue {
-    .button-icon();
-
-    &:after {
-        content: "\e817";
-    }
+    .button-icon("\e817");
 
     &:hover,
     &:focus {
         &:after {
-            .opacity(1);
             right: 0.3em;
         }
     }
