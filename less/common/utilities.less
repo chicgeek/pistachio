@@ -38,9 +38,8 @@
 .list-unstyled {
     display: inline-block;
     list-style: none;
-    padding-left: 0;
 
-    > li {
+    li {
         &:before {
             display: none;
         }
@@ -51,14 +50,17 @@
 .list-inline {
     .list-unstyled();
 
-    > li {
+    li {
         display: inline-block;
-        padding: 0 (@dimension-padding-base / 2);
+        padding: 0 @dimension-padding-base;
         margin: 0.5em 0;
+
+        &:before {
+            display: none;
+        }
 
         a {
             display: inline-block;
-            padding: 0 @dimension-padding-base;
         }
     }
 }

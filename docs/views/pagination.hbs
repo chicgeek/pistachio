@@ -3,6 +3,7 @@
         <div class="col-xs-12">
             <h1>Pagination</h1>
 
+            <h2>Initial state</h2>
             <nav class="pagination">
                 <p id="pagination-label" class="pagination__description">
                     showing 1 to 50 of 243 snacks
@@ -10,7 +11,9 @@
                 <ul role="navigation" aria-labelledby="pagination-label" class="pagination__list">
                     <li class="pagination__list__disabled">
                         <a href="javascript:void(0);" tabindex="-1" rel="prev" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
+                            <span aria-hidden="true">
+                                <i class="icon-left"></i>
+                            </span>
                         </a>
                     </li>
                     <li class="pagination__list__active">
@@ -40,7 +43,121 @@
                     </li>
                     <li>
                         <a href="javascript:void(0);" rel="next" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
+                            <span aria-hidden="true">
+                                <i class="icon-right"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </nav>
+
+            <h2>Long list (near start)</h2>
+            <nav class="pagination">
+                <p id="pagination-label" class="pagination__description">
+                    showing 100 to 150 of 645 snacks
+                </p>
+                <ul role="navigation" aria-labelledby="pagination-label" class="pagination__list">
+                    <li>
+                        <a href="javascript:void(0);" rel="prev" aria-label="Previous">
+                            <span aria-hidden="true">
+                                <i class="icon-left"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>1
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>2
+                        </a>
+                    </li>
+                    <li class="pagination__list__active">
+                        <a tabindex="-1" href="javascript:void(0);">
+                            <span class="sr-only">you're currently on page </span>3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>4
+                        </a>
+                    </li>
+                    <li class="pagination__list__disabled">
+                        <a href="javascript:void(0);" tabindex="-1" rel="prev" aria-label="Spacer">
+                            <span aria-hidden="true">
+                                &hellip;
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>13
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" rel="next" aria-label="Next">
+                            <span aria-hidden="true">
+                                <i class="icon-right"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </nav>
+
+            <h2>Long list (near end)</h2>
+            <nav class="pagination">
+                <p id="pagination-label" class="pagination__description">
+                    showing 500 to 150 of 645 snacks
+                </p>
+                <ul role="navigation" aria-labelledby="pagination-label" class="pagination__list">
+                    <li>
+                        <a href="javascript:void(0);" rel="prev" aria-label="Previous">
+                            <span aria-hidden="true">
+                                <i class="icon-left"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>1
+                        </a>
+                    </li>
+                    <li class="pagination__list__disabled">
+                        <a href="javascript:void(0);" tabindex="-1" rel="prev" aria-label="Spacer">
+                            <span aria-hidden="true">
+                                &hellip;
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>10
+                        </a>
+                    </li>
+                    <li class="pagination__list__active">
+                        <a tabindex="-1" href="javascript:void(0);">
+                            <span class="sr-only">you're currently on page </span>11
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>12
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="sr-only">page </span>13
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" rel="next" aria-label="Next">
+                            <span aria-hidden="true">
+                                <i class="icon-right"></i>
+                            </span>
                         </a>
                     </li>
                 </ul>
