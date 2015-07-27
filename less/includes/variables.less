@@ -3,26 +3,28 @@
 // ---
 
 // Monochrome
-@colour-white:         #ffffff;
-@colour-black:         #000000;
-@colour-grey-darkest:  #222222;
-@colour-grey-dark:     #333333;
-@colour-grey:          #555555;
-@colour-grey-light:    #999999;
-@colour-grey-lighter:  #cccccc;
-@colour-grey-lightest: #eeeeee;
+@colour-white:          #ffffff;
+@colour-black:          #000000;
+@colour-grey-darkest:   #222222;
+@colour-grey-dark:      #333333;
+@colour-grey:           #555555;
+@colour-grey-light:     #999999;
+@colour-grey-lighter:   #cccccc;
+@colour-grey-lightest:  #eeeeee;
 
 // Accents
-@colour-brand:         #00989e;
-@colour-accent:        #80a000;
-@colour-error:         #ab1818;
+@colour-brand:          #00989e;
+@colour-accent:         #00A40B;
+@colour-error:          #ab1818;
 
 // States
-@colour-state-success: #ebf0dd;
-@colour-state-info:    #e3f1fa;
-@colour-state-warning: #f1d3b0;
-@colour-state-danger:  #ab1818;
+@colour-state-disabled: @colour-grey-lightest;
+@colour-state-success:  #ebf0dd;
+@colour-state-info:     #e3f1fa;
+@colour-state-warning:  #f1d3b0;
+@colour-state-danger:   #ab1818;
 
+@colour-state-disabled-text: @colour-grey;
 @colour-state-success-text: darken(@colour-state-success, 60%);
 @colour-state-info-text: darken(@colour-state-info, 60%);
 @colour-state-warning-text: darken(@colour-state-warning, 60%);
@@ -38,7 +40,7 @@
 @dimension-padding-base:        6px; // typicallly used as vertical internal padding of elements
 @dimension-padding-lg:          12px; // typicallly used as horizontal internal padding of elements
 
-// Border Radius
+// Borders
 @dimension-border-radius:       4px;
 @dimension-border-radius-lg:    8px;
 
@@ -93,11 +95,13 @@
 // Scaffolding
 // ---
 @body-bg:               @colour-white;
-@text-color:            @colour-grey;
-@link-color:            @colour-accent;
-@link-hover-color:      darken(@link-color, 10%);
+@text-colour:           @colour-grey;
+@link-colour:           @colour-accent;
+@link-hover-colour:     darken(@link-colour, 10%);
 @link-hover-decoration: underline;
-@hr-border:             @colour-grey-lighter;
+@link-active-colour:    @colour-brand;
+@border-colour:         @colour-grey-lighter;
+@hr-border:             @border-colour;
 
 //
 // Cursors
@@ -139,20 +143,15 @@
 // Forms
 // ---
 @input-bg:                       @colour-white;
-@input-bg-disabled:              @colour-grey-lightest;
 @input-bg-optional:              @colour-grey-lightest;
 
-
-@input-color:                    @colour-grey;
-@input-border:                   @colour-grey-lighter;
+@input-colour:                   @colour-grey;
+@input-border:                   @border-colour;
 @input-border-radius:            @dimension-border-radius;
 
-@input-color-placeholder:        @colour-grey-light;
+@input-colour-placeholder:       @colour-grey-light;
 
 @input-height-base:              (@dimension-spacing-default + (@dimension-padding-base * 2) + 2);
-
-@input-group-addon-bg:           @colour-grey-lighter;
-@input-group-addon-border-color: @input-border;
 
 //
 // Panels
@@ -164,5 +163,5 @@
 // ---
 @table-bg:                       @colour-white;
 @table-bg-accent:                @colour-grey-lightest;
-@table-bg-hover:                 @colour-grey-lighter;
-@table-border-color:             @colour-grey-lighter;
+@table-bg-hover:                 @border-colour;
+@table-border-colour:            @border-colour;

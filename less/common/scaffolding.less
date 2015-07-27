@@ -27,7 +27,7 @@ body {
     font-size: @font-size-base-px;
     font-size: @font-size-base-rem;
     line-height: @line-height-base;
-    color: @text-color;
+    color: @text-colour;
     background-color: @body-bg;
 }
 
@@ -43,19 +43,22 @@ textarea {
 
 // Links
 a {
-    color: @link-color;
+    color: @link-colour;
     text-decoration: none;
     font-weight: @font-weight-strong;
 
     &:hover,
     &:focus {
-        color: @link-hover-color;
+        color: @link-hover-colour;
         text-decoration: @link-hover-decoration;
     }
 
-    &:focus,
-    &.active {
+    &:focus {
         .tab-focus();
+    }
+
+    &.active {
+        .tab-focus(@colour-brand);
     }
 }
 

@@ -36,26 +36,29 @@
 // Lists
 // ---
 .list-unstyled {
-    padding-left: 0;
+    display: inline-block;
     list-style: none;
+    padding-left: 0;
+
+    > li {
+        &:before {
+            display: none;
+        }
+    }
 }
 
 // Inline turns list items into inline-block
 .list-inline {
     .list-unstyled();
-    margin-left: -@dimension-padding-base;
 
     > li {
         display: inline-block;
-        padding: 0 @dimension-padding-base;
+        padding: 0 (@dimension-padding-base / 2);
         margin: 0.5em 0;
-
-        &:before {
-            display: none;
-        }
 
         a {
             display: inline-block;
+            padding: 0 @dimension-padding-base;
         }
     }
 }

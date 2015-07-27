@@ -1,8 +1,8 @@
 //
-// Focus states
+//  States
 // ---
 .tab-focus(@colour: @colour-accent) {
-    outline: 4px solid @colour;
+    outline: 3px solid @colour;
     outline-offset: 0;
     background-color: @colour;
     color: @colour-white;
@@ -15,12 +15,19 @@
     .box-shadow(0 0 8px @colour-accent);
 }
 
+.button-active(@colour: @colour-grey-lighter) {
+    .box-shadow(inset 0 1px 4px @colour);
+}
+
 .form-control-focus(@colour: @colour-accent) {
-    &:focus {
-        border-color: @colour;
-        outline: 4px auto @colour;
-        outline-offset: -2px;
-    }
+    border-color: @colour;
+    outline: 4px auto @colour;
+    outline-offset: -2px;
+}
+
+.focus-reset() {
+    outline: none;
+    .box-shadow(none);
 }
 
 //
@@ -46,7 +53,7 @@
     }
 
     &:active {
-        .box-shadow(inset 0 1px 4px @colour-dark);
+        .button-active(@colour-dark);
     }
 }
 
@@ -63,7 +70,7 @@
 //
 // Form states
 // ---
-.form-control-validation(@text-color: @text-color; @border-color: #ccc; @background-color: #f5f5f5) {
+.form-control-validation(@text-colour: @text-colour; @border-colour: #ccc; @background-color: #f5f5f5) {
     // Color the label and help text
     label,
     .form-group__help-block,
@@ -75,24 +82,24 @@
     &.checkbox label,
     &.radio-inline label,
     &.checkbox-inline label  {
-        color: @text-color;
+        color: @text-colour;
     }
 
     // Set the border and box shadow on specific inputs to match
     .form-control {
-        border-color: @border-color;
+        border-color: @border-colour;
         .box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
 
         &:focus {
-            border-color: darken(@border-color, 10%);
-            @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@border-color, 20%);
+            border-color: darken(@border-colour, 10%);
+            @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@border-colour, 20%);
             .box-shadow(@shadow);
         }
     }
 
     // Optional feedback icon
     .form-control-feedback {
-        color: @text-color;
+        color: @text-colour;
     }
 }
 
@@ -112,8 +119,12 @@
 }
 
 //
-// Hide text
+// Text
 // ---
+.small() {
+    font-size: 85%;
+}
+
 .text-hide() {
     font: ~"0/0" a;
     color: transparent;
@@ -155,27 +166,27 @@
 //
 // Alert variants
 // ---
-.alert-variant(@icon-unicode, @background, @text-color) {
-    color: @text-color;
+.alert-variant(@icon-unicode, @background, @text-colour) {
+    color: @text-colour;
     background-color: lighten(@background, 2.5%);
-    color: @text-color;
+    color: @text-colour;
     border-left: 6px solid darken(@background, 5%);
 
     a {
-        color: darken(@text-color, 10%);
+        color: darken(@text-colour, 10%);
 
         &:focus,
         &:active {
-            .tab-focus(@text-color);
+            .tab-focus(@text-colour);
         }
     }
 
     .close {
-        color: darken(@text-color, 10%);
+        color: darken(@text-colour, 10%);
 
         &:hover,
         &:focus {
-            background-color: @text-color;
+            background-color: @text-colour;
             color: @colour-white;
         }
     }
