@@ -67,6 +67,30 @@
     width: auto;
 }
 
+.button-icon(@icon-code: "\e817") {
+    position: relative;
+    padding-right: 2em;
+
+    &:after {
+        content: @icon-code;
+        .icon();
+        .backface-visibility(hidden);
+        .transition(all 0.2s ease-out);
+        .opacity(0.8);
+        margin: 0;
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+    }
+
+    &:hover,
+    &:focus {
+        &:after {
+            .opacity(1);
+        }
+    }
+}
+
 //
 // Form states
 // ---
@@ -161,6 +185,16 @@
     margin-left: .2em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+// used in bespoke loading icon animation
+.icon-loading-format() {
+    display: inline-block;
+    border-radius: 100%;
+    margin-left: 0;
+    .square(1em);
+    .animation(icon-loading .6s infinite);
+    .transition-duration(.2s);
 }
 
 //
