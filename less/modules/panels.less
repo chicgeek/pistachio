@@ -66,14 +66,6 @@ a.panel {
 }
 
 .panel__body {
+    .inner-content-fix();
     padding: @dimension-spacing-default;
-
-    // Improve alignment and spacing of inner content
-    & > :first-child {
-        margin-top: 0;
-    }
-
-    & > :last-child {
-        margin-bottom: 0;
-    }
 }

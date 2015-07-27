@@ -184,3 +184,16 @@
         content: @icon-unicode;
     }
 }
+
+//
+// Improve alignment and spacing of inner content
+// ---
+.inner-content-fix() {
+    & > :first-child {
+        margin-top: 0;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
