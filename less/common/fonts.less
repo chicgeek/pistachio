@@ -26,6 +26,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'pistachio-icon-font';
+    src: url('@{font-path}pistachio-icon-font.eot?90234993');
+    src: url('@{font-path}pistachio-icon-font.eot?90234993#iefix') format('embedded-opentype'),
+       url('@{font-path}pistachio-icon-font.woff?90234993') format('woff'),
+       url('@{font-path}pistachio-icon-font.ttf?90234993') format('truetype'),
+       url('@{font-path}pistachio-icon-font.svg?90234993#pistachio') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .graze-font-cursive() {
     font-family: "graze-font-cursive", @font-family-serif;
     font-weight: @font-weight-strong;
@@ -36,4 +47,8 @@
     font-family: "graze-font", @font-family-sans-serif;
     font-weight: @font-weight-strong;
     letter-spacing: -0.04em;
+}
+
+.graze-font-icons() {
+    font-family: "pistachio-icon-font";
 }

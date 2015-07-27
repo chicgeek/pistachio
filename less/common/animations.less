@@ -1,0 +1,40 @@
+//
+// Animation
+// ---
+
+//
+// Pattern
+// ---
+// 1) class with animation applied
+// 2) keyframes mixin
+// 3) vendor prefixes
+
+//
+// Loading
+// ---
+.icon-loader {
+    .animation(icon-loading .6s infinite);
+}
+
+.icon-loading-keyframes() {
+    0% { background-color: @colour-brand; }
+    50% { background-color: lighten(@colour-brand, 20%); }
+    100% { background-color: lighten(@colour-brand, 40%); }
+}
+
+@keyframes icon-loading {
+    .icon-loading-keyframes();
+}
+
+@-webkit-keyframes icon-loading {
+    .icon-loading-keyframes();
+}
+
+@-o-keyframes icon-loading {
+    .icon-loading-keyframes();
+}
+
+@-ms-keyframes icon-loading {
+    .icon-loading-keyframes();
+}
+

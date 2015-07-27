@@ -40,8 +40,14 @@
     },
     {
       "uid": "4ba33d2607902cf690dd45df09774cb0",
-      "css": "plus-circled",
+      "css": "plus",
       "code": 59407,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "eeadb020bb75d089b25d8424aabe19e0",
+      "css": "minus",
+      "code": 59393,
       "src": "fontawesome"
     },
     {
@@ -69,6 +75,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "7034e4d22866af82bef811f52fb1ba46",
+      "css": "code",
+      "code": 59424,
+      "src": "fontawesome"
+    },
+    {
       "uid": "41087bc74d4b20b55059c60a33bf4008",
       "css": "edit",
       "code": 59412,
@@ -82,19 +94,19 @@
     },
     {
       "uid": "c76b7947c957c9b78b11741173c8349b",
-      "css": "attention",
+      "css": "warning",
       "code": 59397,
       "src": "fontawesome"
     },
     {
       "uid": "b035c28eba2b35c6ffe92aee8b0df507",
-      "css": "attention-circled",
+      "css": "danger",
       "code": 59398,
       "src": "fontawesome"
     },
     {
       "uid": "e99461abfef3923546da8d745372c995",
-      "css": "cog",
+      "css": "settings",
       "code": 59411,
       "src": "fontawesome"
     },
@@ -107,12 +119,72 @@
     {
       "uid": "0b2b66e526028a6972d51a6f10281b4b",
       "css": "zoom-in",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c53068fe21c8410b0a098b4c52c3d37e",
+      "css": "down-circled",
+      "code": 59425,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "128d63150a41800e0beff55235269542",
+      "css": "up-circled",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "2d6150442079cbda7df64522dc24f482",
+      "css": "down-dir",
+      "code": 59418,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "80cd1022bd9ea151d554bec1fa05f2de",
+      "css": "up-dir",
+      "code": 59417,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left",
+      "code": 59416,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right",
+      "code": 59415,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5de9370846a26947e03f63142a3f1c07",
+      "css": "angle-up",
+      "code": 59427,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e4dde1992f787163e2e2b534b8c8067d",
+      "css": "angle-down",
+      "code": 59428,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "1c4068ed75209e21af36017df8871802",
+      "css": "down-big",
       "code": 59414,
       "src": "fontawesome"
     },
     {
+      "uid": "95376bf082bfec6ce06ea1cda7bd7ead",
+      "css": "up-big",
+      "code": 59426,
+      "src": "fontawesome"
+    },
+    {
       "uid": "a73c5deb486c8d66249811642e5d719a",
-      "css": "arrows-cw",
+      "css": "repeat",
       "code": 59408,
       "src": "fontawesome"
     },
@@ -135,28 +207,46 @@
       "src": "fontawesome"
     },
     {
+      "uid": "4743b088aa95d6f3b6b990e770d3b647",
+      "css": "facebook-squared",
+      "code": 59419,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4c1ef492f1d2c39a2250ae457cee2a6e",
+      "css": "instagram",
+      "code": 59422,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "1145676a91138011729fa2909997af66",
+      "css": "linkedin-squared",
+      "code": 59423,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5b79895d979c408282b4e92fa7db8e82",
+      "css": "tumblr-squared",
+      "code": 59421,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "906348dc798a0d42715cc97c875e3ac6",
+      "css": "twitter-squared",
+      "code": 59420,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7222571caa5c15f83dcfd447c58d68d9",
+      "css": "search",
+      "code": 59429,
+      "src": "entypo"
+    },
+    {
       "uid": "3d349daaea304032a7669b4f24931b6c",
       "css": "shuffle",
       "code": 59410,
       "src": "entypo"
-    },
-    {
-      "uid": "ab5c31256cdd1f6b2d6de7202936f5a1",
-      "css": "hail-inv",
-      "code": 59394,
-      "src": "meteocons"
-    },
-    {
-      "uid": "b2b73369982f91cddf8ec5f2a692e5ea",
-      "css": "clouds-flash-inv",
-      "code": 59392,
-      "src": "meteocons"
-    },
-    {
-      "uid": "95fb2e5fdd1ea7e4a420b6ed330e6b08",
-      "css": "sun",
-      "code": 59393,
-      "src": "meteocons"
     }
   ]
 }

@@ -60,6 +60,22 @@
     width: auto;
 }
 
+.button-icon() {
+    position: relative;
+    padding-right: 2em;
+
+    &:after {
+        .icon();
+        .backface-visibility(hidden);
+        .transition(all 0.2s ease-out);
+        .opacity(0.8);
+        margin: 0;
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+    }
+}
+
 //
 // Form states
 // ---

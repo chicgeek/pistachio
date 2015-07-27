@@ -40,6 +40,23 @@
     font-size: @font-size-lg-rem;
 }
 
+// Bespoke buttons with icons
+.button--continue {
+    .button-icon();
+
+    &:after {
+        content: "\e817";
+    }
+
+    &:hover,
+    &:focus {
+        &:after {
+            .opacity(1);
+            right: 0.3em;
+        }
+    }
+}
+
 // Block button (100% width)
 .button--block {
     .button-block();
