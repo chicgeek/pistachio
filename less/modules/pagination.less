@@ -4,6 +4,7 @@
 
 .pagination {
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .pagination__description {
@@ -12,50 +13,24 @@
 }
 
 .pagination__list {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
+    .list-inline();
     margin: 0;
-    padding-left: 0;
-    border-radius: @dimension-border-radius;
 
     li {
-        display: inline; // Remove list-style and block-level defaults
-
-        &:before {
-            display: none;
-        }
+        display: inline;
+        padding: 0 (@dimension-padding-base / 2);
 
         a {
-            position: relative;
-            float: left; // Collapse white-space
             padding: @dimension-padding-base @dimension-padding-lg;
-            line-height: @line-height-base;
-            text-decoration: none;
-            color: @link-colour;
-            background-color: @colour-white;
-            border: 1px solid @border-colour;
-            margin-left: -1px;
 
             &:hover,
             &:focus {
-                z-index: 2;
-                .focus-reset();
-                outline: 2px solid @link-colour;
-                outline-offset: -2px;
+                background-color: @colour-grey-lightest;
+                color: @link-hover-colour;
             }
-        }
 
-        &:first-child {
-            a {
-                margin-left: 0;
-                .border-left-radius(@dimension-border-radius);
-            }
-        }
-
-        &:last-child {
-            a {
-                .border-right-radius(@dimension-border-radius);
+            &:focus {
+                .tab-focus();
             }
         }
     }
@@ -63,13 +38,9 @@
 
 li.pagination__list__active {
     a {
-        z-index: 3;
         pointer-events: none;
         cursor: @cursor-disabled;
-        margin-right: -1px;
-        background-color: @link-active-colour;
-        border-color: @link-active-colour;
-        color: @colour-white;
+        .tab-focus(@colour-brand);
     }
 }
 
@@ -77,5 +48,6 @@ li.pagination__list__disabled {
     a {
         pointer-events: none;
         cursor: @cursor-disabled;
+        color: @colour-grey-lighter;
     }
 }
