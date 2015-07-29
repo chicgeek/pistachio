@@ -42,15 +42,17 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 page-section__content">
-                <ul class="list-inline">
+                <ul class="nav">
                 {{#each pages}}
-                    <li>
                     {{#if current}}
-                        <a href="/{{ path }}" class="active">{{ name }}</a>
+                        <li>
+                            <a class="nav__item nav__item--active" tabindex="-1" href="/{{ path }}">{{ name }}</a>
+                        </li>
                     {{else}}
-                        <a href="/{{ path }}">{{ name }}</a>
+                        <li>
+                            <a class="nav__item" href="/{{ path }}">{{ name }}</a>
+                        </li>
                     {{/if}}
-                    </li>
                 {{/each}}
                 </ul>
             </div>

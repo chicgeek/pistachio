@@ -1,0 +1,37 @@
+//
+// Breadcrumb
+// ---
+
+.breadcrumb {
+    margin-bottom: 1em;
+}
+
+.breadcrumb__list {
+    .list-inline();
+    margin: 0 0 1em;
+
+    li:after {
+        content: '\e826';
+        .icon();
+        color: @colour-grey-lighter;
+        margin: 0 @dimension-padding-lg;
+    }
+}
+
+
+.breadcrumb__list__item {
+    color: @text-colour;
+
+    &:hover {
+        color: @text-colour;
+        text-decoration: none;
+    }
+
+    &:focus {
+       .tab-focus(@colour-brand);
+    }
+}
+
+.breadcrumb__title {
+    margin: 0;
+}

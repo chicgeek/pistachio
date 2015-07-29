@@ -1,6 +1,11 @@
 //
 //  States
 // ---
+.focus-reset() {
+    outline: none;
+    .box-shadow(none);
+}
+
 .tab-focus(@colour: @colour-accent) {
     outline: 3px solid @colour;
     outline-offset: 0;
@@ -25,9 +30,71 @@
     outline-offset: -2px;
 }
 
-.focus-reset() {
-    outline: none;
-    .box-shadow(none);
+//
+// Lists
+// ---
+.list-unstyled() {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+
+    li {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+// Inline turns list items into inline-block
+.list-inline() {
+    .list-unstyled();
+
+    li {
+        display: inline-block;
+        padding: 0;
+        margin: 0.5em 0;
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+//
+// Sub navs
+// ---
+.nav-style() {
+    padding: 0.5em 1em;
+    border-radius: @dimension-border-radius;
+    border: 1px solid transparent;
+    color: @text-colour;
+
+    &:hover,
+    &:focus {
+        color: @nav-text-colour;
+        background: @nav-hover-bg-colour;
+        border: 1px solid @nav-hover-bg-colour;
+        text-decoration: none;
+    }
+
+    &:focus {
+        .focus-reset();
+        border: 1px solid @colour-brand;
+    }
+}
+
+.nav-style-active() {
+    pointer-events: none;
+    color: @colour-white;
+    background: @colour-brand;
+    border: 1px solid @colour-brand;
+
+    &:hover,
+    &:focus {
+        color: @colour-white;
+        background: @colour-brand;
+        text-decoration: none;
+    }
 }
 
 //
