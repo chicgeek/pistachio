@@ -1,0 +1,62 @@
+//
+// navigation
+// ---
+
+//
+// Horizontal
+// ---
+.nav {
+    .list-inline();
+    display: block;
+}
+
+.nav__item {
+    .nav-style();
+    display: inline-block;
+}
+
+.nav__item--active {
+    .nav-style-active();
+}
+
+//
+// Vertical
+// ---
+.nav--vertical {
+    display: block;
+
+    li {
+        display: block;
+    }
+
+    .nav__item {
+        display: block;
+        margin-bottom: 0.5em;
+    }
+}
+
+//
+// Mobile vertical
+// ---
+@media (max-width: @screen-sm-min) {
+    .nav--vertical {
+        li {
+            margin: 0;
+            border-bottom: 1px solid @nav-hover-bg-colour;
+
+            &:first-child {
+                border-top: 1px solid @nav-hover-bg-colour;
+            }
+        }
+
+        .nav__item {
+            margin-bottom: 0;
+            border-radius: 0;
+            padding: 0.5em;
+        }
+
+        .nav__item--active {
+            border-bottom: none;
+        }
+    }
+}

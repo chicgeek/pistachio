@@ -33,6 +33,10 @@ module.exports = function compileLess(opts) {
     .pipe(sourcemap.init())
     // Compile LESS
     .pipe(less())
+    // Catch errors in pipeline
+    .on('error', function(err) {
+        log.error(err.message);
+    })
     // Minify CSS
     .pipe(minifyCSS({
         keepSpecialComments: 1,
@@ -44,7 +48,7 @@ module.exports = function compileLess(opts) {
     .pipe(gulp.dest(opts.dest))
     // Catch errors in pipeline
     .on('error', function(err) {
-        log.error(err.message);å
+        log.error(err.message);
     })
     // Compilation complete
     .on('end', function() {

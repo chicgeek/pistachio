@@ -1,7 +1,6 @@
 //
-// Pagination (multiple pages)
+// Pagination
 // ---
-
 .pagination {
     text-align: center;
     margin-bottom: 1em;
@@ -15,39 +14,19 @@
 .pagination__list {
     .list-inline();
     margin: 0;
-
-    li {
-        display: inline;
-        padding: 0 (@dimension-padding-base / 2);
-
-        a {
-            padding: @dimension-padding-base @dimension-padding-lg;
-
-            &:hover,
-            &:focus {
-                background-color: @colour-grey-lightest;
-                color: @link-hover-colour;
-            }
-
-            &:focus {
-                .tab-focus();
-            }
-        }
-    }
 }
 
-li.pagination__list__active {
-    a {
-        pointer-events: none;
-        cursor: @cursor-disabled;
-        .tab-focus(@colour-brand);
-    }
+.pagination__list__item {
+    display: block;
+    .nav-style();
 }
 
-li.pagination__list__disabled {
-    a {
-        pointer-events: none;
-        cursor: @cursor-disabled;
-        color: @colour-grey-lighter;
-    }
+.pagination__list__item--active {
+    .nav-style-active();
 }
+
+.pagination__list__item--disabled {
+    pointer-events: none;
+    color: @nav-hover-bg-colour;
+}
+

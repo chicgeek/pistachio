@@ -159,6 +159,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "f3f90c8c89795da30f7444634476ea4f",
+      "css": "angle-left",
+      "code": 59431,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7bf14281af5633a597f85b061ef1cfb9",
+      "css": "angle-right",
+      "code": 59430,
+      "src": "fontawesome"
+    },
+    {
       "uid": "5de9370846a26947e03f63142a3f1c07",
       "css": "angle-up",
       "code": 59427,
