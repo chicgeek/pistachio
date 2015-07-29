@@ -4,9 +4,9 @@
   "description": "graze front end framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./node_modules/.bin/gulp build && node ./node_modules/.bin/gulp dev:profile",
     "postinstall": "node ./node_modules/.bin/gulp build",
-    "docs": "node ./node_modules/.bin/gulp build && node ./docs/app.js",
+    "docs": "node ./node_modules/.bin/gulp build && node ./node_modules/.bin/gulp test:less && node ./docs/app.js",
     "dev": "node ./node_modules/.bin/gulp dev"
   },
   "repository": {
@@ -20,9 +20,7 @@
   },
   "homepage": "https://github.com/graze/pistachio",
   "dependencies": {
-    "bootstrap": "^3.3.5"
-  },
-  "devDependencies": {
+    "bootstrap": "^3.3.5",
     "express": "^4.13.1",
     "express-handlebars": "^2.0.1",
     "gulp": "^3.9.0",
@@ -31,6 +29,8 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-stylestats": "^0.8.0",
     "gulp-util": "^3.0.6",
+    "minimist": "^1.1.2",
+    "moment": "^2.10.6",
     "node-cmd": "^1.0.2"
   }
 }

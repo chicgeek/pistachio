@@ -3,6 +3,7 @@ var less = require('gulp-less');
 var sourcemap = require('gulp-sourcemaps');
 var minifyCSS = require('gulp-minify-css');
 var log = require('./log');
+var path = require('path');
 
 /**
  * Compiles a LESS file to CSS from a specified source to a specified directory
@@ -26,14 +27,13 @@ module.exports = function compileLess(opts) {
         return log.error('Specify a destination...');
     }
 
-
     // Read source LESS
     gulp.src(opts.file)
     // Init sourcemap
     .pipe(sourcemap.init())
     // Compile LESS
     .pipe(less())
-    // Catch errors in pipeline
+    // Catch LESS Compilation errors
     .on('error', function(err) {
         log.error(err.message);
     })
@@ -52,7 +52,7 @@ module.exports = function compileLess(opts) {
     })
     // Compilation complete
     .on('end', function() {
-        log.success('Built CSS from LESS source');
+        log.success('Built CSS from ' + path.basename(opts.file));
 
         if (opts.done) {
             opts.done();

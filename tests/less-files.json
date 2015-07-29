@@ -1,0 +1,13 @@
+[
+    "pistachio.less",
+    "common.less",
+    "modules/alerts.less",
+    "modules/breadcrumb.less",
+    "modules/buttons.less",
+    "modules/forms.less",
+    "modules/navigation.less",
+    "modules/page-sections.less",
+    "modules/pagination.less",
+    "modules/panels.less",
+    "modules/tables.less"
+]

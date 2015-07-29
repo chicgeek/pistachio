@@ -16,7 +16,7 @@ module.exports = {
             return pageList;
         }
 
-        var pages = fs.readdirSync(__dirname + '/views');
+        var pages = fs.readdirSync(__dirname + '/../views');
 
         pages = pages.filter(function(page) {
             return path.extname(page) === '.hbs'

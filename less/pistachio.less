@@ -1,29 +1,28 @@
-// Bootstrap
-@import 'third-party/bootstrap';
+/**
+ * Pistachio
+ * ===
+ * Lightweight front end framework for developing graze's online assets
+ */
 
-// Includes
-@import 'includes/variables';
-@import 'includes/mixins';
+// Common LESS files
+@import 'common';
 
-// Common
-@import 'common/normalise';
-@import 'common/print';
-@import 'common/scaffolding';
-@import 'common/fonts';
-@import 'common/typography';
-@import 'common/icons';
-@import 'common/animations';
-@import 'common/bootstrap-grid';
-@import 'common/utilities';
-@import 'common/responsive-utilities';
-
-// Modules
-@import 'modules/button';
+// Module LESS Files
+@import 'modules/buttons';
 @import 'modules/forms';
 @import 'modules/tables';
 @import 'modules/alerts';
 @import 'modules/panels';
-@import 'modules/page-section';
+@import 'modules/page-sections';
 @import 'modules/navigation';
 @import 'modules/pagination';
 @import 'modules/breadcrumb';
+
+
+//
+// Variable overrides
+// ---
+// Here you can override any variables as you wish.  A good example of when you
+// might do this is to link fonts to a different path
+
+// @font-path: 'relative/path/to/fonts';

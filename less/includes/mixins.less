@@ -1,3 +1,6 @@
+// Grab bootsrap mixins
+@import "../../node_modules/bootstrap/less/mixins";
+
 //
 //  States
 // ---
@@ -304,5 +307,38 @@
 
     & > :last-child {
         margin-bottom: 0;
+    }
+}
+
+//
+// List styling mixins
+// ----
+.list-unstyled() {
+    display: inline-block;
+    list-style: none;
+
+    li {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+// Inline turns list items into inline-block
+.list-inline() {
+    .list-unstyled();
+
+    li {
+        display: inline-block;
+        padding: 0 @dimension-padding-base;
+        margin: 0.5em 0;
+
+        &:before {
+            display: none;
+        }
+
+        a {
+            display: inline-block;
+        }
     }
 }
