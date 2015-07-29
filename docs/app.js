@@ -2,9 +2,34 @@ var express = require('express');
 var fs = require('fs');
 var exphbs  = require('express-handlebars');
 var cmd = require('node-cmd');
-var pages = require('./pages');
+var pages = require('./lib/pages');
 
 var app = express();
+
+// Add extra contextual information to pass to a page here
+// Like a micro controller... Sort of.
+var pageContexts = {
+    // Add stat info to stats page
+    'css-stats': {
+        stats: require('./lib/css-stats')()
+    }
+}
+
+// Gets view params
+var getContext = function(name) {
+    var context = {
+        pages: pages.getAllPageInfo(name),
+        title: name.replace(/(-|_)/, ' ')
+    }
+
+    if (typeof pageContexts[name] === 'object') {
+        for (var prop in pageContexts[name]) {
+            context[prop] = pageContexts[name][prop]
+        }
+    }
+
+    return context;
+}
 
 // Setup handlebars engine
 app.engine('.hbs', exphbs({
@@ -36,11 +61,10 @@ app.set('port', process.env.PORT || 3000);
 
 // All page routing
 app.get('/:module', function(req, res) {
-    if (pages.pageExists(req.params.module)) {
-        return res.render(req.params.module, {
-            pages: pages.getAllPageInfo(req.params.module),
-            title: req.params.module.replace(/(-|_)/, ' ')
-        });
+    var module = req.params.module;
+
+    if (pages.pageExists(module)) {
+        return res.render(module, getContext(module));
     }
 });
 

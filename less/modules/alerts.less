@@ -1,6 +1,12 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
 //
 // Alerts
-// ---
+// ===
+// Can be compiled seperately, but requires "pistachio-icon-font" which can be
+// found in `../common/fonts.less`
 
 //
 // Base styles
@@ -31,7 +37,7 @@
         .icon();
         position: absolute;
         top: @dimension-spacing-default;
-        left: (@dimension-spacing-default / 3);
+        left: (@dimension-spacing-default / 2);
         font-size: (@font-size-base-px * 1.5);
         font-size: (@font-size-base-rem * 1.5);
     }
