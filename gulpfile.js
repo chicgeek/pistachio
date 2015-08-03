@@ -32,7 +32,7 @@ gulp.task('dev:less', function(cb) {
             file: './less/pistachio.less',
             dest: './css'
         });
-    }
+    };
 
     // Compile on method call
     compile();
@@ -50,7 +50,7 @@ gulp.task('dev:profile', function(cb) {
     gulp.src(file)
     .pipe(stylestats())
     .on('end', function() {
-        log.info('Profiling complete')
+        log.info('Profiling complete');
     });
 });
 
@@ -82,7 +82,6 @@ gulp.task('test:less', function(cb) {
                     }
                 });
             }
-        })
-    })
+        });
+    });
 });
-
