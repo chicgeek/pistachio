@@ -8,11 +8,13 @@ Getting Started
 
 ####Via NPM (quickest)
 ```
+$ npm install -g gulp
 $ npm install graze/pistachio
 ```
 
 ####Via git
 ```
+$ npm install -g gulp
 $ git clone https://github.com/graze/pistachio.git ./pistachio
 $ cd pistachio && npm install
 ```

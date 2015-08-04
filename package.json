@@ -4,10 +4,10 @@
   "description": "graze front end framework",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/gulp build && node ./node_modules/.bin/gulp dev:profile",
-    "postinstall": "node ./node_modules/.bin/gulp build",
-    "docs": "node ./node_modules/.bin/gulp build && node ./node_modules/.bin/gulp test:less && node ./docs/app.js",
-    "dev": "node ./node_modules/.bin/gulp dev"
+    "test": "gulp build && gulp dev:profile",
+    "postinstall": "gulp build",
+    "docs": "gulp build && gulp test:less && node ./docs/app.js",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",

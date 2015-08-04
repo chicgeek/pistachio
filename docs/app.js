@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var exphbs  = require('express-handlebars');
 var cmd = require('node-cmd');
-var pages = require('./lib/pages');
+var pages = require('./lib/pages')();
 
 var app = express();
 

@@ -9,40 +9,44 @@ var exclusionList = [
     'index.hbs'
 ];
 
-module.exports = {
-    // Returns an array of pages found in the views dir
-    getPageList: function() {
-        if (pageList.length) {
-            return pageList;
-        }
+module.exports = function(pageDir) {
+    pageDir = pageDir || __dirname + '/../views';
 
-        var pages = fs.readdirSync(__dirname + '/../views');
-
-        pages = pages.filter(function(page) {
-            return path.extname(page) === '.hbs'
-                   && exclusionList.indexOf(page) === -1;
-        });
-
-        return pageList = pages.map(function(page) {
-            return page.replace('.hbs', '');
-        });
-    },
-
-    // Returns an object of info about all the pages
-    getAllPageInfo: function(currentPage) {
-        var pages = this.getPageList();
-
-        return pages.map(function(page) {
-            return pageInfo = {
-                name: page.replace(/(-|_)/, ' '),
-                path: page,
-                current: currentPage === page
+    return {
+        // Returns an array of pages found in the views dir
+        getPageList: function() {
+            if (pageList.length) {
+                return pageList;
             }
-        });
-    },
 
-    // Checks a page exists in a view
-    pageExists: function(pageName) {
-        return this.getPageList().indexOf(pageName) > -1;
+            var pages = fs.readdirSync(pageDir);
+
+            pages = pages.filter(function(page) {
+                return path.extname(page) === '.hbs'
+                       && exclusionList.indexOf(page) === -1;
+            });
+
+            return pageList = pages.map(function(page) {
+                return page.replace('.hbs', '');
+            });
+        },
+
+        // Returns an object of info about all the pages
+        getAllPageInfo: function(currentPage) {
+            var pages = this.getPageList();
+
+            return pages.map(function(page) {
+                return pageInfo = {
+                    name: page.replace(/(-|_)/, ' '),
+                    path: page,
+                    current: currentPage === page
+                }
+            });
+        },
+
+        // Checks a page exists in a view
+        pageExists: function(pageName) {
+            return this.getPageList().indexOf(pageName) > -1;
+        }
     }
 }
