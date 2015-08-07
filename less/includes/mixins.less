@@ -104,8 +104,8 @@
 // Buttons
 // ---
 .button-style(@colour: @colour-grey-lightest, @text: @colour-accent) {
-    @colour-dark: darken(@colour, 5%);
-    @colour-light: lighten(@colour, 8%);
+    @colour-dark: darken(@colour, 4%);
+    @colour-light: lighten(@colour, 6%);
     color: @text;
     border: 1px solid @colour-dark;
     #gradient > .vertical(@colour-light, @colour);
@@ -114,7 +114,7 @@
 
     &:hover,
     &:focus {
-        #gradient > .vertical(darken(@colour-light, 4%), @colour-dark);
+        #gradient > .vertical(darken(@colour-light, 5%), @colour-dark);
         color: @text;
     }
 
