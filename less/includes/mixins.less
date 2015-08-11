@@ -55,7 +55,7 @@
     li {
         display: inline-block;
         padding: 0;
-        margin: 0.5em 0;
+        .margins(0.5, 0, 0.5, 0);
 
         &:before {
             display: none;
@@ -212,8 +212,23 @@
 }
 
 //
+// Margins
+// ---
+.margins(@top, @right, @bottom, @left) {
+    margin: ( @font-size-base * @top ) ( @font-size-base * @right ) ( @font-size-base * @bottom ) ( @font-size-base * @left );
+    margin: ~"@{top}rem" ~"@{right}rem" ~"@{bottom}rem" ~"@{left}rem"
+}
+
+
+//
 // Text
 // ---
+// Font rule mixin with pixel fallback
+.font-size(@size) {
+    font-size: ( @font-size-base * @size );
+    font-size: ~"@{size}rem";
+}
+
 .small() {
     font-size: 85%;
 }

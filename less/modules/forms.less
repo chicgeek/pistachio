@@ -83,8 +83,7 @@ label {
     content: attr(data-label-info);
     padding-left: @dimension-padding-base;
     color: @colour-grey-light;
-    font-size: @font-size-sm-px;
-    font-size: @font-size-sm-rem;
+    .font-size(1.25);
     font-weight: normal;
 }
 
@@ -115,8 +114,7 @@ label {
     width: 100%;
     height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
     padding: @dimension-padding-base @dimension-padding-lg;
-    font-size: @font-size-base-px;
-    font-size: @font-size-base-rem;
+    .font-size(1);
     line-height: @line-height-base;
     color: @input-colour;
     background-color: @input-bg;
@@ -203,7 +201,7 @@ label {
 // Feedback icon
 .form-control-feedback {
     position: absolute;
-    top: ((@font-size-base-px * @line-height-base) + @dimension-padding-base);
+    top: ((@font-size-base * @line-height-base) + @dimension-padding-base);
     bottom: 0;
     right: 0;
     z-index: 2; // Ensure icon is above input groups
@@ -265,13 +263,13 @@ label {
 
     & + & {
       margin-left: 0;
-      margin-right: 10px;
+      margin-right: @dimension-padding-base;
     }
 }
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
     margin-top: 0;
-    margin-left: 10px; // space out consecutive inline controls
+    margin-left: @dimension-padding-base; // space out consecutive inline controls
 }
 
 // Apply same disabled cursor tweak as for inputs

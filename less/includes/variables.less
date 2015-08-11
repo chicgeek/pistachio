@@ -36,7 +36,7 @@
 // ---
 
 // Spacing
-@dimension-spacing-default:     floor((@font-size-base-px * @line-height-base)); // default spacing between elements
+@dimension-spacing-default:     floor((@font-size-base * @line-height-base)); // default spacing between elements
 @dimension-padding-base:        6px; // typicallly used as vertical internal padding of elements
 @dimension-padding-lg:          12px; // typicallly used as horizontal internal padding of elements
 @dimension-padding-sm:          3px;
@@ -127,14 +127,7 @@
 @font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base-px:       14px;
-@font-size-base-rem:      0.875rem;
-
-@font-size-lg-px:         ceil(@font-size-base-px * 1.25);
-@font-size-lg-rem:        (@font-size-base-rem * 1.25);
-
-@font-size-sm-px:         ceil(@font-size-base-px * 0.85);
-@font-size-sm-rem:        (@font-size-base-rem * 0.85);
+@font-size-base:          14px;
 
 @font-weight-weak:        300;
 @font-weight-base:        400;
