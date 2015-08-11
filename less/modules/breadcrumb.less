@@ -12,13 +12,23 @@
 
 .breadcrumb__list {
     .list-inline();
-    margin: 0 0 1em;
+    .margins(0, 0, 1, 0);
 
     li:after {
         content: '\e826';
         .icon();
         color: @colour-grey-lighter;
-        margin: 0 @dimension-padding-lg;
+        .margins(0, 0.85, 0, 0.85);
+    }
+
+    li:last-of-type:after {
+        display: none;
+    }
+}
+
+.breadcrumb--with-title {
+    li:last-of-type:after {
+        display: inline;
     }
 }
 

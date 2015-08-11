@@ -13,7 +13,7 @@
 
 // html defaults
 html {
-    font-size: 100%;
+    font-size: @font-size-base;
     font-family: @font-family-base;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -23,9 +23,8 @@ html {
 // body defaults
 body {
     margin: 0;
+    .font-size(1);
     font-family: @font-family-base;
-    font-size: @font-size-base-px;
-    font-size: @font-size-base-rem;
     line-height: @line-height-base;
     color: @text-colour;
     background-color: @body-bg;
@@ -61,12 +60,12 @@ a {
 // Lists
 ol {
     padding: 0 0 0 1.5em;
-    margin: 1em 0;
+    .margins(1, 0, 1, 0);
 }
 
 ul {
     list-style-type: none;
-    margin: 1em 0;
+    .margins(1, 0, 1, 0);
     padding: 0;
 
     li {
@@ -86,7 +85,7 @@ img {
 // Horizontal rules
 hr {
     height: 0;
-    margin: 1em 0;
+    .margins(1, 0, 1, 0);
     border: 0;
     border-top: 1px solid @hr-border;
 }

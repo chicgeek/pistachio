@@ -107,7 +107,7 @@ svg:not(:root) {
 
 // Address margin not present in IE 8/9 and Safari.
 figure {
-    margin: 1em 40px;
+    .margins(1, 2, 1, 2)
 }
 
 // Contain overflow in all browsers.
@@ -121,8 +121,7 @@ kbd,
 pre,
 samp {
     font-family: @font-family-monospace;
-    font-size: @font-size-base-px;
-    font-size: @font-size-base-rem;
+    .font-size(1);
 }
 
 // Forms
@@ -241,7 +240,7 @@ input[type="search"]::-webkit-search-decoration {
 // Define consistent border, margin, and padding.
 fieldset {
     border: 1px solid @colour-grey-lighter;
-    margin: 0 1em;
+    .margins(0, 1, 0, 1);
     padding: @dimension-padding-base @dimension-padding-lg;
 }
 
