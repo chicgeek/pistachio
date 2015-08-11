@@ -3,6 +3,8 @@ Pistachio
 
 Graze's front end framework.
 
+![Colbert with pistachios](https://camo.githubusercontent.com/a5bca823dee3bb5aa7a9e6cc82abeaf1d78ccf2e/687474703a2f2f692e67697068792e636f6d2f5355625379413179644a74706d2e676966)
+
 Getting Started
 ---
 
@@ -27,6 +29,8 @@ Once installed simply run to view the docs:
 ```
 $ npm run docs
 ```
+
+Docs should now be visible on ```http://localhost:3000/```
 
 Developing
 ---
