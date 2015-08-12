@@ -43,12 +43,14 @@ module.exports = function(pageDir) {
             pages.map(function(page) {
                 var pages = page.split('_');
 
-                pageInfo[pages[0]] = {
-                    name: formatName(pages[0]),
-                    path: pages[0],
-                    current: pages[0] == currentPage,
-                    subpages: []
-                };
+                if (! pageInfo[pages[0]]) {
+                    pageInfo[pages[0]] = {
+                        name: formatName(pages[0]),
+                        path: pages[0],
+                        current: pages[0] == currentPage,
+                        subpages: []
+                    };
+                }
 
                 if (pages.length === 2) {
                     pageInfo[pages[0]].subpages.push({
