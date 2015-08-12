@@ -14,13 +14,30 @@
 }
 
 .nav__item {
-    .nav-style();
+    .nav-item-style();
     display: inline-block;
 }
 
 .nav__item--active {
-    .nav-style-active();
+    .nav-item-style-active();
 }
+
+.nav__heading {
+    .lead();
+    .margins(0, 1, 0, 0);
+}
+
+// inverse colour variant
+.nav--inverse {
+    .nav__item {
+        .nav-item-style(@colour-white, @text-colour, @nav-hover-bg-colour, @nav-hover-bg-colour);
+    }
+
+    .nav__item--active {
+        .nav-item-style-active(@colour-white, @text-colour, @colour-brand, @nav-hover-bg-colour, @colour-white, @colour-white);
+    }
+}
+
 
 //
 // Vertical
