@@ -9,6 +9,10 @@ var exclusionList = [
     'index.hbs'
 ];
 
+var formatName = function(slug) {
+    return slug.replace(/-/g, ' ');
+}
+
 module.exports = function(pageDir) {
     pageDir = pageDir || __dirname + '/../views';
 
@@ -32,16 +36,32 @@ module.exports = function(pageDir) {
         },
 
         // Returns an object of info about all the pages
-        getAllPageInfo: function(currentPage) {
+        getAllPageInfo: function(currentPage, currentSubpage) {
             var pages = this.getPageList();
+            var pageInfo = {};
 
-            return pages.map(function(page) {
-                return pageInfo = {
-                    name: page.replace(/(-|_)/, ' '),
-                    path: page,
-                    current: currentPage === page
+            pages.map(function(page) {
+                var pages = page.split('_');
+
+                if (! pageInfo[pages[0]]) {
+                    pageInfo[pages[0]] = {
+                        name: formatName(pages[0]),
+                        path: pages[0],
+                        current: pages[0] == currentPage,
+                        subpages: []
+                    };
+                }
+
+                if (pages.length === 2) {
+                    pageInfo[pages[0]].subpages.push({
+                        name: formatName(pages[1]),
+                        path: pages.join('/'),
+                        current: pages[1] == currentSubpage,
+                    });
                 }
             });
+
+            return pageInfo;
         },
 
         // Checks a page exists in a view
