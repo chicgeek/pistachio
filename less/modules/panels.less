@@ -1,11 +1,12 @@
 // Includes
 @import '../includes/variables';
 @import '../includes/mixins';
+@import '../../node_modules/reflex-grid/less/reflex/variables';
+@import '../../node_modules/reflex-grid/less/reflex/mixins';
 
 //
 // Panels
 // ===
-
 .panel {
     position: relative;
     margin-bottom: @dimension-spacing-default;
@@ -23,25 +24,14 @@
 a.panel {
     .transition(all 0.1s ease-out);
     display: block;
-    color: @text-colour;
-    font-weight: @font-weight-base;
-
-    &:hover,
-    &:focus {
-        outline: none;
-        text-decoration: none;
-        background-color: @colour-white;
-        border-color: @link-colour;
-        color: @text-colour;
-        .box-shadow(0 0 8px @colour-accent);
-    }
+    .panel-link-reset();
 }
 
 //
 // Modifiers
 // ---
 .panel--shadow {
-    box-shadow: 0px 2px 3px @colour-grey-lighter;
+    .box-shadow(0px 2px 3px @colour-grey-lighter);
 }
 
 .panel--brand {
@@ -73,4 +63,72 @@ a.panel {
 .panel__body {
     .inner-content-fix();
     padding: @dimension-spacing-default;
+}
+
+//
+// flexbox panels (used with reflex grid)
+// ===
+a.grid__panel {
+    .panel-link-reset();
+
+    &:hover,
+    &:focus {
+        .box-shadow(none);
+        background-color: inherit;
+
+        .grid__panel-header-img,
+        .grid__panel-header,
+        .grid__panel-body,
+        .grid__panel-footer {
+            border-color: @link-colour;
+        }
+    }
+}
+
+.grid__panel--shadow {
+    .grid__panel-header-img,
+    .grid__panel-header,
+    .grid__panel-body,
+    .grid__panel-footer {
+        .box-shadow(0px 2px 3px @colour-grey-lighter);
+    }
+}
+
+.grid__panel-header-img {
+    border: 1px solid @colour-grey-lighter;
+    border-bottom: none;
+    border-radius: @dimension-border-radius @dimension-border-radius 0 0;
+}
+
+.grid__panel-header {
+    margin-bottom: @dimension-spacing-default;
+    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    border: 1px solid @colour-grey-lighter;
+    border-bottom: none;
+    border-radius: @dimension-border-radius @dimension-border-radius 0 0;
+}
+
+.grid__panel-body {
+    .inner-content-fix();
+    padding: @dimension-spacing-default;
+    border: 1px solid @colour-grey-lighter;
+    border-top: none;
+    border-bottom: none;
+    background-color: @colour-white;
+}
+
+.grid__panel-footer {
+    .justify-content-space-between();
+    .align-items(center);
+    padding: 0 @dimension-spacing-default (@dimension-spacing-default / 2);
+    border: 1px solid @colour-grey-lighter;
+    border-top: none;
+    border-radius: 0 0 @dimension-border-radius @dimension-border-radius;
+    background-color: @colour-white;
+}
+
+// optional footer style
+.grid__panel-footer--tab {
+    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    background-color: @colour-grey-lightest;
 }

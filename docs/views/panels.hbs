@@ -4,7 +4,7 @@
             <h1>Panels</h1>
             <h2>basic panels</h2>
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-xs-6 col-sm-4">
                     <h4>default panel</h4>
                     <div class="panel">
                         <div class="panel__body">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-xs-6 col-sm-4">
                     <h4>with button</h4>
                     <div class="panel">
                         <div class="panel__body">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-xs-6 col-sm-4">
                     <h4>header and footer</h4>
                     <div class="panel">
                         <div class="panel__header">
@@ -48,21 +48,21 @@
 
             <h2>clickable panels</h2>
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-xs-6 col-sm-4">
                     <h4>with image</h4>
                     <a class="panel panel--shadow" href="javascript:void(0);">
                         <div class="panel__body">
-                            <img src="https://d1resj5rq6z30k.cloudfront.net/static/11-1437381390/images/graze/en/nutrition-plans/product-shots/flapjack/1.png" class="img-responsive">
+                            <img src="http://lorempixel.com/400/200/food/1" class="img-responsive">
                             <p>
                                 Proactively envisioned multimedia based expertise and cross-media growth strategies.
                             </p>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 col-sm-6">
+               <div class="col-xs-6 col-sm-4">
                     <h4>full width image</h4>
                     <a class="panel panel--shadow" href="javascript:void(0);">
-                        <img src="http://lorempixel.com/400/200/food/1" class="img-responsive panel__header-img">
+                        <img src="http://lorempixel.com/400/200/food/2" class="img-responsive panel__header-img">
                         <div class="panel__body">
                             <p>
                                 Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains.
@@ -70,7 +70,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-xs-6 col-sm-4">
                     <h4>with footer</h4>
                     <a class="panel panel--shadow" href="javascript:void(0);">
                         <img src="http://lorempixel.com/400/200/food/3" class="img-responsive panel__header-img">
@@ -83,6 +83,109 @@
                             <span class="pull-left">£3.99</span>
                             <span class="pull-right">4 snacks</span>
                             <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <h2 id="panel-grid">panel grid</h2>
+            <p>Panel grid with same height panels and other flexbox properties. Requires <a href="http://leejordan.github.io/reflex/docs/">reflex grid</a>. More info on the <a href="/grid">grid page</a></p>
+            <div class="row">
+                <div class="grid">
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/1" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Proactively envisioned multimedia based expertise and cross-media growth strategies.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/2" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Interactively procraxstinate high-payoff content.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/3" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/4" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Proactively envisioned multimedia.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/5" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Proactively envisioned multimedia.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/6" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Interactively procraxstinate high-payoff content.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/7" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Proactively envisioned multimedia based expertise and cross-media growth strategies.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
+                        </div>
+                    </a>
+                    <a class="grid__col-xs-6 grid__col-sm-4 grid__col-md-3 grid__panel grid__panel--shadow" href="javascript:void(0);">
+                        <img src="http://lorempixel.com/400/200/food/8" class="grid__cell-img grid__panel-header-img">
+                        <div class="grid__cell grid__panel-body">
+                            <p>
+                                Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.
+                            </p>
+                        </div>
+                        <div class="grid__cell-footer grid__panel-footer">
+                            <span class="pull-left">£3.99</span>
+                            <span class="pull-right">4 snacks</span>
                         </div>
                     </a>
                 </div>
