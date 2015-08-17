@@ -67,8 +67,6 @@
 // Sub navs
 // ---
 .nav-item-style(@text: @nav-text-colour, @hover-text: @nav-text-colour, @bg: @nav-hover-bg-colour, @focus: @nav-focus-colour) {
-    padding: 0.5em 1em;
-    border-radius: @dimension-border-radius;
     border: 1px solid transparent;
     color: @text;
 
@@ -77,11 +75,9 @@
         color: @hover-text;
         background: @bg;
         border: 1px solid @bg;
-        text-decoration: none;
     }
 
     &:focus {
-        .focus-reset();
         border: 1px solid @focus;
     }
 }
@@ -96,7 +92,6 @@
         color: @hover-text;
         background: @hover-bg;
         border: 1px solid @border;
-        text-decoration: none;
     }
 
     &:focus {
