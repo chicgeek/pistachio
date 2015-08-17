@@ -4,11 +4,6 @@
 //
 //  States
 // ---
-.focus-reset() {
-    outline: none;
-    .box-shadow(none);
-}
-
 .tab-focus(@colour: @colour-accent) {
     outline: 3px solid @colour;
     outline-offset: 0;
@@ -34,10 +29,31 @@
 }
 
 //
+// state resets
+// ---
+.focus-reset() {
+    outline: none;
+    .box-shadow(none);
+}
+
+.panel-link-reset() {
+    color: @text-colour;
+    font-weight: @font-weight-base;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        text-decoration: none;
+        background-color: @colour-white;
+        border-color: @link-colour;
+        color: @text-colour;
+    }
+}
+
+//
 // Lists
 // ---
 .list-unstyled() {
-    display: inline-block;
     list-style: none;
     padding: 0;
 
@@ -51,6 +67,7 @@
 // Inline turns list items into inline-block
 .list-inline() {
     .list-unstyled();
+    display: inline-block;
 
     li {
         display: inline-block;
