@@ -311,12 +311,12 @@
 // Alert variants
 // ---
 .alert-variant(@icon-unicode, @background, @text-colour) {
-    color: @text-colour;
     background-color: lighten(@background, 2.5%);
     color: @text-colour;
-    border-left: 6px solid darken(@background, 5%);
+    border-left: 5px solid darken(@background, 10%);
 
     a {
+        text-decoration: underline;
         color: darken(@text-colour, 10%);
 
         &:focus,
