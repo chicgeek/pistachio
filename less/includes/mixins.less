@@ -29,7 +29,7 @@
 }
 
 //
-// state resets
+// State resets
 // ---
 .focus-reset() {
     outline: none;
@@ -301,7 +301,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-// used in bespoke loading icon animation
+// Used in bespoke loading icon animation
 .icon-loading-format() {
     display: inline-block;
     border-radius: 100%;
@@ -315,12 +315,12 @@
 // Alert variants
 // ---
 .alert-variant(@icon-unicode, @background, @text-colour) {
-    color: @text-colour;
     background-color: lighten(@background, 2.5%);
     color: @text-colour;
-    border-left: 6px solid darken(@background, 5%);
+    border-left: 5px solid darken(@background, 10%);
 
     a {
+        text-decoration: underline;
         color: darken(@text-colour, 10%);
 
         &:focus,
@@ -355,4 +355,12 @@
     & > :last-child {
         margin-bottom: 0;
     }
+}
+
+//
+// Standardised shadows
+// ---
+
+.drop-shadow(@offset-x: 0, @offset-y: 2px) {
+    .box-shadow(@offset-x @offset-y 2px @colour-grey-lighter);
 }
