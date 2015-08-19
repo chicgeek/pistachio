@@ -65,14 +65,15 @@ ol {
 
 ul {
     list-style-type: none;
+    padding: 0 0 0 1.5em;
     .margins(1, 0, 1, 0);
-    padding: 0;
 
     li {
         &:before {
             content: "\25cf"; //html entity "black circle"
             color: @colour-brand;
-            padding-right: @dimension-padding-base;
+            padding-right: 0.9em;
+            margin-left: -1.5em;
         }
     }
 }
