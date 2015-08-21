@@ -1,9 +1,14 @@
 var gulp = require('gulp');
 var log = require('./build/log');
 var compileLess = require('./build/compile-less');
+var rename = require('gulp-rename');
+var aws = require('aws-sdk');
 var stylestats = require('gulp-stylestats');
 var argv = require('minimist')(process.argv.slice(2));
 var path = require('path');
+var es = require('event-stream');
+var mime = require('mime');
+var package = require('./package');
 
 // Build tasks
 gulp.task('build', ['build:less']);
@@ -84,4 +89,39 @@ gulp.task('test:less', function(cb) {
             }
         });
     });
+});
+
+// Publish the project to s3.
+gulp.task('publish', ['build'], function() {
+
+    var s3 = new aws.S3({ region: 'us-east-1'});
+
+    var version = ("for-real" in argv) ? package.version : 'dev';
+
+    log.info('Publishing version ' + version);
+
+    // Find all files in the public folders.
+    return gulp.src(['./css/*', './fonts/*'], { base: './' })
+
+        // Update the path to what we want on s3.
+        .pipe(rename(function (file) {
+            file.dirname = version + '/' + file.dirname;
+        }))
+
+        // Upload :rocket:!
+        .pipe(es.map(function (file, callback) {
+            var params = {
+                Bucket: 'graze.pistachio',
+                Key: file.path,
+                ContentType: mime.lookup(file.path),
+                Body: file.contents
+            };
+
+            s3.upload(params, function (error, data) {
+                if (error) log.error('Failed to publish ' + file.path);
+                log.success('Published ' + file.path);
+            });
+
+            callback(null, file);
+        }));
 });
