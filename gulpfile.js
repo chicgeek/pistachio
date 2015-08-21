@@ -118,7 +118,7 @@ gulp.task('publish', ['build'], function() {
             };
 
             s3.upload(params, function (error, data) {
-                if (error) log.error('Failed to publish ' + file.path);
+                if (error) log.error('Failed to publish ' + file.path + ': ' + error);
                 log.success('Published ' + file.path);
             });
 
