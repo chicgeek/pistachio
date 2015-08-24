@@ -11,7 +11,7 @@ var mime = require('mime');
 var package = require('./package');
 
 // Build tasks
-gulp.task('build', ['build:less']);
+gulp.task('build', ['build:less', 'build:fonts']);
 
 // Build CSS from LESS
 gulp.task('build:less', function(cb) {
@@ -22,6 +22,17 @@ gulp.task('build:less', function(cb) {
         file: file,
         dest: dest,
         done: cb
+    });
+});
+
+gulp.task('build:fonts', function(cb) {
+    var file = argv.f || './node_modules/font-awesome/fonts/*';
+    var dest = argv.d || './fonts/font-awesome';
+
+    gulp.src(file)
+    .pipe(gulp.dest(dest))
+    .on('end', function() {
+        cb();
     });
 });
 

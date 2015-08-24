@@ -2,51 +2,18 @@
 // Icons
 // ---
 
-[class^="icon-"]:before, [class*=" icon-"]:before {
-    .icon();
-}
+@font-awesome-path: "../../node_modules/font-awesome/less";
 
+@import '@{font-awesome-path}/variables';
+@import '@{font-awesome-path}/mixins';
+@import '@{font-awesome-path}/path';
+@import '@{font-awesome-path}/core';
+@import '@{font-awesome-path}/larger';
+@import '@{font-awesome-path}/stacked';
+@import '@{font-awesome-path}/icons';
 
-.icon-zoom-in:before { content: '\e800'; }
-.icon-minus:before { content: '\e801'; }
-.icon-up-circled:before { content: '\e802'; }
-.icon-info-circled:before { content: '\e803'; }
-.icon-help-circled:before { content: '\e804'; }
-.icon-warning:before { content: '\e805'; }
-.icon-danger:before { content: '\e806'; }
-.icon-ok-circled:before { content: '\e807'; }
-.icon-user:before { content: '\e808'; }
-.icon-logout:before { content: '\e809'; }
-.icon-pin:before { content: '\e80a'; }
-.icon-flight:before { content: '\e80b'; }
-.icon-print:before { content: '\e80c'; }
-.icon-mail:before { content: '\e80d'; }
-.icon-tag:before { content: '\e80e'; }
-.icon-plus:before { content: '\e80f'; }
-.icon-repeat:before { content: '\e810'; }
-.icon-gift:before { content: '\e811'; }
-.icon-shuffle:before { content: '\e812'; }
-.icon-settings:before { content: '\e813'; }
-.icon-edit:before { content: '\e814'; }
-.icon-history:before { content: '\e815'; }
-.icon-down-big:before { content: '\e816'; }
-.icon-right:before { content: '\e817'; }
-.icon-left:before { content: '\e818'; }
-.icon-up-dir:before { content: '\e819'; }
-.icon-down-dir:before { content: '\e81a'; }
-.icon-facebook-squared:before { content: '\e81b'; }
-.icon-twitter-squared:before { content: '\e81c'; }
-.icon-tumblr-squared:before { content: '\e81d'; }
-.icon-instagram:before { content: '\e81e'; }
-.icon-linkedin-squared:before { content: '\e81f'; }
-.icon-code:before { content: '\e820'; }
-.icon-down-circled:before { content: '\e821'; }
-.icon-up-big:before { content: '\e822'; }
-.icon-angle-up:before { content: '\e823'; }
-.icon-angle-down:before { content: '\e824'; }
-.icon-search:before { content: '\e825'; }
-.icon-angle-right:before { content: '\e826'; }
-.icon-angle-left:before { content: '\e827'; }
+// Override path to fonts
+@fa-font-path:  '@{font-path}/font-awesome/';
 
 //
 // Bespoke loading icon (animation applied in animations.less)
