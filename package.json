@@ -7,7 +7,8 @@
     "test": "gulp build && gulp dev:profile",
     "postinstall": "gulp build",
     "docs": "gulp build && gulp test:less && node ./docs/app.js",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "start": "node ./docs/app.js"
   },
   "repository": {
     "type": "git",
@@ -38,5 +39,5 @@
     "moment": "^2.10.6",
     "node-cmd": "^1.0.2",
     "reflex-grid": "^1.0.2"
-  }
+   }
 }
