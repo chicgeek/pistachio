@@ -11,7 +11,7 @@ var mime = require('mime');
 var package = require('./package');
 
 // Build tasks
-gulp.task('build', ['build:less', 'build:fonts']);
+gulp.task('build', ['build:less', 'build:fonts', 'test:less']);
 
 // Build CSS from LESS
 gulp.task('build:less', function(cb) {

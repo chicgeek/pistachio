@@ -6,7 +6,7 @@
   "scripts": {
     "test": "gulp build && gulp dev:profile",
     "postinstall": "gulp build",
-    "docs": "gulp build && gulp test:less && node ./docs/app.js",
+    "docs": "gulp build && node ./docs/app.js",
     "dev": "gulp dev",
     "start": "node ./docs/app.js"
   },
