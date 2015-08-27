@@ -92,7 +92,7 @@ gulp.task('test:less', function(cb) {
                 .on('end', function() {
                     log.info('Generated stats for ' + cssFileName);
 
-                    if (i === files.length) {
+                    if (i + 1 === files.length) {
                         log.success('Finished generating test information');
                         cb();
                     }
@@ -112,7 +112,7 @@ gulp.task('publish', ['build'], function() {
     log.info('Publishing version ' + version);
 
     // Find all files in the public folders.
-    return gulp.src(['./css/*', './fonts/*'], { base: './' })
+    return gulp.src(['./css/**/*.*', './fonts/**/*.*'], { base: './' })
 
         // Update the path to what we want on s3.
         .pipe(rename(function (file) {
