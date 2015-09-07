@@ -1,8 +1,8 @@
 # Pistachio
 
-<img src="https://camo.githubusercontent.com/a5bca823dee3bb5aa7a9e6cc82abeaf1d78ccf2e/687474703a2f2f692e67697068792e636f6d2f5355625379413179644a74706d2e676966" align="right" alt="Colbert with pistachios" />
+<img src="https://camo.githubusercontent.com/a5bca823dee3bb5aa7a9e6cc82abeaf1d78ccf2e/687474703a2f2f692e67697068792e636f6d2f5355625379413179644a74706d2e676966" align="right" alt="Colbert with pistachios" width="300" />
 
-[![Heroku](http://heroku-badge.herokuapp.com/?app=graze-pistachio&style=flat)]
+![Heroku](http://heroku-badge.herokuapp.com/?app=graze-pistachio&style=flat)
 
 Graze's front end framework.
 
