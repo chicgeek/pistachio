@@ -164,9 +164,16 @@
     width: auto;
 }
 
-.button-icon(@icon-code: "\f054") {
+.button-icon(@icon-code: "\f054"; @position: right) {
     position: relative;
-    padding-right: 2em;
+
+    & when (@position = left) {
+        padding-left: 2em;
+    }
+
+    & when (@position = right) {
+        padding-right: 2em;
+    }
 
     &:after {
         content: @icon-code;
@@ -176,7 +183,14 @@
         .opacity(0.8);
         position: absolute;
         top: 0.75em;
-        right: 0.5em;
+
+        & when (@position = right) {
+            right: 0.5em;
+        }
+
+        & when (@position = left) {
+            left: 0.5em;
+        }
     }
 
     &:hover,
