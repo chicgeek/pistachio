@@ -9,5 +9,6 @@
     "modules/page-sections.less",
     "modules/pagination.less",
     "modules/panels.less",
-    "modules/tables.less"
+    "modules/tables.less",
+    "modules/stickers.less"
 ]
