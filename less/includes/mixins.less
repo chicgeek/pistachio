@@ -379,7 +379,12 @@
 //
 // Standardised shadows
 // ---
+.drop-shadow() {
+    .inside(@depth: @dimension-shadow-lg) {
+        .box-shadow(inset 0 @depth @depth @colour-grey-lighter);
+    }
 
-.drop-shadow(@offset-x: 0, @offset-y: 2px) {
-    .box-shadow(@offset-x @offset-y 2px @colour-grey-lighter);
+    .outside(@depth: @dimension-shadow-lg) {
+        .box-shadow(0 @depth @depth @colour-grey-lighter);
+    }
 }
