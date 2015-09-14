@@ -4,9 +4,9 @@ var beautify = require('js-beautify').html;
 var hljs = require('highlight.js');
 
 var escapeHtml = function(html) {
-    html = hljs.highlight('html', beautify(html));
+    var cleaned = hljs.highlight('html', beautify(html));
 
-    return html.value;
+    return cleaned.value || html;
 };
 
 module.exports = {
@@ -27,9 +27,9 @@ module.exports = {
     codeBlock: function(className, options) {
         if (! options) {
             options = className;
-            className = '';
+            className = 'xml';
         }
 
-        return '<pre class="hljs xml ' + className + '">' + escapeHtml(options.fn(this)) +  '</pre>';
+        return '<pre class="hljs ' + className + '">' + escapeHtml(options.fn(this)) +  '</pre>';
     }
 };
