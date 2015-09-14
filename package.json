@@ -6,9 +6,10 @@
   "scripts": {
     "test": "gulp build && gulp dev:profile",
     "postinstall": "gulp build",
-    "docs": "gulp build && node ./site/dev/app.js",
+    "docs": "gulp build && node ./site/docs/app.js",
     "dev": "gulp dev",
-    "start": "node ./site/dev/app.js"
+    "dev-docs": "gulp build && node ./site/dev/app.js",
+    "start": "node ./site/docs/app.js"
   },
   "repository": {
     "type": "git",
