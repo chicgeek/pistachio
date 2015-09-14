@@ -10,19 +10,66 @@ var es = require('event-stream');
 var mime = require('mime');
 var package = require('./package');
 
+// Less files that need to be compiled to CSS
+var lessFileList = [
+    // Main
+    './less/pistachio.less',
+
+    // Common/base styles
+    './less/common.less',
+
+    // Modules
+    './less/modules/alerts.less',
+    './less/modules/breadcrumb.less',
+    './less/modules/buttons.less',
+    './less/modules/forms.less',
+    './less/modules/navigation.less',
+    './less/modules/page-sections.less',
+    './less/modules/pagination.less',
+    './less/modules/panels.less',
+    './less/modules/tables.less',
+    './less/modules/stickers.less',
+
+    // Docs
+    './less/docs.less',
+
+    // Highlight styles
+    './node_modules/highlight.js/styles/github-gist.css'
+];
+
+var recursiveLessCompiler = function(files, done) {
+    var out = './public/css';
+    var index = 0;
+
+    var recursor = function() {
+        compileLess({
+            file: files[index],
+            dest: './public/css',
+            done: function() {
+                index ++;
+
+                if (index === files.length) {
+                    if (typeof done === 'function') {
+                        done();
+                    }
+
+                    return;
+                }
+
+                return recursor();
+            }
+        });
+    }
+
+    return recursor();
+}
+
 // Build tasks
-gulp.task('build', ['build:less', 'build:fonts', 'test:less']);
+gulp.task('build', ['build:fonts', 'build:stats']);
 
 // Build CSS from LESS
 gulp.task('build:less', function(cb) {
-    var file = argv.f || './less/pistachio.less';
-    var dest = argv.d || './css';
-
-    compileLess({
-        file: file,
-        dest: dest,
-        done: cb
-    });
+    recursiveLessCompiler(lessFileList, cb);
 });
 
 gulp.task('build:fonts', function(cb) {
@@ -36,32 +83,50 @@ gulp.task('build:fonts', function(cb) {
     });
 });
 
+gulp.task('build:stats', ['build:less'], function(cb) {
+    // Exclude stats for these files
+    var excludeFileList = [
+        './less/docs.less',
+        './node_modules/highlight.js/styles/github-gist.css'
+    ];
+
+    //
+    var files = lessFileList.filter(function(item) {
+        return excludeFileList.indexOf(item) === -1;
+    });
+
+    files.forEach(function(file) {
+        var cssFileName = path.basename(file).replace('.less', '.css');
+
+        gulp.src('./public/css/' + cssFileName)
+        .pipe(stylestats({
+            type: 'json',
+            outfile: true
+        }))
+        .pipe(gulp.dest('./tests/results'))
+        .on('end', function() {
+            log.info('Generated stats for ' + cssFileName);
+        });
+    });
+});
+
 // Misc dev tasks
 gulp.task('dev', ['dev:profile', 'dev:less']);
 
 // Watch LESS dir and build to ./css
 // Then publish CSS
 gulp.task('dev:less', function(cb) {
-    // Compiler function
-    var compile = function() {
-        compileLess({
-            file: './less/pistachio.less',
-            dest: './css'
-        });
-    };
-
-    // Compile on method call
-    compile();
+    recursiveLessCompiler(lessFileList);
 
     // Watch all LESS files and recompile
     gulp.watch('./less/**/*.less', function() {
-        compile();
+        recursiveLessCompiler(lessFileList);
     });
 });
 
 // Get style stats on css
 gulp.task('dev:profile', function(cb) {
-    var file = argv.f || './css/pistachio.css';
+    var file = argv.f || './public/css/pistachio.css';
 
     gulp.src(file)
     .pipe(stylestats())
@@ -70,55 +135,19 @@ gulp.task('dev:profile', function(cb) {
     });
 });
 
-// Testing tasks
-gulp.task('test', ['test:less']);
-
-gulp.task('test:less', function(cb) {
-    var files = require('./tests/less-files');
-
-    files.forEach(function(file, i) {
-        var cssFileName = path.basename(file).replace('.less', '.css');
-
-        compileLess({
-            file: './less/' + file,
-            dest: './css',
-            done: function() {
-                gulp.src('./css/' + cssFileName)
-                .pipe(stylestats({
-                    type: 'json',
-                    outfile: true
-                }))
-                .pipe(gulp.dest('./tests/results'))
-                .on('end', function() {
-                    log.info('Generated stats for ' + cssFileName);
-
-                    if (i + 1 === files.length) {
-                        log.success('Finished generating test information');
-                        cb();
-                    }
-                });
-            }
-        });
-    });
-});
-
 // Publish the project to s3.
 gulp.task('publish', ['build'], function() {
-
     var s3 = new aws.S3({ region: 'us-east-1'});
-
     var version = ("for-real" in argv) ? package.version : 'dev';
 
     log.info('Publishing version ' + version);
 
     // Find all files in the public folders.
-    return gulp.src(['./css/**/*.*', './fonts/**/*.*'], { base: './' })
-
+    return gulp.src(['./public/**/*.*'], { base: './' })
         // Update the path to what we want on s3.
         .pipe(rename(function (file) {
             file.dirname = version + '/' + file.dirname;
         }))
-
         // Upload :rocket:!
         .pipe(es.map(function (file, callback) {
             var params = {

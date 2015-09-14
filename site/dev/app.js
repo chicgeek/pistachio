@@ -5,7 +5,7 @@ var pageContext = require('../lib/page-context')();
 var app = site({
     layoutsDir: __dirname + '/views/layouts',
     viewsDir: __dirname + '/views/',
-    staticDir: __dirname + '/../../'
+    staticDir: __dirname + '/../../public/'
 });
 
 // Setup specific page context
