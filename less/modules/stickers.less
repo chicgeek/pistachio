@@ -1,0 +1,95 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
+//
+// Stickers
+// ===
+
+// Base sticker
+.sticker {
+    font-family: "graze-font", helvetica;
+    font-size: 1.2em;
+    letter-spacing: -.03em;
+    border-radius: 50%;
+    background-color: @colour-white;
+    color: @colour-brand;
+    border: 3px solid @colour-brand;
+    display: table;
+    overflow: hidden;
+    .drop-shadow.outside();
+    .square(@dimension-sticker-regular);
+    .rotate(@dimension-rotate-default);
+}
+
+// Sticker size modifiers
+.sticker--sm {
+    font-size: 1em;
+    border-width: 2px;
+    .square(@dimension-sticker-sm);
+}
+
+.sticker--lg {
+    font-size: 1.2em;
+    .square(@dimension-sticker-lg);
+}
+
+.sticker--xlg {
+    font-size: 1.6em;
+    border-width: 4px;
+    .square(@dimension-sticker-xlg);
+}
+
+// Sticker colour modifiers
+.sticker--inverse {
+    background-color: @colour-brand;
+    color: @colour-white;
+    border-color: @colour-white;
+}
+
+.sticker--promo {
+    background-color: @colour-white;
+    color: @colour-error;
+    border-color: @colour-error;
+}
+
+.sticker--promo-inverse {
+    background-color: @colour-error;
+    color: @colour-white;
+    border-color: @colour-white;
+}
+
+// Sticker elements
+.sticker__content {
+    text-align: center;
+    padding-top: .25em;
+    display: table-cell;
+    vertical-align: middle;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.sticker__text {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.sticker__text--xs {
+    font-size: 0.6em;
+}
+
+.sticker__text--sm {
+    font-size: 0.7em;
+}
+
+.sticker__text--lg {
+    font-size: 1.4em;
+}
+
+.sticker__text--soft {
+    text-transform: lowercase;
+}

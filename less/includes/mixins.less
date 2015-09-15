@@ -381,10 +381,10 @@
 // ---
 .drop-shadow() {
     .inside(@depth: @dimension-shadow-lg) {
-        .box-shadow(inset 0 @depth @depth @colour-grey-lighter);
+        .box-shadow(inset 0 @depth @depth fade(@colour-black, 25%));
     }
 
     .outside(@depth: @dimension-shadow-lg) {
-        .box-shadow(0 @depth @depth @colour-grey-lighter);
+        .box-shadow(0 @depth @depth fade(@colour-black, 25%));
     }
 }

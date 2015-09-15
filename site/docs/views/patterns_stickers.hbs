@@ -1,0 +1,130 @@
+<h1 class="cd-text cd-title">stickers</h1>
+
+<div class="alert alert--info">
+    <h4>optional stylesheet</h4>
+    <p>Stickers are not available as a core component in pistachio and must be required as an additional module.</p>
+</div>
+
+<h2 class="cd-text cd-title">colours</h2>
+
+{{#each stickers.colours}}
+<h3 class="cd-text cd-title">{{ title }}</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="sticker {{ modifier }}">
+            <div class="sticker__content">
+                <span class="sticker__text">try a</span>
+                <span class="sticker__text sticker__text--lg">free</span>
+                <span class="sticker__text">box</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        {{#codeBlock 'xml margin-reset'}}
+        <div class="sticker {{ modifier }}">
+            <div class="sticker__content">
+                <span class="sticker__text">try a</span>
+                <span class="sticker__text sticker__text--lg">free</span>
+                <span class="sticker__text">box</span>
+            </div>
+        </div>
+        {{/codeBlock}}
+    </div>
+</div>
+{{/each}}
+
+<h2 class="cd-text cd-title">sizes</h2>
+
+{{#each stickers.sizes}}
+<h3 class="cd-text cd-title">{{ title }}</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="sticker {{ modifier }}">
+            <div class="sticker__content">
+                <span class="sticker__text">try a</span>
+                <span class="sticker__text sticker__text--lg">free</span>
+                <span class="sticker__text">box</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        {{#codeBlock 'xml margin-reset'}}
+        <div class="sticker {{ modifier }}">
+            <div class="sticker__content">
+                <span class="sticker__text">try a</span>
+                <span class="sticker__text sticker__text--lg">free</span>
+                <span class="sticker__text">box</span>
+            </div>
+        </div>
+        {{/codeBlock}}
+    </div>
+</div>
+{{/each}}
+
+<h2 class="cd-text cd-title">variations</h2>
+
+<h3 class="cd-text cd-title">lowercase text</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="sticker">
+            <div class="sticker__content">
+                <span class="sticker__text">just</span>
+                <span class="sticker__text sticker__text--lg">£15.99</span>
+                <span class="sticker__text sticker__text--sm sticker__text--soft">a box delivered</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        {{#codeBlock 'xml margin-reset'}}
+        <div class="sticker">
+            <div class="sticker__content">
+                <span class="sticker__text">just</span>
+                <span class="sticker__text sticker__text--lg">£15.99</span>
+                <span class="sticker__text sticker__text--sm sticker__text--soft">a box delivered</span>
+            </div>
+        </div>
+        {{/codeBlock}}
+    </div>
+</div>
+
+<h3 class="cd-text cd-title">two lines</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="sticker">
+            <div class="sticker__content">
+                <span class="sticker__text sticker__text--sm sticker__text--soft">first box</span>
+                <span class="sticker__text sticker__text--lg">£15.99</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        {{#codeBlock 'xml margin-reset'}}
+        <div class="sticker">
+            <div class="sticker__content">
+                <span class="sticker__text sticker__text--sm sticker__text--soft">first box</span>
+                <span class="sticker__text sticker__text--lg">£15.99</span>
+            </div>
+        </div>
+        {{/codeBlock}}
+    </div>
+</div>
+
+<h3 class="cd-text cd-title">one line</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="sticker">
+            <div class="sticker__content">
+                <span class="sticker__text sticker__text--lg">£15.99</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        {{#codeBlock 'xml margin-reset'}}
+        <div class="sticker">
+            <div class="sticker__content">
+                <span class="sticker__text sticker__text--lg">£15.99</span>
+            </div>
+        </div>
+        {{/codeBlock}}
+    </div>
+</div>

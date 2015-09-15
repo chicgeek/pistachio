@@ -1,0 +1,158 @@
+<h1 class="cd-text cd-title">forms</h1>
+<p class="cd-text">We've tried to stay close to default form styling to keep our form UI as familiar to users as possible whilst offering usibility tweaks to make them more mobile performant and accessible. Forms are for the user to submit information to us and should therefore be functional and useable above all else.</p>
+
+<div class="panel">
+    <div class="panel__body">
+        <h4 class="cd-text cd-title"><i>heads up!</i></h4>
+        <p class="cd-text"><i>Form elements are not styled by default.  Please pay attention to different form classes and modifiers in order to style a form element.</i></p>
+    </div>
+</div>
+
+<h2 class="cd-text cd-title">usage notes</h2>
+<p class="cd-text">The goal of a form is for a user to provide information. Therefore, we should make sure that the the user is guided as clearly as possible towards this goal. Above all else keep it simple!
+<ol class="cd-text">
+    <li><strong>Use succinct, unambiguous messaging</strong> to guide the user via combinations of labels, placeholders, contextual help messages, and validation.</li>
+    <li><strong>Always ensure you have enough room</strong> for your fields. The user should be able to see what they have entered into a field at smaller viewport sizes. You can use bootstrap column classes in your form to have multiple inputs per row but remember useability is the most important concern here and you should not sacrifice that for the sake of fitting everything into a smaller space.</li>
+    <div class="spacer-sm"></div>
+    <li><strong>Labels should always be present</strong>; do not rely entirely on a placeholder. Once an input is focused the placeholder disappears and the user has lost context for the input.</li>
+    <div class="spacer-sm"></div>
+    <li><strong>Labels should always be directly above the input</strong>. This is learnt and expected behaviour and greatly improves clarity and engagement, especially on mobile.</li>
+    <div class="spacer-sm"></div>
+    <li><strong>Placeholders should only be used sparingly</strong> when they can provide a meaningful suggestion as to the expected structure of the content. They should not simply repeat the label. Acceptable uses of placeholder:</li>
+    <div class="spacer-sm"></div>
+    <ul>
+        <li>"e.g. Sam Smith" for name inputs</li>
+        <li>"example@address.com" for email inputs</li>
+        <li>"3 digits on back of card" for security number</li>
+    </ul>
+</ol>
+
+<h2 class="cd-text cd-title">example form</h2>
+<p class="cd-text">Below is an example form to get you off on the right foot.</p>
+
+<h3 class="cd-text cd-title">example</h3>
+{{{ getFile 'site/docs/views/examples/forms/form.html' }}}
+
+<h3 class="cd-text cd-title">code</h3>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/form.html' }}}
+{{/codeBlock}}
+
+
+<h2 class="cd-text cd-title">inputs, textareas &amp; dropdowns</h2>
+<p class="cd-text">These form elements are controlled by a master <code>.form-control</code> class.</p>
+
+<h3 class="cd-text cd-title">text input</h3>
+{{{ getFile 'site/docs/views/examples/forms/input.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">disabled input</h3>
+{{{ getFile 'site/docs/views/examples/forms/input-disabled.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input-disabled.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">textarea</h3>
+{{{ getFile 'site/docs/views/examples/forms/textarea.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/textarea.html' }}}
+{{/codeBlock}}
+<p class="cd-text"><b>Quick Note:</b> Use the <code>rows=""</code> attribute to control textarea height. 6 rows should be considered the minimum size for a textarea. Textareas have a corresponding <code>min-height</code> to ensure they do not fall below this minimum size.</p>
+
+<h3 class="cd-text cd-title">dropdowns</h3>
+{{{ getFile 'site/docs/views/examples/forms/dropdown.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/dropdown.html' }}}
+{{/codeBlock}}
+<p class="cd-text"><b>Warning:</b> Use select boxes sparingly. Dropdowns have known usability issues and their use is discouraged where possible. Inline radio buttons are often a better solution.</p>
+
+<h2 class="cd-text cd-title">checkboxes and radio buttons</h2>
+<p class="cd-text">Checkboxes and radio buttons should be used to allow users to select from a list of options with ease.</p>
+
+<h3 class="cd-text cd-title">checkboxes</h3>
+{{{ getFile 'site/docs/views/examples/forms/checkboxes.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/checkboxes.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">radio buttons</h3>
+{{{ getFile 'site/docs/views/examples/forms/radio-buttons.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/radio-buttons.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">inline radio buttons</h3>
+{{{ getFile 'site/docs/views/examples/forms/radio-buttons-inline.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/radio-buttons-inline.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">validation states</h2>
+<p class="cd-text">Validation states provide visual feedback for users during form use to guide their input and highlight erroneous fields.</p>
+
+<h3 class="cd-text cd-title">valid</h3>
+{{{ getFile 'site/docs/views/examples/forms/input-valid.html' }}}
+<br>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input-valid.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">invalid</h3>
+{{{ getFile 'site/docs/views/examples/forms/input-invalid.html' }}}
+<br>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input-invalid.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">validation approach</h2>
+<p class="cd-text">Ideally, all forms should work without the use of JavaScript by default. The most robust forms use three levels of form validation:</p>
+
+<h3 class="cd-text cd-title">1) back end validation</h3>
+<p class="cd-text">Firstly you should validate in the back end. We don't want anything unexpected hitting our databases so we should always handle validation ourselves in the end point that the form submits to. Any error states should be fed back to the view that is loaded and displayed with the corresponding <a href="#validation-states">validation state</a>.
+
+<h3 class="cd-text cd-title">2) HTML validation</h3>
+<p class="cd-text">We also use HTML validation on the front end to aid in usability. We always try to guide the user to successfully completing the form by making it very clear exactly what we expect to be entered and HTML validation helps with this.</p>
+
+<h4 class="cd-text cd-title">type</h4>
+<p class="cd-text">Always use the most appropriate input type. Using the correct input type will aid users on mobile devices especially by providing a context sensitive keyboard. For example using an email type input will give mobile users a keyboard with the @ symbol present and also allow the browser to validate the field itself.</p>
+<p class="cd-text">MDN has a useful list of available <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#Attributes">HTML5 input types</a> for your reference.</p>
+
+{{{ getFile 'site/docs/views/examples/forms/input-validate-email.html' }}}
+<br>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input-validate-email.html' }}}
+{{/codeBlock}}
+
+<h4 class="cd-text cd-title">pattern</h4>
+<p class="cd-text">The pattern attribute allows you to define a valid field value via regex. When using a pattern it is not obvious to the user what pattern has been specified so we should always provide supporting information via some combination of labels, placeholders, and contextual help messages.</p>
+
+<p class="cd-text">HTML5pattern.com has a <a href="http://html5pattern.com/Names">useful list of common patterns</a></p>
+
+
+{{{ getFile 'site/docs/views/examples/forms/input-validate-pattern.html' }}}
+<br>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input-validate-pattern.html' }}}
+{{/codeBlock}}
+
+
+<h4 class="cd-text cd-title">Required</h4>
+<p class="cd-text">HTML5 capable browsers will flag inputs with this attribute as required and not allow the user to submit the form until the input has a value.</p>
+
+{{{ getFile 'site/docs/views/examples/forms/input-validate-required.html' }}}
+<br>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/forms/input-validate-required.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">3) JavaScript validation</h3>
+<p class="cd-text">HTML validation is fairly widely supported but only works on form submission. It's therefore a good idea to use some kind of JavaScript validation on your forms to provide some extra polish.</p>
+<p class="cd-text">There are numerous libraries available to handle form validation but regardless of which one you use, or whether you roll your own, They should be used to duplicate your back end validation as much as possible and to provide useful feedback to the user while they are interacting with your form by adding the appropriate <a href="#validation-states">validation state</a> to fields as the user interacts with them.</p>
+
+<h4 class="cd-text cd-title">good practices</h4>
+<ul class="cd-text">
+    <li>Display success states as soon as the user has entered valid information to provide positive feedback and hopefully get them moving on to the next field</li>
+    <li>Correct error states as soon as they are fixed, do not wait for user to move focus out of the field before displaying a success state</li>
+</ul>

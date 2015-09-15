@@ -14,7 +14,7 @@ var formatName = function(slug) {
 }
 
 module.exports = function(pageDir) {
-    pageDir = pageDir || __dirname + '/../views';
+    pageDir = pageDir || './views';
 
     return {
         // Returns an array of pages found in the views dir

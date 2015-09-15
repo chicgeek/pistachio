@@ -1,6 +1,6 @@
 .DS_Store
 /node_modules
-/css
 npm-debug.log
 /tests/results
-/fonts/font-awesome
+/public/fonts/font-awesome
+/public/css

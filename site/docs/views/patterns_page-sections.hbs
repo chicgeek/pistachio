@@ -1,0 +1,60 @@
+<h1 class="cd-text cd-title">page sections</h1>
+<p class="cd-text">Page sections help break up bages and give content some much needed breathing space.</p>
+
+<div class="panel">
+    <div class="panel__body">
+        <h4 class="cd-text cd-title"><i>heads up!</i></h4>
+        <p class="cd-text"><i>Due to our styleguide layout, all examples are contained in a content area.  Page sections should generally be used to cover the whole page width for maximum effect.</p>
+        <p class="cd-text">See <a href="/layouts/">layout examples</a> for more appropriate use.</i></p>
+    </div>
+</div>
+
+<h3 class="cd-text cd-title">example</h3>
+{{{ getFile 'site/docs/views/examples/page-section.html' }}}
+
+<h3 class="cd-text cd-title">code</h3>
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/page-section.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">types</h2>
+<p class="cd-text">There are lots of different variations of page sections, but each has a specific use.</p>
+
+<h3 class="cd-text cd-title">colour modifiers</h3>
+
+<div class="page-section page-section--alternate text-center">
+    <p>Modifer: <code>.page-section--alternate</code></p>
+</div>
+<br>
+
+<div class="page-section page-section--brand text-center">
+    <p>Modifer: <code>.page-section--brand</code></p>
+</div>
+
+<h3 class="cd-text cd-title">background images</h3>
+
+<div class="page-section page-section--image text-center" style="background-image: url('https://unsplash.imgix.net/photo-1428908684367-2fe456a630bb?fit=crop&fm=jpg&h=700&q=75&w=1050')">
+    <p>Modifer: <code>.page-section--image</code></p>
+</div>
+<br>
+
+<div class="page-section page-section--brand page-section--image text-center" style="background-image: url('https://ununsplash.imgix.net/photo-1428699190791-2c4f8b144d06?fit=crop&fm=jpg&h=1575&q=75&w=1050')">
+    <p>Modifer: <code>.page-section--brand.page-section--image</code></p>
+</div>
+
+<h3 class="cd-text cd-title">size modifiers</h3>
+<p class="cd-text">Default padding size is <b>3em</b>.</p>
+
+<div class="page-section page-section--alternate page-section--xs text-center">
+    <p>Extra Small: <b>.75em</b> <code>.page-section--xs</code></p>
+</div>
+<br>
+
+<div class="page-section page-section--alternate page-section--sm text-center">
+    <p>Small: <b>1.5em</b> <code>.page-section--sm</code></p>
+</div>
+<br>
+
+<div class="page-section page-section--alternate page-section--lg text-center">
+    <p>Large: <b>6em</b> <code>.page-section--lg</code></p>
+</div>

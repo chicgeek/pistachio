@@ -1,0 +1,39 @@
+<form method="get" action="/">
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" class="form-control" id="email" name="email" required="" placeholder="example@address.com">
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="first-name">first name</label>
+            <input type="text" class="form-control" id="first-name" name="first-name" required="">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="last-name">last name</label>
+            <input type="text" class="form-control" id="last-name" name="last-name" required="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="radio-block">how often would you like your snacks?</label><br>
+        <div class="radio">
+            <label>
+                <input type="radio" name="radio-block" value="One" checked="checked">once a fortnight
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="radio-block" value="Two">once a week
+            </label>
+        </div>
+        <div class="radio disabled">
+            <label>
+                <input type="radio" name="radio-block" value="Three" disabled="">twice a week
+            </label>
+        </div>
+    </div>
+
+    <button class="button button--secondary">back</button>
+    <button class="button button--primary button--continue" type="submit">continue</button>
+</form>

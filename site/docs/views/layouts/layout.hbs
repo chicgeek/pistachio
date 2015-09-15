@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="experience-core">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Graze Catwalk | {{ title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/github-gist.css">
+    <link rel="stylesheet" type="text/css" href="/css/pistachio.css">
+    <link rel="stylesheet" type="text/css" href="/css/stickers.css">
+    <link rel="stylesheet" type="text/css" href="/css/docs.css">
+
+    <script type="text/javascript">
+    {{{ getFile 'js/cuts-the-mustard.js' }}}
+    </script>
+</head>
+<body>
+
+<header class="page-section page-section--sm page-section--brand cd-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 cd-text">
+                <p>graze.com | pistachio</p>
+            </div>
+
+            <div class="col-sm-8 text-right cd-text">
+                <ul class="nav nav--inverse margin-reset cd-text--uppercase">
+                    {{#if home}}
+                    <li>
+                        <a class="nav__item nav__item--active" tabindex="-1" href="/">
+                            about
+                        </a>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a class="nav__item" href="/">
+                            about
+                        </a>
+                    </li>
+                    {{/if}}
+                    {{#each pages}}
+                        {{#if current}}
+                        <li>
+                            <a class="nav__item nav__item--active" tabindex="-1" href="/{{ path }}">
+                                {{ name }}
+                            </a>
+                        </li>
+                        {{else}}
+                        <li>
+                            <a class="nav__item" href="/{{ path }}">
+                                {{ name }}
+                            </a>
+                        </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{#if sidebar }}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 cd-text cd-text--uppercase">
+            {{#if subpages }}
+            <ul class="nav nav--vertical">
+                {{#each subpages}}
+                    {{#if current}}
+                        <li>
+                            <a class="nav__item nav__item--active" tabindex="-1" href="/{{ path }}">
+                                {{ name }}
+                            </a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a class="nav__item" href="/{{ path }}">
+                                {{ name }}
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            {{/if}}
+        </div>
+
+        <div class="col-sm-9">
+            <div class="cd-page-nav">
+                <p class="cd-text cd-title">jump to:</p>
+                <ol class="cd-text cd-text--uppercase"></ol>
+            </div>
+
+            {{{ body }}}
+        </div>
+
+    </div>
+</div>
+{{else}}
+    {{{ body }}}
+{{/if}}
+
+<script type="text/javascript">
+{{{ getFile 'js/docs.js' }}}
+</script>
+</body>
+</html>
