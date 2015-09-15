@@ -74,7 +74,7 @@ gulp.task('build:less', function(cb) {
 
 gulp.task('build:fonts', function(cb) {
     var file = argv.f || './node_modules/font-awesome/fonts/*';
-    var dest = argv.d || './fonts/font-awesome';
+    var dest = argv.d || './public/fonts/font-awesome';
 
     gulp.src(file)
     .pipe(gulp.dest(dest))
