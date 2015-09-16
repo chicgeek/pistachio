@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="cd-text cd-title">Layouts</h1>
+
+            {{#if subpages }}
+            <ul>
+                {{#each subpages}}
+                    {{#if current}}
+                        <li>
+                            <a tabindex="-1" href="/{{ path }}">
+                                {{ name }}
+                            </a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a href="/{{ path }}">
+                                {{ name }}
+                            </a>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
