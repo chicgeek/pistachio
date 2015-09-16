@@ -2,11 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 page-section__content">
-                <h1 class="cd-title">graze pistachio</h1>
+                <h1 class="cd-title">Pistachio - the front end framework and styleguide for graze.com</h1>
 
-                <p>This is our style guide and pattern library - we call it 'pistachio'. A living, breathing document that helps everyone who works with graze.com build a consistent experience for its users.</p>
+                <p>Welcome to our style guide and pattern library - we call it 'pistachio'. It is intended to help everyone who works with graze.com build a consistent experience for our users.</p>
 
                 <p>If you would like to provide any feedback on this, please email <a href="mailto:pistachio@graze.com">pistachio@graze.com</a>.</p>
+
+                <div class="cd-page-nav">
+                    <p class="cd-text cd-title">jump to:</p>
+                    <ol class="cd-text cd-text--uppercase"></ol>
+                </div>
             </div>
         </div>
     </div>
@@ -16,14 +21,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 page-section__content">
-                <h2 class="cd-title">what do we do?</h2>
+                <h2 class="cd-title">branding</h2>
+                <h3 class="cd-title">what do we do at graze?</h3>
 
                 <p>We create exciting snack combinations that make you feel good. We combine wholesome ingredients, taste expertise and inventive ideas to make good exciting. You get something positive from every graze snack, so you can feel good.</p>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-4">
                 <h3 class="cd-title">personality</h3>
 
                 <ul>
@@ -31,10 +33,8 @@
                     <li>Creative - tuned in and full of ideas.</li>
                     <li>Helpful - a knowledgeable friend that never judges.</li>
                 </ul>
-            </div>
 
-            <div class="col-sm-4">
-                <h3 class="cd-title">tone of voice</h3>
+                <h3 class="cd-title">tone of voice</h2>
 
                 <ul>
                     <li>Confident</li>
@@ -42,14 +42,119 @@
                     <li>Witty</li>
                     <li>Conversational</li>
                 </ul>
-            </div>
 
-            <div class="col-sm-4">
-                <h3 class="cd-title">key brand values</h3>
+                <p>This is only a short overview and for further info or advice feel free to contact <a href="mailto:creative@graze.com">creative@graze.com</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section cd-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 page-section__content">
+                <h2 class="cd-title">web design/ux principles</h2>
 
                 <ul>
-                    <li>Good and exciting</li>
-                    <li>Contemporary and natural</li>
+                    <li><strong>Use clear messaging</strong> to guide the user. All buttons, links, and calls to action should have descriptive text which communicate our personality and tone of voice.</li>
+                    <li><strong>Use white space</strong> to break up sections of the page instead of hard lines. Alternatively, use differently coloured page sections.</li>
+                    <li><strong>Use product photography freely</strong>. We're proud of our products and like to show them off with high quality photography.</li>
+                    <li><strong>No gimmicks</strong>. We stick with what works best and prefer to use conventional patterns rather then re-invent the wheel. We want websites everybody can use without a learning curve.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section page-section--alternate cd-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 page-section__content">
+                <h2 class="cd-title">progressive enhancement</h2>
+                <blockquote>
+                    <p>When an elevator fails, it's useless. When an escalator fails, it becomes stairs. We should be building escalators, not elevators.</p>
+                    <footer>
+                        <a href="https://jakearchibald.com/2013/progressive-enhancement-still-important/">- Jake Archibald</a>
+                    </footer>
+                </blockquote>
+
+                <p>At graze we believe in the principles of progressive enhancement for reasons of performance, reliability, and accessiblity. It's a widely discussed subject but here are the key points:</p>
+
+                <ul>
+                    <li>basic content should be accessible to all web browsers</li>
+                    <li>basic functionality should be accessible to all web browsers</li>
+                    <li>sparse, semantic markup</li>
+                    <li>layout is provided by externally linked CSS</li>
+                    <li>enhanced behavior is provided by <a href="https://en.wikipedia.org/wiki/Unobtrusive_JavaScript">unobtrusive</a>, externally linked JavaScript</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section cd-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 page-section__content">
+                <h2 class="cd-title">browser support</h2>
+
+                <blockquote>
+                    <p>
+                        Browsers are the most hostile software development environment imaginable.
+                    </p>
+                    <footer>
+                        - Douglas Crockford
+                    </footer>
+                </blockquote>
+
+                <h3 class="cd-title">Cutting the Mustard</h3>
+                <p>In order to create enhanced experiences for users with modern browsers, we need to be able to tell whether we have the support for some baseline features. Our approach is taken from FT Labs Origami <a href="http://origami.ft.com/docs/developer-guide/using-modules/#core-vs-enhanced-experience">core/enhanced check</a> and implements a small piece of inline JS which switches a class in the <code>&lt;html&gt;</code> tag.</p>
+
+                <h3 class="cd-title">Javascript:</h3>
+                {{#codeBlock 'javascript'}}
+                {{{ getFile '/js/cuts-the-mustard.js' }}}
+                {{/codeBlock}}
+
+                <h3 class="cd-title">CSS:</h3>
+                <div class="row">
+                    <div class="col-md-6 experience-enhanced">
+                        <div class="panel">
+                            <div class="panel__body">
+                                <h4 class="cd-title">.experience-enhanced .if-js</h4>
+                                <p class="if-js"><i class="icon-ok-circled"></i> Visible <b>with</b> compatible JS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 experience-core">
+                        <div class="panel">
+                            <div class="panel__body">
+                                <h4 class="cd-title">.experience-core .if-js</h4>
+                                <p class="if-js"><i class="icon-ok-circled"></i> Visible <b>without</b> compatible JS</p>
+                                <p><small>(not visible)</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="cd-title">Browser support list</h3>
+                <p>The baseline feature detection tells us that these browsers cut the mustard:</p>
+                <ul>
+                    <li>IE 9</li>
+                    <li>Firefox 3.5</li>
+                    <li>Opera 10.5</li>
+                    <li>Safari 4</li>
+                    <li>iPhone and iPad iOS 1</li>
+                    <li>Android phone and tablets 2.1</li>
+                    <li>Blackberry OS 6</li>
+                    <li>Opera Mobile 11.5</li>
+                    <li>Chrome (all)</li>
+                    <li>Mobile Firefox (all)</li>
+                </ul>
+                <p>We consider browsers on this list to be fully support for enhanced functionality and any browsers that fall outside of this list are considered supported for core functionality only. This means that we do not serve enhanced experience JavaScript to browsers that do not cut the mustard, with the exception of core business functionality which may include:</p>
+                <ul>
+                    <li>Placing an order</li>
+                    <li>Providing payment details</li>
                 </ul>
             </div>
         </div>
