@@ -19,7 +19,7 @@ pageContext.setPageVars('patterns', {
 // Home page routing
 app.get('/', function(req, res) {
     res.render('index', pageContext.get('home', {
-        title: 'home',
+        title: 'The front end framework and styleguide for graze.com',
         pages: pages.getAllPageInfo(),
         home: true
     }));
