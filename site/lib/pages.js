@@ -4,7 +4,7 @@ var path = require('path');
 // Cache pages so we don't thrash file lookups
 var pageList = [];
 
-// Pages to exlucde from list
+// Pages to exclude from list
 var exclusionList = [
     'index.hbs'
 ];

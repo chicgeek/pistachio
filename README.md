@@ -55,6 +55,7 @@ $ npm run dev-docs
 
 Dev sandbox should now be visible on ```http://localhost:3000/```
 
+[More info about the sites](site/README.md)
 
 Deploying
 --
