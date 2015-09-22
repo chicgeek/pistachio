@@ -78,6 +78,10 @@ ul {
     }
 }
 
+.grid > li:before {
+    content: none; // fix for reflex grid when using lists as a grid
+}
+
 // Images
 img {
     vertical-align: middle;
