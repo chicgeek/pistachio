@@ -150,7 +150,7 @@ gulp.task('publish', ['build'], function() {
     return gulp.src(['./public/**/*.*'], { base: './' })
         // Update the path to what we want on s3.
         .pipe(rename(function (file) {
-            file.dirname = version + '/' + file.dirname;
+            file.dirname = version + '/' + file.dirname.replace('public/', '');
         }))
         // Upload :rocket:!
         .pipe(es.map(function (file, callback) {
