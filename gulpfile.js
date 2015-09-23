@@ -95,7 +95,7 @@ gulp.task('build:stats', ['build:less'], function(cb) {
         return excludeFileList.indexOf(item) === -1;
     });
 
-    files.forEach(function(file) {
+    files.forEach(function(file, i) {
         var cssFileName = path.basename(file).replace('.less', '.css');
 
         gulp.src('./public/css/' + cssFileName)
@@ -106,6 +106,10 @@ gulp.task('build:stats', ['build:less'], function(cb) {
         .pipe(gulp.dest('./tests/results'))
         .on('end', function() {
             log.info('Generated stats for ' + cssFileName);
+
+            if (i === files.length - 1) {
+                cb();
+            }
         });
     });
 });
