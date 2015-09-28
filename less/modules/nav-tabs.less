@@ -7,12 +7,10 @@
 // ===
 
 //
-// Default (pills)
+// Horizontal
 // ---
 .nav {
     .list-inline();
-    .clearfix();
-    display: block;
     margin: 0;
 }
 
@@ -46,9 +44,7 @@
     .margins(0, 1, 0, 0);
 }
 
-//
-// Default inverse (pills)
-// ---
+// inverse colour variants
 .nav--inverse {
     .nav__item {
         .nav-item-style(
@@ -73,193 +69,74 @@
     }
 }
 
-//
-// Block variant
-// ---
+// block variant
 .nav--block {
-    > li {
-        display: block;
-        float: left;
-        margin: 0;
-
-        .nav__item {
-            .nav-item-style(
-
-            );
-            padding: 1em;
-            border-radius: 0;
-        }
-
-        .nav__item--active {
-            .nav-item-style-active(
-
-            );
-        }
-
-        & > * {
-            .margin-reset();
-        }
-    }
-}
-
-
-//
-// Inverse block variant
-// ---
-.nav--inverse.nav--block {
-    > li {
-        display: block;
-        float: left;
-        margin: 0;
-
-        .nav__item {
-            .nav-item-style(
-                @colour-white,
-                @text-colour,
-                @colour-brand,
-                @colour-grey-lightest,
-                @colour-grey-lightest,
-                @colour-grey-lightest
-            );
-            padding: 1em;
-            border-radius: 0;
-        }
-
-        .nav__item--active {
-            .nav-item-style-active(
-                @colour-brand,
-                @colour-brand,
-                @colour-white,
-                @colour-white,
-                @colour-white,
-                @colour-white
-            );
-        }
-    }
-}
-
-//
-// Tabbed nav variant
-// ---
-.nav--tabs {
-    > li {
-        .margins(0.5, 0, 0, 0.5);
-
-        .nav__item {
-            .nav-item-style(
-                @colour-white,
-                @text-colour,
-                @colour-brand,
-                @colour-grey-lightest,
-                @colour-grey-lightest,
-                @colour-grey-lightest
-            );
-            padding: 0.5em 1em 1em;
-            border-radius: @dimension-border-radius @dimension-border-radius 0 0;
-        }
-
-        .nav__item--active {
-            .nav-item-style-active(
-                @colour-brand,
-                @colour-brand,
-                @colour-white,
-                @colour-white,
-                @colour-white,
-                @colour-white
-            );
-        }
-    }
-}
-
-//
-// Tabbed nav with drop down menu
-// ---
-.nav-dropdown-wrapper {
-    position: relative;
-}
-
-.nav--dropdown-tabs {
-    > li {
-        display: block;
-        float: left;
-        .margins(0.5, 0, 0, 0);
-
-        &:first-of-type {
-            // .margins(0.5, 0, 0, 0.5);
-        }
-
-        .nav__item {
-            padding: 0.5em 1em 1em;
-            border-radius: @dimension-border-radius @dimension-border-radius 0 0;
-            color: @colour-white;
-
-            &:hover {
-                color: @colour-brand;
-                background: @colour-white;
-                border: 1px solid @colour-white;
-            }
-
-            &:focus {
-                color: @colour-white;
-                background: transparent;
-                border: 1px solid @colour-brand;
-            }
-        }
-
-        &:hover {
-            .nav__item {
-                color: @colour-brand;
-                background: @colour-white;
-                border: 1px solid @colour-white;
-            }
-
-            .nav__menu {
-                display: block;
-            }
-        }
-    }
-}
-
-.nav__menu {
-    .drop-shadow.outside();
-    .border-bottom-radius(@dimension-border-radius);
-    display: none;
-    z-index: 1;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin-top: 0;
-    padding: 1em 0;
-    background-color: @colour-white;
-    // border: 1px solid @border-colour;
-    border-top: none;
-}
-
-.nav__sub-menu {
     display: block;
+    background-color: @colour-brand;
 
-    > li {
+    li {
         display: block;
-    }
+        float: left;
+        margin: 0;
 
-    .nav__item {
-        display: block;
+        .nav__item {
+            .nav-item-style(
+                @colour-white,
+                @text-colour,
+                @colour-brand,
+                @colour-grey-lightest,
+                @colour-grey-lightest,
+                @colour-grey-lightest
+            );
+            padding: 1em;
+            border-radius: 0;
+        }
+
+        .nav__item--active {
+            .nav-item-style-active(
+                @colour-brand,
+                @colour-brand,
+                @colour-white,
+                @colour-white,
+                @colour-white,
+                @colour-white
+            );
+        }
     }
 }
 
-.nav__sub-menu__header {
-    padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
-    font-weight: @font-weight-strong;
-    border-bottom: 1px solid @border-colour;
-    color: @text-colour;
-}
+// tabs variant
+.nav--tabs {
+    display: block;
+    background-color: @colour-brand;
 
-.nav__menu__footer {
-    padding-top: 0.5em;
-    margin-top: 2em;
-    border-top: 1px solid @border-colour;
+    li {
+        margin: 0;
+
+        .nav__item {
+            .nav-item-style(
+                @colour-white,
+                @text-colour,
+                @colour-brand,
+                @colour-grey-lightest,
+                @colour-grey-lightest,
+                @colour-grey-lightest
+            );
+            padding: 1em;
+            border-radius: 0;
+        }
+
+        .nav__item--active {
+            .nav-item-style-active(
+                @colour-brand,
+                @colour-brand,
+                @colour-white,
+                @colour-white,
+                @colour-white,
+                @colour-white
+            );
+        }
+    }
 }
 
 //
@@ -268,7 +145,7 @@
 .nav--vertical {
     display: block;
 
-    > li {
+    li {
         display: block;
     }
 
@@ -279,11 +156,11 @@
 }
 
 //
-// Mobile nav--vertical styles
+// Mobile vertical
 // ---
 @media (max-width: @screen-sm-min) {
     .nav--vertical {
-        > li {
+        li {
             margin: 0;
             border-bottom: 1px solid @colour-grey-lightest;
 

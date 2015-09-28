@@ -67,42 +67,52 @@
 // Inline turns list items into inline-block
 .list-inline() {
     .list-unstyled();
-    display: inline-block;
+    display: block;
 
-    li {
+    > li {
         display: inline-block;
         padding: 0;
         .margins(0.5, 0, 0.5, 0);
-
-        &:before {
-            display: none;
-        }
     }
 }
 
 //
 // Sub navs
 // ---
-.nav-item-style(@text: @nav-text-colour, @hover-text: @nav-text-colour, @bg: @nav-hover-bg-colour, @focus: @nav-focus-colour) {
+.nav-item-style(
+        @text: @text-colour,
+        @hover-text: @text-colour,
+        @bg: transparent,
+        @hover-bg: @colour-grey-lightest,
+        @border: @colour-grey-lightest,
+        @focus-border: @colour-grey-lightest
+    ) {
     padding: 0.5em 1em;
-    border-radius: @dimension-border-radius;
     border: 1px solid transparent;
     color: @text;
+    background: @bg;
 
     &:hover,
     &:focus {
         color: @hover-text;
-        background: @bg;
-        border: 1px solid @bg;
+        background: @hover-bg;
+        border: 1px solid @border;
     }
 
     &:focus {
         .focus-reset();
-        border: 1px solid @focus;
+        border: 1px solid @focus-border;
     }
 }
 
-.nav-item-style-active(@text: @colour-white, @hover-text: @colour-white, @bg: @colour-brand, @hover-bg: @colour-brand, @border: @colour-brand, @focus: @colour-brand) {
+.nav-item-style-active(
+        @text: @colour-white,
+        @hover-text: @colour-white,
+        @bg: @colour-brand,
+        @hover-bg: @colour-brand,
+        @border: @colour-brand,
+        @focus-border: @colour-brand
+    ) {
     color: @text;
     background: @bg;
     border: 1px solid @border;
@@ -116,7 +126,7 @@
 
     &:focus {
         .focus-reset();
-        border: 1px solid @focus;
+        border: 1px solid @focus-border;
     }
 }
 
@@ -260,6 +270,10 @@
     margin: ~"@{top}rem" ~"@{right}rem" ~"@{bottom}rem" ~"@{left}rem"
 }
 
+.margin-reset() {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 //
 // Text
