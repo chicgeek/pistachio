@@ -1,10 +1,16 @@
 <h1 class="cd-text cd-title">pagination</h1>
 <p class="cd-text">Sometimes we have lots of content that needs to be split into pages.  This is where our pagination component comes in handy.</p>
+<p class="cd-text">The pagination module is set to inline-block by default so you can use the <a href="utilities#responsive-text-alignment">responsive text alignment utilities</a> to influence it's positiong across various viewport sizes. This is the recommended approach (centered on mobile, right aligned on desktop).
 
-<h3 class="cd-text cd-title">example</h3>
-{{{ getFile 'site/docs/views/examples/pagination.html' }}}
-
-<h3 class="cd-text cd-title">code</h3>
+<h3 class="cd-text cd-title">default</h3>
+{{{ getFile 'site/docs/views/examples/pagination/pagination.html' }}}
 {{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/pagination.html' }}}
+    {{{ getFile 'site/docs/views/examples/pagination/pagination.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">vertical</h3>
+<p>This version use the <code>.pagination--vertical</code> class to stack the description above the pagination and centers it.</p>
+{{{ getFile 'site/docs/views/examples/pagination/pagination-vertical.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/pagination/pagination-vertical.html' }}}
 {{/codeBlock}}

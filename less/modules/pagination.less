@@ -7,23 +7,23 @@
 // ===
 
 .pagination {
-    text-align: center;
-    margin-bottom: 1em;
+    display: block;
 }
 
 .pagination__description {
-    .small();
-    margin-bottom: 0.5em;
+    display: inline-block;
 }
 
 .pagination__list {
     .list-inline();
+    display: inline-block;
     margin: 0;
 }
 
 .pagination__list__item {
-    display: block;
+    display: inline-block;
     .nav-item-style();
+    border-radius: @dimension-border-radius;
 }
 
 .pagination__list__item--active {
@@ -35,3 +35,10 @@
     color: @colour-grey-lightest;
 }
 
+.pagination--vertical {
+    .pagination__description,
+    .pagination__list {
+        display: block;
+        text-align: center;
+    }
+}
