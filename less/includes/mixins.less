@@ -4,28 +4,28 @@
 //
 //  States
 // ---
-.tab-focus(@colour: @colour-accent) {
-    outline: 3px solid @colour;
-    outline-offset: 0;
+.tab-focus(@colour: @link-colour) {
+    outline: none;
     background-color: @colour;
     color: @colour-white;
     text-decoration: none;
+    .box-shadow(0 0 0 2px @colour);
+    border-radius: @dimension-border-radius;
 }
 
-.button-focus(@colour: @colour-accent) {
-    outline: 2px auto @colour;
-    outline-offset: -2px;
-    .box-shadow(0 0 8px @colour-accent);
+.button-focus(@colour: @link-colour) {
+    outline: none;
+    .box-shadow(0 0 0 2px @colour);
 }
 
 .button-active(@colour: @colour-grey-lighter) {
     .box-shadow(inset 0 1px 4px @colour);
 }
 
-.form-control-focus(@colour: @colour-accent) {
-    border-color: @colour;
-    outline: 4px auto @colour;
-    outline-offset: -2px;
+.form-focus(@colour: @colour-brand) {
+    outline: none;
+    @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 0 2px @colour;
+    .box-shadow(@shadow);
 }
 
 //
@@ -39,6 +39,7 @@
 .panel-link-reset() {
     color: @text-colour;
     font-weight: @font-weight-base;
+    text-decoration: none;
 
     &:hover,
     &:focus {
@@ -91,6 +92,7 @@
     border: 1px solid transparent;
     color: @text;
     background: @bg;
+    text-decoration: none;
 
     &:hover,
     &:focus {
@@ -133,10 +135,11 @@
 //
 // Buttons
 // ---
-.button-style(@colour: @colour-grey-lightest, @text: @text-colour) {
+.button-style(@colour: @colour-grey-lightest, @text: @text-colour, @border-focus: @colour-brand) {
     @colour-dark: darken(@colour, 5%);
     @colour-light: lighten(@colour, 8%);
     color: @text;
+    text-decoration: none;
     border: 1px solid @colour-dark;
     #gradient > .vertical(@colour-light, @colour);
     border-radius: @dimension-border-radius;
@@ -149,16 +152,16 @@
     }
 
     &:focus {
-        .button-focus(@colour-dark);
+        .button-focus(@border-focus);
     }
 
     &:active {
-        .button-active(@colour-dark);
+        .button-active(darken(@colour-dark, 10%));
     }
 
     &.button--active {
         #gradient > .vertical(darken(@colour-light, 4%), @colour-dark);
-        .button-active(@colour-dark);
+        .button-active(@border-focus);
         color: @text;
         pointer-events: none;
     }
@@ -214,7 +217,7 @@
 //
 // Form states
 // ---
-.form-control-validation(@text-colour: @text-colour; @border-colour: #ccc; @background-color: #f5f5f5) {
+.form-control-validation(@text-colour: @text-colour; @border-colour: @border-colour; @background-color: #f5f5f5) {
     // Color the label and help text
     label,
     .form-group__help-block,
@@ -235,8 +238,7 @@
         .box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
 
         &:focus {
-            border-color: darken(@border-colour, 10%);
-            @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@border-colour, 20%);
+            @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 0 2px @border-colour;
             .box-shadow(@shadow);
         }
     }

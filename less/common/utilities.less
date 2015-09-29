@@ -54,14 +54,21 @@
     display: inline-block;
     margin-left: 1em;
     margin-right: 1em;
+    text-decoration: none;
 }
 
 .link-meta {
     font-weight: @font-weight-base;
     color: @colour-grey-light;
+    text-decoration: none;
 
     &:hover {
+        color: @link-colour;
         text-decoration: none;
+    }
+
+    &:focus {
+        color: @colour-white;
     }
 }
 
