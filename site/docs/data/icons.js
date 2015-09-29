@@ -81,6 +81,9 @@ module.exports = [
         name: 'fa-edit'
     },
     {
+        name: 'fa-close'
+    },
+    {
         name: 'fa-info-circle'
     },
     {
