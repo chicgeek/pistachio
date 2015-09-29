@@ -78,6 +78,7 @@ a.grid__panel {
 
         .grid__panel-header-img,
         .grid__panel-header,
+        .grid__panel-top,
         .grid__panel-body,
         .grid__panel-footer {
             border-color: @link-colour;
@@ -88,6 +89,7 @@ a.grid__panel {
 .grid__panel--shadow {
     .grid__panel-header-img,
     .grid__panel-header,
+    .grid__panel-top,
     .grid__panel-body,
     .grid__panel-footer {
         .drop-shadow();
@@ -100,12 +102,24 @@ a.grid__panel {
     border-radius: @dimension-border-radius @dimension-border-radius 0 0;
 }
 
+.grid__panel-top {
+    .inner-content-fix();
+    padding: @dimension-spacing-default;
+    border: 1px solid @colour-grey-lighter;
+    border-bottom: none;
+    border-radius: @dimension-border-radius @dimension-border-radius 0 0;
+}
+
 .grid__panel-header {
-    margin-bottom: @dimension-spacing-default;
+    .inner-content-fix();
     padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
     border: 1px solid @colour-grey-lighter;
     border-bottom: none;
     border-radius: @dimension-border-radius @dimension-border-radius 0 0;
+
+    & ~ .grid__panel-body {
+        padding-top: 0;
+    }
 }
 
 .grid__panel-body {
