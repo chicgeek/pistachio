@@ -77,7 +77,7 @@
 }
 
 //
-// Sub navs
+// Nav styles
 // ---
 .nav-item-style(
         @text: @text-colour,
@@ -395,5 +395,28 @@
 
     .outside(@depth: @dimension-shadow-lg) {
         .box-shadow(0 @depth @depth fade(@colour-black, 25%));
+    }
+}
+
+//
+// Positioning
+// ---
+.position(@position: absolute, @top, @right, @bottom, @left) {
+    position: @position;
+
+    & when (isnumber(@top)), (@top = auto) {
+        top: @top;
+    }
+
+    & when (isnumber(@right)), (@right = auto) {
+        right: @right;
+    }
+
+    & when (isnumber(@bottom)), (@bottom = auto) {
+        bottom: @bottom;
+    }
+
+    & when (isnumber(@left)), (@left = auto) {
+        left: @left;
     }
 }

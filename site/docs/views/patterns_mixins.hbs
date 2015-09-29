@@ -1,0 +1,45 @@
+<h1 class="cd-text cd-title">mixins</h1>
+<p class="cd-text">There are various useful LESS mixins that can be used to extend pistachio and add some bespoke css. Please note that <code>~''</code> is the equivalent of <code>null</code> in LESS syntax.</p>
+
+
+<h2 class="cd-text cd-title">font-size</h2>
+<p class="cd-text">Applies a font size in <code>rem</code> and the same size in <code>px</code> for older browsers.</p>
+
+<h3 class="cd-text cd-title">Syntax</h3>
+<code>.font-size(@size);</code>
+
+<h3 class="cd-text cd-title">Example 1</h3>
+<code>.font-size(1.4);</code>
+
+<p>Result:</p>
+<pre>
+font-size: 20.8px;
+font-size: 1.3rem;
+</pre>
+
+
+<h2 class="cd-text cd-title">position</h2>
+<p class="cd-text">Applies positioning properties</p>
+
+<h3 class="cd-text cd-title">Syntax</h3>
+<code>.position(@position, @top, @right, @bottom, @left);</code>
+
+<h3 class="cd-text cd-title">Example 1</h3>
+<code>.position(absolute, 50px, ~'', ~'', 50px);</code>
+
+<p>Result:</p>
+<pre>
+position: absolute;
+top: 10px;
+left: 50px;
+</pre>
+
+<h3 class="cd-text cd-title">Example 2</h3>
+<code>.position(absolute, ~'', auto, auto, ~'');</code>
+
+<p>Result:</p>
+<pre>
+position: absolute;
+left: auto;
+right: auto;
+</pre>

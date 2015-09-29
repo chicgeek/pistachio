@@ -1,3 +1,5 @@
+@colour-grey-lightest:  #eeeeee;
+
 // Text styling
 .cd-text {
     font-weight: 300;
@@ -55,15 +57,30 @@
 }
 
 // Code styling
-code {
-    background: fade(black, 6%);
-    padding: 0 .25em;
+pre {
+    background-color: @colour-grey-lightest;
+    font-size: 14px;
     border-radius: 3px;
+    padding: .2em .4em;
+}
+
+code {
+    background: @colour-grey-lightest;
+    padding: .15em .25em;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.page-section--brand {
+    code,
+    pre {
+        color: black;
+    }
 }
 
 .hljs {
     font-size: 14px;
-    background: fade(black, 6%);
+    background: @colour-grey-lightest;
     position: relative;
 
     &:after {
