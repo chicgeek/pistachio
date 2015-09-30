@@ -10,7 +10,6 @@
     color: @colour-white;
     text-decoration: none;
     .box-shadow(0 0 0 2px @colour);
-    border-radius: @dimension-border-radius;
 }
 
 .button-focus(@colour: @link-colour) {
@@ -46,8 +45,12 @@
         outline: none;
         text-decoration: none;
         background-color: @colour-white;
-        border-color: @link-colour;
+        border-color: @colour-brand;
         color: @text-colour;
+    }
+
+    &:focus {
+        .box-shadow(0 0 0 2px @colour-brand);
     }
 }
 
@@ -135,12 +138,12 @@
 //
 // Buttons
 // ---
-.button-style(@colour: @colour-grey-lightest, @text: @text-colour, @border-focus: @colour-brand) {
+.button-style(@colour: @colour-grey-lightest, @text: @text-colour, @border: @border-colour, @border-focus: @colour-brand) {
     @colour-dark: darken(@colour, 5%);
     @colour-light: lighten(@colour, 8%);
     color: @text;
     text-decoration: none;
-    border: 1px solid @colour-dark;
+    border: 1px solid @border;
     #gradient > .vertical(@colour-light, @colour);
     border-radius: @dimension-border-radius;
     .box-shadow(inset 0 -.1em 0 @colour-dark);
@@ -238,8 +241,7 @@
         .box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
 
         &:focus {
-            @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 0 2px @border-colour;
-            .box-shadow(@shadow);
+            .form-focus(@border-colour);
         }
     }
 
