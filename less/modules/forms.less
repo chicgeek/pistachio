@@ -164,7 +164,27 @@ label {
 // ---
 
 .form-group {
+    position: relative;
     margin-bottom: @dimension-spacing-default;
+}
+
+// absolutely positioned button over input
+.form-group__add-on {
+    .position(absolute, 0, 0, ~'', ~'');
+    .button-reset();
+    border-radius: (@dimension-border-radius - 1);
+
+    &:hover,
+    &:focus,
+    &:active {
+        .button-reset();
+        background-color: @colour-grey-lightest;
+        border-color: @border-colour;
+    }
+
+    &:focus {
+        .box-shadow(0 0 0 2px @colour-brand);
+    }
 }
 
 // Help text in form-group
