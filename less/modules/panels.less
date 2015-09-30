@@ -74,14 +74,13 @@ a.grid__panel {
     &:hover,
     &:focus {
         .box-shadow(none);
-        background-color: inherit;
 
         .grid__panel-header-img,
         .grid__panel-header,
         .grid__panel-top,
         .grid__panel-body,
         .grid__panel-footer {
-            border-color: @link-colour;
+            border-color: @colour-brand;
         }
     }
 }
@@ -132,7 +131,6 @@ a.grid__panel {
 }
 
 .grid__panel-footer {
-    .justify-content-space-between();
     .align-items(center);
     padding: 0 @dimension-spacing-default (@dimension-spacing-default / 2);
     border: 1px solid @colour-grey-lighter;
