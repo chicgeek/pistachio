@@ -15,7 +15,7 @@
     cursor: pointer;
     font-weight: normal;
     text-align: center;
-    padding: .5em 1em;
+    padding: (@dimension-padding-base + 2) (@dimension-padding-lg + 4);
     .button-style();
 
     &:hover,
@@ -32,10 +32,12 @@
 // Button Sizing
 .button--sm {
     .font-size(0.85);
+    padding: @dimension-padding-base @dimension-padding-lg;
 }
 
 .button--lg {
     .font-size(1.25);
+    padding: (@dimension-padding-lg - 2) (@dimension-padding-lg + 8);
 }
 
 // Bespoke buttons with icons
