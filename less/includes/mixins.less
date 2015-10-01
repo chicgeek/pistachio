@@ -4,10 +4,10 @@
 //
 //  States
 // ---
-.tab-focus(@colour: @link-colour) {
+.tab-focus(@colour: @link-colour, @txt-colour: @colour-white) {
     outline: none;
     background-color: @colour;
-    color: @colour-white;
+    color: @txt-colour;
     text-decoration: none;
     .box-shadow(0 0 0 2px @colour);
 }

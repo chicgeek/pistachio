@@ -50,6 +50,19 @@
 //
 // Links
 // ---
+.link-inverse {
+    color: @colour-white;
+
+    &:hover,
+    &:focus {
+        color: @colour-white;
+    }
+
+    &:focus {
+        .tab-focus(@colour-white, @colour-brand);
+    }
+}
+
 .link-aside {
     display: inline-block;
     margin-left: 1em;

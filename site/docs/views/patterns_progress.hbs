@@ -1,0 +1,13 @@
+<h1 class="cd-text cd-title">progress indicator</h1>
+<p class="cd-text">Indicates progress along a set of steps.</p>
+
+{{{ getFile 'site/docs/views/examples/progress.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/progress.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">update progress on page load</h2>
+<p class="cd-text">To change the progress indicator between pages set the <code>width</code> of the <code>.progress__bar__fill</code> element to your desired percentage. You should also update the <code>aria-valuenow</code> attribute for improved accessiblity.</p>
+
+<h2 class="cd-text cd-title">update progress via JavaScript</h2>
+<p class="cd-text">Changing the width of the <code>.progress__bar__fill</code> element via JavaScript will trigger an animation on the <code>.progress__bar__fill</code> element. You should also update the <code>aria-valuenow</code> attribute at the same time for improved accessiblity.</p>
