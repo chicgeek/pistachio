@@ -10,7 +10,7 @@
 .panel {
     position: relative;
     margin-bottom: @dimension-spacing-default;
-    border: 1px solid @colour-grey-lighter;
+    border: 1px solid @border-colour;
     border-radius: @dimension-border-radius;
     background-color: @colour-white;
 
@@ -32,6 +32,10 @@ a.panel {
 // ---
 .panel--shadow {
     .drop-shadow.outside();
+}
+
+.panel--alternate {
+    background-color: @colour-grey-lightest;
 }
 
 .panel--brand {
