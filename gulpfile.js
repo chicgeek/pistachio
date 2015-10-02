@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var log = require('./build/log');
 var compileLess = require('./build/compile-less');
+var checksum = require('./build/checksum');
 var rename = require('gulp-rename');
 var aws = require('aws-sdk');
 var stylestats = require('gulp-stylestats');
@@ -146,12 +147,20 @@ gulp.task('publish', ['build'], function() {
 
     log.info('Publishing version ' + version);
 
+    // Display the subresource integrity hashes.
+    // See https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43/
+    var pistachioCssPath = './public/css/pistachio.css';
+    log.info('Subresource Integrity:');
+    log.success('sha256-' + checksum(pistachioCssPath, 'sha256'));
+    log.success('sha512-' + checksum(pistachioCssPath, 'sha512'));
+
     // Find all files in the public folders.
     return gulp.src(['./public/**/*.*'], { base: './' })
         // Update the path to what we want on s3.
         .pipe(rename(function (file) {
             file.dirname = version + '/' + file.dirname.replace('public/', '');
         }))
+
         // Upload :rocket:!
         .pipe(es.map(function (file, callback) {
             var params = {
