@@ -20,9 +20,9 @@ var log = function logMessage(colour, prefix) {
  */
 module.exports = {
     // Lovely green successful log
-    success: log('green', '✔'),
+    success: log('green', '✔ '),
     // Big, bad, red errors
-    error: log('red', '✘'),
+    error: log('red', '✘ '),
     // Friendly notices
     info: log('cyan')
 }
