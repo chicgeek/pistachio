@@ -78,28 +78,12 @@
     }
 
     // Remove top border from thead
-    > caption + thead,
-    > colgroup + thead,
     > thead:first-child {
         > tr:first-child {
             > th,
             > td {
                 border-top: 0;
             }
-        }
-    }
-
-    // Row hover effect
-    > tbody > tr:hover {
-      background-color: @table-bg-hover;
-    }
-
-    // Striped rows
-    > tbody > tr:nth-of-type(odd) {
-        background-color: @table-bg-accent;
-
-        &:hover {
-            background-color: @table-bg-hover;
         }
     }
 
@@ -117,5 +101,38 @@
         position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
         float: none;
         display: table-column;
+    }
+}
+
+// Row hover effect
+.table--hover {
+    > tbody > tr {
+        .transition(background-color 0.1s ease-in-out);
+
+        &:hover {
+            background-color: @table-bg-hover;
+        }
+    }
+}
+
+// Striped rows
+.table--striped {
+    & > tbody > tr:nth-of-type(odd) {
+        background-color: @table-bg-accent;
+    }
+
+    &.table--hover {
+        & > tbody > tr:nth-of-type(odd):hover {
+            background-color: @table-bg-hover;
+        }
+    }
+
+    > tbody:last-child {
+        > tr:last-child {
+            > th,
+            > td {
+                border-bottom: 1px solid @table-border-colour;
+            }
+        }
     }
 }

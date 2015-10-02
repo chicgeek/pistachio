@@ -109,6 +109,7 @@ label {
 // input[type="color"]
 
 .form-control {
+    position: relative;
     display: block;
     width: 100%;
     height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
@@ -160,6 +161,7 @@ label {
     }
 }
 
+//
 // Form groups and validation
 // ---
 
@@ -168,23 +170,8 @@ label {
     margin-bottom: @dimension-spacing-default;
 }
 
-// absolutely positioned button over input
-.form-group__add-on {
-    .position(absolute, 0, 0, ~'', ~'');
-    .button-reset();
-    border-radius: (@dimension-border-radius - 1);
-
-    &:hover,
-    &:focus,
-    &:active {
-        .button-reset();
-        background-color: @colour-grey-lightest;
-        border-color: @border-colour;
-    }
-
-    &:focus {
-        .box-shadow(0 0 0 2px @colour-brand);
-    }
+.form-group--bleed {
+    margin-bottom: 0;
 }
 
 // Help text in form-group
@@ -223,19 +210,41 @@ label {
     .form-control-validation(@colour-error; @colour-error; @colour-white);
 }
 
-// Feedback icon
+// Feedback icon above a form-control
 .form-control-feedback {
-    position: absolute;
-    top: ((@font-size-base * @line-height-base) + @dimension-padding-base);
-    bottom: 0;
-    right: 0;
-    z-index: 2; // Ensure icon is above input groups
+    .position(absolute, 0, 0, ~'', ~'');
+    z-index: 2; // Ensure feedback is above input groups
     display: block;
-    width: @input-height-base;
     height: @input-height-base;
+    width: auto;
+    padding: 0 @dimension-padding-lg;
     line-height: @input-height-base;
     text-align: center;
     pointer-events: none;
+}
+
+// absolutely positioned button over input
+.form-control__button {
+    .position(absolute, 0, 0, ~'', ~'');
+    .button-reset();
+    border-radius: (@dimension-border-radius - 1);
+
+    &:hover,
+    &:focus,
+    &:active {
+        .button-reset();
+        background-color: @colour-grey-lightest;
+        border-color: @border-colour;
+    }
+
+    &:focus {
+        .box-shadow(0 0 0 2px @colour-brand);
+    }
+}
+
+label ~ .form-control-feedback {
+    top: ((@font-size-base * @line-height-base) + @dimension-padding-base);
+    bottom: 0;
 }
 
 
@@ -309,6 +318,7 @@ input[type="checkbox"] {
         cursor: @cursor-disabled;
     }
 }
+
 // These classes are used directly on <label>s
 .radio-inline,
 .checkbox-inline {
@@ -317,6 +327,7 @@ input[type="checkbox"] {
         cursor: @cursor-disabled;
     }
 }
+
 // These classes are used on elements with <label> descendants
 .radio,
 .checkbox {
