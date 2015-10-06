@@ -4,15 +4,34 @@
 <div class="panel">
     <div class="panel__body">
         <h4 class="cd-text cd-title">notes</h4>
-        <p class="cd-text">The below example uses the <code>.horizontal-overflow</code> div to contain the table.  This ensures that overflowing tables are scrollable and not distored for users with smaller screens. When applicable, always use this container to ensure optimal display of tables.</p>
+        <p class="cd-text">The below example uses the <code>.horizontal-overflow</code> div to contain the table with a <code>.horizontal-overflow__table</code> class applied to the table.  This ensures that overflowing tables are scrollable and not distorted for users with smaller screens. When applicable, always use this container to ensure optimal display of tables.</p>
     </div>
 </div>
 
 
-<h3 class="cd-text cd-title">example</h3>
-{{{ getFile 'site/docs/views/examples/table.html' }}}
+<h3 class="cd-text cd-title">basic table</h3>
+<p class="cd-text">A basic, minimal, table.</p>
 
-<h3 class="cd-text cd-title">code</h3>
+{{{ getFile 'site/docs/views/examples/tables/table.html' }}}
+
 {{#codeBlock}}
-{{{ getFile 'site/docs/views/examples/table.html' }}}
+{{{ getFile 'site/docs/views/examples/tables/table.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">striped table</h3>
+<p class="cd-text">For added clarity.</p>
+
+{{{ getFile 'site/docs/views/examples/tables/table-striped.html' }}}
+
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/tables/table-striped.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">hover table</h3>
+<p class="cd-text">For interaction.</p>
+
+{{{ getFile 'site/docs/views/examples/tables/table-hover.html' }}}
+
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/tables/table-hover.html' }}}
 {{/codeBlock}}
