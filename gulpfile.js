@@ -143,7 +143,7 @@ gulp.task('dev:profile', function(cb) {
 // Publish the project to s3.
 gulp.task('publish', ['build'], function() {
     var s3 = new aws.S3({ region: 'us-east-1'});
-    var version = ("for-real" in argv) ? package.version : 'dev';
+    var version = ('for-real' in argv) ? package.version : 'dev';
 
     log.info('Publishing version ' + version);
 
@@ -167,6 +167,7 @@ gulp.task('publish', ['build'], function() {
                 Bucket: 'graze.pistachio',
                 Key: file.path,
                 ContentType: mime.lookup(file.path),
+                CacheControl: ('for-real' in argv) ? 'public max-age=31104000' : 'no-cache',
                 Body: file.contents
             };
 
