@@ -56,7 +56,7 @@
         > tr {
             > th,
             > td {
-                padding: @dimension-padding-base @dimension-padding-lg;
+                padding: @dimension-padding-lg;
                 line-height: @line-height-base;
                 vertical-align: top;
                 border-top: 1px solid @table-border-colour;
@@ -70,6 +70,16 @@
 
     tfoot {
         .font-size(0.85);
+    }
+
+    // add bottom border to last row
+    > tbody:last-child {
+        > tr:last-child {
+            > th,
+            > td {
+                border-bottom: 1px solid @table-border-colour;
+            }
+        }
     }
 
     // Bottom align for column headings
@@ -105,6 +115,21 @@
 }
 
 // Row hover effect
+.table--centered {
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            > th,
+            > td {
+                vertical-align: middle;
+                // text-align: center;
+            }
+        }
+    }
+}
+
+// Row hover effect
 .table--hover {
     > tbody > tr {
         .transition(background-color 0.1s ease-in-out);
@@ -124,15 +149,6 @@
     &.table--hover {
         & > tbody > tr:nth-of-type(odd):hover {
             background-color: @table-bg-hover;
-        }
-    }
-
-    > tbody:last-child {
-        > tr:last-child {
-            > th,
-            > td {
-                border-bottom: 1px solid @table-border-colour;
-            }
         }
     }
 }
