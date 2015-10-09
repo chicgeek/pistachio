@@ -7,17 +7,21 @@
 // ===
 
 .breadcrumb__list {
-    .list-inline();
+    .list-inline-style();
     .margins(1, 0, 1, 0);
 
-    li:after {
+    > li {
+        .margins(0, 0, 0, 0);
+    }
+
+    > li:after {
         content: '\f105';
         .icon();
         color: @colour-grey-lighter;
         .margins(0, 0.85, 0, 0.85);
     }
 
-    li:last-of-type:after {
+    > li:last-of-type:after {
         display: none;
     }
 }
