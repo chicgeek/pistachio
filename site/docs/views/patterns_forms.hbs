@@ -16,7 +16,7 @@
     <div class="spacer-sm"></div>
     <li><strong>Labels should always be present</strong>; do not rely entirely on a placeholder. Once an input is focused the placeholder disappears and the user has lost context for the input.</li>
     <div class="spacer-sm"></div>
-    <li><strong>Labels should always be directly above the input</strong>. This is learnt and expected behaviour and greatly improves clarity and engagement, especially on mobile.</li>
+    <li><strong>Labels should nearly always be directly above the input</strong>. This is learnt and expected behaviour and greatly improves clarity and engagement, especially on mobile. Some exceptions can be made for a simple single line form but in general labels above inputs work best.</li>
     <div class="spacer-sm"></div>
     <li><strong>Placeholders should only be used sparingly</strong> when they can provide a meaningful suggestion as to the expected structure of the content. They should not simply repeat the label. Acceptable uses of placeholder:</li>
     <div class="spacer-sm"></div>
@@ -38,17 +38,16 @@
 
 <h2 class="cd-text cd-title">example short form</h2>
 <p class="cd-text">Some forms are only small and suitable for a single line. Inputs line up with buttons for that reason.</p>
-
-<h3 class="cd-text cd-title">with email input</h3>
 {{{ getFile 'site/docs/views/examples/forms/form-short.html' }}}
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/forms/form-short.html' }}}
 {{/codeBlock}}
 
-<h3 class="cd-text cd-title">with select</h3>
-{{{ getFile 'site/docs/views/examples/forms/form-short-select.html' }}}
+<h2 class="cd-text cd-title">example single line form</h2>
+<p class="cd-text">Single line forms are only to be used when a form has a single field.</p>
+{{{ getFile 'site/docs/views/examples/forms/form-short-line.html' }}}
 {{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/forms/form-short-select.html' }}}
+    {{{ getFile 'site/docs/views/examples/forms/form-short-line.html' }}}
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">Search form</h2>
