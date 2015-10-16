@@ -25,6 +25,16 @@ app.get('/', function(req, res) {
     }));
 });
 
+// Custom layout page routing
+app.get('/layouts/off-screen-menu', function(req, res) {
+    var page = 'layouts_off-screen-menu';
+
+    res.render(page, pageContext.get('/layouts/off-screen-menu', {
+        layout: 'blank',
+        title: page.replace(/(-|_)/g, ' ')
+    }));
+});
+
 // Top level page routing
 app.get('/:page', function(req, res) {
     var page = req.params.page;
@@ -55,14 +65,6 @@ app.get('/:page/:subpage', function(req, res) {
             subpages: pageList[page].subpages
         }));
     }
-});
-
-// Home page routing
-app.get('/', function(req, res) {
-    res.render('index', pageContext.get('home', {
-        title: 'home',
-        pages: pages.getAllPageInfo()
-    }));
 });
 
 // Launch app

@@ -183,6 +183,7 @@
 .button-block() {
     display: block;
     width: 100%;
+    margin-bottom: @dimension-padding-base;
 }
 
 .button-block-reset() {
@@ -434,3 +435,11 @@
         left: @left;
     }
 }
+
+//
+// Off-screen menu
+// ---
+.off-screen-menu-transition() {
+    .transition(transform @off-screen-transition-duration);
+}
+

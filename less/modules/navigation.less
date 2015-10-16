@@ -7,7 +7,7 @@
 // ===
 
 //
-// Default (pills)
+// Default
 // ---
 .nav {
     .list-inline-style();
@@ -17,6 +17,7 @@
 
     > li {
         .margins(0.5, 0, 0.5, 0);
+        vertical-align: middle;
     }
 }
 
@@ -24,7 +25,7 @@
     .nav-item-style();
     display: inline-block;
     padding: 0.5em 1em;
-    border-radius: @dimension-border-radius;
+
 
     &:hover,
     &:focus {
@@ -46,12 +47,11 @@
 }
 
 .nav__heading {
-    .lead();
     .margins(0, 1, 0, 0);
 }
 
 //
-// Default inverse (pills)
+// Default inverse
 // ---
 .nav--inverse {
     .nav__item {
@@ -78,6 +78,13 @@
 }
 
 //
+// Variants for nav_item
+// ---
+.nav__item--pill {
+    border-radius: @dimension-border-radius;
+}
+
+//
 // Block variant
 // ---
 .nav--block {
@@ -87,36 +94,16 @@
         margin: 0;
 
         .nav__item {
-            .nav-item-style(
-
-            );
             padding: 1em;
-            border-radius: 0;
-        }
-
-        .nav__item--active {
-            .nav-item-style-active(
-
-            );
-        }
-
-        & > * {
-            margin-top: 0;
-            margin-bottom: 0;
         }
     }
 }
-
 
 //
 // Inverse block variant
 // ---
 .nav--inverse.nav--block {
     > li {
-        display: block;
-        float: left;
-        margin: 0;
-
         .nav__item {
             .nav-item-style(
                 @colour-white,
@@ -127,7 +114,6 @@
                 @colour-grey-lightest
             );
             padding: 1em;
-            border-radius: 0;
         }
 
         .nav__item--active {
@@ -197,6 +183,11 @@
             padding: 0.5em 1em 1em;
             border-radius: @dimension-border-radius @dimension-border-radius 0 0;
             color: @colour-white;
+
+            &:after {
+                content: "\f107";
+                .icon();
+            }
 
             &:hover {
                 color: @colour-brand;
@@ -286,14 +277,14 @@
 //
 // Mobile nav--vertical styles
 // ---
-@media (max-width: @screen-sm-min) {
+@media (max-width: @screen-xs-max) {
     .nav--vertical {
         > li {
             margin: 0;
-            border-bottom: 1px solid @colour-grey-lightest;
+            border-bottom: 1px solid @border-colour;
 
             &:first-child {
-                border-top: 1px solid @colour-grey-lightest;
+                border-top: 1px solid @border-colour;
             }
         }
 
