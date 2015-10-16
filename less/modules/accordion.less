@@ -1,0 +1,18 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
+//
+// Accordion
+// ===
+.experience-enhanced {
+    .accordion__section__content {
+        max-height: 1px;
+        overflow: hidden;
+        .transition(all .5s ease-in-out);
+    }
+
+    .accordion__section--active > .accordion__section__content {
+        max-height: 999px;
+    }
+}

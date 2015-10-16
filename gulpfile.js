@@ -10,6 +10,8 @@ var path = require('path');
 var es = require('event-stream');
 var mime = require('mime');
 var package = require('./package');
+var browserify = require('browserify');
+var through = require('through2');
 
 // Less files that need to be compiled to CSS
 var lessFileList = [
@@ -65,8 +67,20 @@ var recursiveLessCompiler = function(files, done) {
     return recursor();
 }
 
+var compileJs = function() {
+    return through.obj(function(file, enc, next) {
+        browserify(file.path)
+            // Grab compilation result and smash it into stream
+            .bundle(function(err, res) {
+                file.contents = res;
+                next(null, file);
+                log.success('Built JS ' + path.basename(file.path));
+            });
+    });
+}
+
 // Build tasks
-gulp.task('build', ['build:fonts', 'build:stats']);
+gulp.task('build', ['build:fonts', 'build:stats', 'build:js']);
 
 // Build CSS from LESS
 gulp.task('build:less', function(cb) {
@@ -113,6 +127,16 @@ gulp.task('build:stats', ['build:less'], function(cb) {
             }
         });
     });
+});
+
+gulp.task('build:js', function(cb) {
+    gulp.src('./js/src/pistachio.js')
+    .pipe(compileJs())
+    .pipe(gulp.dest('./public/js'))
+    .on('error', function(err) {
+        throw new(Error(err.message));
+    }).
+    on('end', cb);
 });
 
 // Misc dev tasks
