@@ -6,10 +6,10 @@
                 {{{ getFile 'site/docs/views/examples/accordion.html' }}}
 
                 <h2>accordion 2</h2>
-                <div class="accordion" data-accordion>
+                <div class="accordion" data-p-module="accordion">
                     <div class="accordion__section">
                         <div class="accordion__section__title">
-                            <button class="button button--link">Nested accordion</button>
+                            <button class="button">Nested accordion</button>
                         </div>
                         <div class="accordion__section__content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -48,7 +48,7 @@
     });
 
     // Setup new acordion
-    pistachio.accordion($('[data-accordion]'));
+    pistachio.accordion($('[data-p-module="accordion"]'));
 }(jQuery));
 </script>
 

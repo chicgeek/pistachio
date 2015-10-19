@@ -51,4 +51,9 @@ module.exports = function($, $block, blockName, api) {
     api.removeModifier = function(modifierName) {
         return this.toggleModifier(modifierName, false);
     };
+
+    // Get additional data attributes on block
+    api.getDataAttr = function(dataAttr) {
+        return $block.attr(dataAttr);
+    };
 };

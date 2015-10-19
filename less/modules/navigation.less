@@ -175,10 +175,6 @@
         float: left;
         .margins(0.5, 0, 0, 0);
 
-        &:first-of-type {
-            // .margins(0.5, 0, 0, 0.5);
-        }
-
         .nav__item {
             padding: 0.5em 1em 1em;
             border-radius: @dimension-border-radius @dimension-border-radius 0 0;
@@ -228,14 +224,13 @@
     margin-top: 0;
     padding: 1em 0;
     background-color: @colour-white;
-    // border: 1px solid @border-colour;
     border-top: none;
 }
 
 .nav__sub-menu {
     display: block;
 
-    > li {
+    li {
         display: block;
     }
 
