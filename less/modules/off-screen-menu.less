@@ -48,7 +48,7 @@
 
             & ~ .page-wrapper {
                 .translate(@off-screen-menu-width, 0);
-                //position: fixed; // prevent scrolling of page when menu is active
+                position: fixed; // prevent scrolling of page when menu is active
             }
         }
     }
@@ -176,6 +176,7 @@
 
         //
         // override nav-dropdown-tabs further for use with accordions
+        // warning - this gets very specific
         // ---
         .nav--dropdown-tabs {
             .nav__item {
@@ -202,13 +203,6 @@
             .nav__sub-menu {
                 li {
                     padding: .5em 0 0.5em 1em;
-                }
-
-                > .nav__sub-menu {
-                    li {
-                        margin-top: 0.5em;
-                        padding: 0 0 0 1em;
-                    }
                 }
 
                 li.nav__sub-menu__header {
