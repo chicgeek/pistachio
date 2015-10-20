@@ -46,6 +46,10 @@
                 .box-shadow(0 0 @off-screen-shadow-blur @colour-grey-lighter);
             }
 
+            & ~ .off-screen-header {
+                .translate(@off-screen-menu-width, 0);
+            }
+
             & ~ .page-wrapper {
                 .translate(@off-screen-menu-width, 0);
                 position: fixed; // prevent scrolling of page when menu is active
@@ -76,6 +80,7 @@
     .off-screen-header {
         min-height: @off-screen-header-height;
         .box-shadow(0 0 @off-screen-shadow-blur @colour-grey-lighter);
+        .off-screen-menu-transition();
     }
 
     //
@@ -108,6 +113,11 @@
 
         .row {
             margin: 0;
+        }
+
+        .grid {
+            padding-left: (@grid-gutter-width / 2);
+            padding-right: (@grid-gutter-width / 2);
         }
 
         //

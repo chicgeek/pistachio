@@ -1,20 +1,20 @@
 <h1 class="cd-text cd-title">Off screen menu</h1>
-<p class="cd-text">This is a HTML/CSS only solution because it is lightweight and very reliable across different browsers. It is composed of four main elements which <strong>should all be directly adjacent to each other in the markup</strong>.</p>
+<p class="cd-text">This is a HTML/CSS only solution because it is lightweight and very reliable across different browsers. It is composed of four main elements which <strong>should all be directly adjacent to each other in the markup and in the order specified below</strong>.</p>
 
 <p class="cd-text">Any content placed inside the off screen menu will be moved off screen below 768px viewport width. At the same time, a label becomes visible with which the user can toggle the visibility of the off screen menu. It is intended to be used with <a href="navigation">navigation</a> elements to give you a mobile menu solution without writing additional markup.</p>
-
-<h2 class="cd-text cd-title">page header</h2>
-<p class="cd-text">A simple empty div which should be positioned at the top of the page directly after the opening <code>body</code> tag. This element is given a min-height when below the activation breakpoint which allows room for the absolutely positioned menu trigger.</p>
-
-{{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/off-screen/off-screen-header.html' }}}
-{{/codeBlock}}
 
 <h2 class="cd-text cd-title">menu trigger</h2>
 <p class="cd-text">A hidden checkbox input that is toggled by clicking the label. The label itself is only visible below 768px viewport width and is absolutely positioned over the page header element.</p>
 
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/off-screen/off-screen-trigger.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">page header</h2>
+<p class="cd-text">A simple empty div which should be positioned at the top of the page directly after the opening <code>body</code> tag. This element is given a min-height when below the activation breakpoint which allows room for the absolutely positioned menu trigger.</p>
+
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/off-screen/off-screen-header.html' }}}
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">menu content</h2>
