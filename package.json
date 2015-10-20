@@ -1,6 +1,6 @@
 {
   "name": "pistachio",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "graze front end framework",
   "main": "index.js",
   "scripts": {

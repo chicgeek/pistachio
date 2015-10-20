@@ -23,10 +23,11 @@ $ git clone https://github.com/graze/pistachio.git ./pistachio
 $ cd pistachio && npm install
 ```
 
-#### via CDN
- - [Full CSS framework](https://pistachio-cdn.graze.com/dev/css/pistachio.css)
+#### CSS via CDN
+ - [Versioned (latest stable release 0.0.3)](https://pistachio-cdn.graze.com/0.0.3/css/pistachio.css)
+ - [Master branch (subject to change without notice)](https://pistachio-cdn.graze.com/dev/css/pistachio.css)
 
-##### Modular css via CDN
+##### Modular CSS via CDN
 
 ###### Core css
  - [Common](https://pistachio-cdn.graze.com/dev/css/common.css)
