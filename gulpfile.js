@@ -174,10 +174,12 @@ gulp.task('publish', ['build'], function() {
 
     // Display the subresource integrity hashes.
     // See https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43/
-    var pistachioCssPath = './public/css/pistachio.css';
-    log.info('Subresource Integrity:');
-    log.success('sha256-' + checksum(pistachioCssPath, 'sha256'));
-    log.success('sha512-' + checksum(pistachioCssPath, 'sha512'));
+    log.info('ubresource integrity hashes for pistachio.css:');
+    log.success('sha256-' + checksum('./public/css/pistachio.css', 'sha256'));
+    log.success('sha512-' + checksum('./public/css/pistachio.css', 'sha512'));
+    log.info('Subresource integrity hashes for pistachio.js:');
+    log.success('sha256-' + checksum('./public/js/pistachio.js', 'sha256'));
+    log.success('sha512-' + checksum('./public/js/pistachio.js', 'sha512'));
 
     // Find all files in the public folders.
     return gulp.src(['./public/**/*.*'], { base: './' })
