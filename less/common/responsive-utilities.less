@@ -25,6 +25,45 @@
 @viewport{width:device-width}
 
 //
+// Add responsive pseudo element for use with javascript
+// ---
+
+@media (max-width: @screen-xxs-max) {
+    body::before {
+        display: none;
+        content: 'xxs';
+    }
+}
+
+@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
+    body::before {
+        display: none;
+        content: 'xs';
+    }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    body::before {
+        display: none;
+        content: 'sm';
+    }
+}
+
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    body::before {
+        display: none;
+        content: 'md';
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    body::before {
+        display: none;
+        content: 'lg';
+    }
+}
+
+//
 // Responsive layout utilities
 // ---
 

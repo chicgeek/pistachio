@@ -71,6 +71,11 @@ module.exports = function($, $block, blockName, api) {
     api.removeModifier = function(modifierName) {
         return this.toggleModifier(modifierName, false);
     };
+
+    // Get additional data attributes on block
+    api.getDataAttr = function(dataAttr) {
+        return $block.attr(dataAttr);
+    };
 };
 
 },{}],3:[function(require,module,exports){
@@ -89,6 +94,10 @@ module.exports = function($) {
         // Setup accordion block
         var accordionBlock = $accordion.block('accordion').data('p.block');
 
+        // Setup Breakpoints if specified
+        var accordionBlockBreakpoints = accordionBlock.getDataAttr('data-accordion-responsive');
+        var accordionBlockBreakpointsArray = accordionBlockBreakpoints ? accordionBlockBreakpoints.split(",") : null;
+
         // Setup section block
         var $section = accordionBlock.element('section').block('accordion__section');
         var sectionBlock = $section.data('p.block');
@@ -97,6 +106,9 @@ module.exports = function($) {
         // This allows us to do things beyond the scope of the module and let it
         // play nicely with other modules, elements, etc
         var api = {
+            init: function() {
+                initAccordion();
+            },
             // Show a section
             show: function($elem) {
                 $elem.data('p.block').addModifier('active');
@@ -121,13 +133,50 @@ module.exports = function($) {
                     $(this).data('p.block').removeModifier('active');
                 });
             },
+            // Get value of pseudo element appended to body tag in pistachio.css
+            getViewportSize: function() {
+                return window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+            }
         }
 
-        // Bind click event listener
-        $section.on('click', sectionBlock.elementSelector('title button'), function(e) {
-            e.preventDefault();
-            api.toggle($(this).parents(accordionBlock.elementSelector('section')));
+        function initAccordion() {
+            $section.each(function() {
+                // Remove previous bindings
+                $(this).off('click', sectionBlock.elementSelector('title') + ':first');
+
+                // Default state of accordion based on provided breakpoints
+                if(accordionBlockBreakpointsArray) {
+                    if ($.inArray(api.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
+                        api.hide($(this));
+                    } else {
+                        api.show($(this));
+                    }
+                }
+            });
+
+            // Bind click event listener
+            $section.on('click', sectionBlock.elementSelector('title') + ':first', function(e) {
+                if(accordionBlockBreakpointsArray) {
+                    // Set up responsive accordion if breakpoints are specified
+                    if ($.inArray(api.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
+                        e.preventDefault();
+                        api.toggle($(this).parent(accordionBlock.elementSelector('section')));
+                    }
+                } else {
+                    // if no breakpoints specified, set up accordion at all viewport sizes
+                    e.preventDefault();
+                    api.toggle($(this).parent(accordionBlock.elementSelector('section')));
+                }
+            });
+        }
+
+        // reinit on window resize
+        $(window).resize(function() {
+            initAccordion();
         });
+
+        // initialise accordion
+        api.init();
 
         return api;
     }

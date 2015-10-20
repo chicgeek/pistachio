@@ -1,30 +1,3 @@
-<h1 class="cd-text cd-title">navigation</h1>
-<p class="cd-text">Below are our core navigation components that should be use to direct a user around a website or collection of subpages.</p>
-
-<h2 class="cd-text cd-title">in-page nav</h2>
-<p class="cd-text">Our default in-page nav is a horizontal nav with pill styling.</p>
-
-{{{ getFile 'site/docs/views/examples/nav/sub-nav.html' }}}
-{{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/nav/sub-nav.html' }}}
-{{/codeBlock}}
-
-<h2 class="cd-text cd-title">in-page nav with heading</h2>
-<p class="cd-text">Use the <code>.nav__heading</code> child element to align a non-navigational element with the rest of the <code>.nav__item</code>s.</p>
-
-{{{ getFile 'site/docs/views/examples/nav/sub-nav-heading.html' }}}
-{{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/nav/sub-nav-heading.html' }}}
-{{/codeBlock}}
-
-<h2 class="cd-text cd-title">inverse in-page nav</h2>
-<p class="cd-text">Use the <code>.nav--inverse</code> modifier to generate a nav that works on dark backgrounds. This example uses an optional <code>.text-center</code> modifier.</p>
-
-{{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
-{{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
-{{/codeBlock}}
-
 <h2 class="cd-text cd-title">top level block nav</h2>
 <p class="cd-text">Use the <code>.nav--block</code> modifier to generate a nav that uses blocks and is intended for use at the header or top of a page rather than in-page.</p>
 {{{ getFile 'site/docs/views/examples/nav/nav-block.html' }}}
@@ -54,8 +27,35 @@
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd.html' }}}
 </div>
 
+<h1 class="cd-text cd-title">navigation</h1>
+<p class="cd-text">Below are our core navigation components that should be use to direct a user around a website or collection of subpages.</p>
+
+<h2 class="cd-text cd-title">in-page nav</h2>
+<p class="cd-text">Our default in-page nav is a horizontal nav with pill styling.</p>
+
+{{{ getFile 'site/docs/views/examples/nav/sub-nav.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/nav/sub-nav.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">in-page nav with headings and buttons</h2>
+<p class="cd-text">Use the <code>.nav__heading</code> child element to align a non-navigational element with the rest of the <code>.nav__item</code>s. Buttons will also align with the in-page nav elements</p>
+
+{{{ getFile 'site/docs/views/examples/nav/sub-nav-heading.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/nav/sub-nav-heading.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">inverse in-page nav</h2>
+<p class="cd-text">Use the <code>.nav--inverse</code> modifier to generate a nav that works on dark backgrounds. This example uses an optional <code>.text-center</code> modifier.</p>
+
+{{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
+{{/codeBlock}}
+
 <h2 class="cd-text cd-title">side navigation</h2>
-<p class="cd-text">Our side navigation is a varation of the nav where <code>.nav__item</code>s are aligned vertically using the <code>.nav--vertical</code> modifier.</p>
+<p class="cd-text">Our side navigation is a varation of the nav where <code>.nav__item</code>s are aligned vertically using the <code>.nav--vertical</code> modifier. Some mobile appropriate CSS is applied below 768px viewport width.</p>
 
 {{{ getFile 'site/docs/views/examples/side-nav.html' }}}
 {{#codeBlock}}

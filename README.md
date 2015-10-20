@@ -10,10 +10,6 @@ Graze's front end framework and [style guide](http://pistachio.graze.com).
 Getting Started
 ---
 
-#### CSS via CDN
- - [Latest stable release (0.0.1)](https://pistachio-cdn.graze.com/0.0.1/css/pistachio.css)
- - [Master branch](https://pistachio-cdn.graze.com/dev/css/pistachio.css)
-
 #### Via NPM (quickest)
 ```
 $ npm install -g gulp
@@ -27,10 +23,33 @@ $ git clone https://github.com/graze/pistachio.git ./pistachio
 $ cd pistachio && npm install
 ```
 
+#### via CDN
+ - [Full CSS framework](https://pistachio-cdn.graze.com/dev/css/pistachio.css)
+
+##### Modular css via CDN
+
+###### Core css
+ - [Common](https://pistachio-cdn.graze.com/dev/css/common.css)
+
+###### Optional Modules
+ - [Alerts](https://pistachio-cdn.graze.com/dev/css/alerts.css)
+ - [Breadcrumb](https://pistachio-cdn.graze.com/dev/css/breadcrumb.css)
+ - [Buttons](https://pistachio-cdn.graze.com/dev/css/buttons.css)
+ - [Forms](https://pistachio-cdn.graze.com/dev/css/forms.css)
+ - [Navigation](https://pistachio-cdn.graze.com/dev/css/navigation.css)
+ - [Off-screen-menu](https://pistachio-cdn.graze.com/dev/css/off-screen-menu.css)
+ - [Page-sections](https://pistachio-cdn.graze.com/dev/css/page-sections.css)
+ - [Pagination](https://pistachio-cdn.graze.com/dev/css/pagination.css)
+ - [Panels](https://pistachio-cdn.graze.com/dev/css/panels.css)
+ - [Progress](https://pistachio-cdn.graze.com/dev/css/progress.css)
+ - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
+ - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
+
+
 Style guide
 ---
 
-Once installed simply run to view the opinionated style guide:
+Once installed simply run to view the style guide locally:
 
 ```
 $ npm run docs
