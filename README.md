@@ -1,38 +1,52 @@
-Pistachio
-===
-
-<img src="https://camo.githubusercontent.com/a5bca823dee3bb5aa7a9e6cc82abeaf1d78ccf2e/687474703a2f2f692e67697068792e636f6d2f5355625379413179644a74706d2e676966" align="right" alt="Colbert with pistachios" width="200" />
-
-![Heroku](http://heroku-badge.herokuapp.com/?app=graze-pistachio&style=flat)
+# Pistachio [![Heroku](http://heroku-badge.herokuapp.com/?app=graze-pistachio&style=flat)](http://pistachio.graze.com)
 
 Graze's front end framework and [style guide](http://pistachio.graze.com).
 
-Getting Started
----
+<img src="http://i.giphy.com/104bRNqTMy2wE.gif" width="250">
 
-#### Via NPM (quickest)
-```
+## Getting Started
+
+### Via NPM (quickest)
+
+```bash
 $ npm install -g gulp
 $ npm install graze/pistachio
 ```
 
-#### Via git
-```
+### Via git
+
+```bash
 $ npm install -g gulp
-$ git clone https://github.com/graze/pistachio.git ./pistachio
+$ git clone https://github.com/graze/pistachio.git
 $ cd pistachio && npm install
 ```
 
-#### CSS via CDN
- - [Versioned (latest stable release 0.0.3)](https://pistachio-cdn.graze.com/0.0.3/css/pistachio.css)
- - [Master branch (subject to change without notice)](https://pistachio-cdn.graze.com/dev/css/pistachio.css)
+## Content Delivery Network
 
-##### Modular CSS via CDN
+Pistachio is available on the CloudFront CDN, with CORS support enabled.
 
-###### Core css
+[View Versioned Releases](https://github.com/graze/pistachio/releases)
+
+#### Development Release <small>(subject to change without notice)</small>
+
+A development release is available, uncached, and redeployed on every push to the master branch.
+
+```html
+<link href="https://pistachio-cdn.graze.com/dev/css/pistachio.css" rel="stylesheet">
+```
+
+```html
+<script src="https://pistachio-cdn.graze.com/dev/js/pistachio.js"></script>
+```
+
+## Modular CSS
+
+### Core CSS
+
  - [Common](https://pistachio-cdn.graze.com/dev/css/common.css)
 
-###### Optional Modules
+### Optional Modules
+
  - [Alerts](https://pistachio-cdn.graze.com/dev/css/alerts.css)
  - [Breadcrumb](https://pistachio-cdn.graze.com/dev/css/breadcrumb.css)
  - [Buttons](https://pistachio-cdn.graze.com/dev/css/buttons.css)
@@ -46,9 +60,7 @@ $ cd pistachio && npm install
  - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
  - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
 
-
-Style guide
----
+## Style Guide
 
 Once installed simply run to view the style guide locally:
 
@@ -58,8 +70,7 @@ $ npm run docs
 
 Docs should now be visible on ```http://localhost:4000/```
 
-Developing
----
+## Developing
 
 To watch LESS for changes and recompile the CSS:
 
@@ -77,9 +88,17 @@ Dev sandbox should now be visible on ```http://localhost:3000/```
 
 [More info about the sites](site/README.md)
 
-Deploying
---
+## Deploying
 
-The projects documentation is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/
+The projects documentation is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
 
+To deploy a new, cached, version to the CDN, first configure your aws credentials locally (at `~/.aws/credentials`).
 
+Then follow these six simple steps:
+
+1. Update `version` within `package.json`, and update the `README.md`
+2. Commit the change ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
+3. Tag the change (`git tag v1.0.0`)
+4. Push it all to GitHub (`git push && git push --tags`)
+5. Publish the release with `gulp publish --for-real` :rocket:
+6. [Update the release notes on GitHub](https://github.com/graze/pistachio/tags)
