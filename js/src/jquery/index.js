@@ -1,5 +1,5 @@
 // Get jQuery lib
-var $ = require('jquery');
+var $ = window.jQuery;
 
 // Plugin factory sets up a new $.fn
 var pluginFactory = require('../utils/plugin-factory');
