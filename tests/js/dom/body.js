@@ -6,6 +6,8 @@ module.exports = function(body, callback) {
         var $ = require('jquery');
         var $body = $($($(html))[1]);
 
+        window.jQuery = $;
+
         callback($body);
     });
 }
