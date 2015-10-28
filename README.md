@@ -39,6 +39,14 @@ A development release is available, uncached, and redeployed on every push to th
 <script src="https://pistachio-cdn.graze.com/dev/js/pistachio.js"></script>
 ```
 
+## JS usage
+
+Requires Jquery which can be loaded via CDN or locally
+
+```html
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+```
+
 ## Modular CSS
 
 ### Core CSS
@@ -90,7 +98,7 @@ Dev sandbox should now be visible on ```http://localhost:3000/```
 
 ## Deploying
 
-The projects documentation is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
+The projects documentation and style guide is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
 
 To deploy a new, cached, version to the CDN, first configure your aws credentials locally (at `~/.aws/credentials`).
 
