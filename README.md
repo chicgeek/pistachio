@@ -44,7 +44,7 @@ A development release is available, uncached, and redeployed on every push to th
 Requires Jquery which can be loaded via CDN or locally
 
 ```html
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 ```
 
 ## Modular CSS
