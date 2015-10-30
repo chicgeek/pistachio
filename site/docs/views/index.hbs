@@ -56,15 +56,42 @@
                 <h2 class="cd-title">web design/ux principles</h2>
 
                 <ul>
-                    <li><strong>Use clear messaging</strong> to guide the user. All buttons, links, and calls to action should have descriptive text which communicate our personality and tone of voice.</li>
-                    <li><strong>Use white space</strong> to break up sections of the page instead of hard lines. Alternatively, use differently coloured page sections.</li>
+                    <li><strong>Clarity</strong>. Use clear messaging to guide the user. All buttons, links, and calls to action should have descriptive text which communicate our personality and tone of voice.</li>
+                    <li><strong>Content first</strong>. Our content should always be presented in the most appropriate semantic order to ensure the most important stuff is front and center and everything is organised in a suitable hierarchy. This in turn allows us to write lean, semantic HTML5 markup which is manageable and accessible. It also gives us a good baseline for the mobile experience.</li>
+                    <li><strong>Use white space</strong> to break up sections of the page instead of hard lines. Alternatively, use differently coloured <a href="patterns/page-sections">page sections</a>.</li>
                     <li><strong>Use product photography freely</strong>. We're proud of our products and like to show them off with high quality photography.</li>
                     <li><strong>No gimmicks</strong>. We stick with what works best and prefer to use conventional patterns rather then re-invent the wheel. We want websites everybody can use without a learning curve.</li>
+                    <li><strong>Vertical scrolling is ok</strong>. We don't obsess over keeping everything "above the fold". We focus on getting our content in a sensible order of hierachy and are relaxed about people having to scroll.</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
+<section class="page-section cd-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 page-section__content">
+                <h2 class="cd-title">CSS guidelines</h2>
+
+                <h3 class="cd-text cd-title">LESS css</h3>
+                <p class="cd-text">We use <a href="http://lesscss.org/">LESS</a> to build our CSS</p>
+
+                <h3 class="cd-text cd-title">Efficiency and performance</h3>
+                <p class="cd-text">We use LESS variables and mixins as much as possible to avoid duplicating hand written CSS. We always strive to build the most robust and efficient CSS and JS components that perform well across all our supported browsers without adding too much page weight.</p>
+
+                <h3 class="cd-text cd-title">Block, Element, Modifier</h3>
+                <p class="cd-text">Our CSS follows a <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">Block, Element, Modifier (BEM)</a> syntax to create clarity and naming consistency across our patterns. BEM is arguably verbose, but it helps prevent common CSS rabit holes such as:</p>
+                <ul class="cd-text">
+                    <li>CSS specificty</li>
+                    <li>Classname ambiguity</li>
+                    <li>global CSS changes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="page-section page-section--alternate cd-text">
     <div class="container">
