@@ -105,8 +105,10 @@ To deploy a new, cached, version to the CDN, first configure your aws credential
 Then follow these six simple steps:
 
 1. Update `version` within `package.json`
-2. Commit the change ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
-3. Tag the change (`git tag v1.0.x`)
-4. Push it all to GitHub (`git push && git push --tags`)
-5. Publish the release with `gulp publish --for-real` :rocket:
-6. [Update the release notes on GitHub](https://github.com/graze/pistachio/tags)
+2. Commit the change to a new branch ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
+3. Push the new branch (`git push`)
+4. Open a pull request and get it merged
+5. Tag the change (`git tag v0.0.x` )
+6. Push new tag (`git push --tags`)
+7. Publish the release with `gulp publish --for-real` :rocket:
+8. [Update the release notes on GitHub](https://github.com/graze/pistachio/tags)
