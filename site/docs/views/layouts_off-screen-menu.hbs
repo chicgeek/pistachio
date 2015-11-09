@@ -1,21 +1,27 @@
 <input type="checkbox" id="off-screen-trigger" class="off-screen-trigger">
-<label for="off-screen-trigger" class="off-screen-trigger-label">
-    <i class="fa fa-bars fa-2x"></i>
-    <span class="sr-only">toggle menu</span>
-</label>
 
-<div class="off-screen-header"></div>
-
-<div class="off-screen-menu">
-    <div class="page-section page-section--bleed">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    {{{ getFile 'site/docs/views/examples/nav/sub-nav-heading.html' }}}
-                </div>
+<div class="off-screen-header page-section page-section--xs">
+    <div class="container">
+        <div class="grid grid--align-center grid--bleed">
+            <div class="grid__col-auto off-screen-trigger-spacer">
+                <label for="off-screen-trigger" class="off-screen-trigger-label">
+                    <i class="fa fa-bars fa-2x"></i>
+                    <span class="sr-only">toggle menu</span>
+                </label>
+            </div>
+            <div class="grid__col-auto off-screen-header__logo">
+                <a href="#" class="off-screen-header__logo__link pull-left link-img">
+                    <img src="https://cdn.graze.com/static/11-1443792395/images/graze/en/header/logo.png" class="off-screen-header__logo__link__img">
+                </a>
+            </div>
+            <div class="grid__col-auto grid--align-end pull-right">
+                {{{ getFile 'site/docs/views/examples/nav/nav-block-off-screen.html' }}}
             </div>
         </div>
     </div>
+</div>
+
+<div class="off-screen-menu">
     <div class="page-section page-section--brand page-section--bleed">
         <div class="container">
             <div class="row">

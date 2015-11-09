@@ -459,6 +459,19 @@
 // Off-screen menu
 // ---
 .off-screen-menu-transition() {
-    .transition(transform @off-screen-transition-duration);
+    .transition-transform(@off-screen-transition-duration);
+}
+
+//
+// Vendor prefixes
+// ---
+
+// The bootstrap mixin for transition does not vendor prefix the transition property
+// This allows us to specify a transition directly for transform with vendor prefixes
+.transition-transform(@duration: 0.2s, @animtation: ease-in-out ) {
+  -webkit-transition: -webkit-transform @duration @animtation;
+     -moz-transition: -moz-transform @duration @animtation;
+       -o-transition: -o-transform @duration @animtation;
+          transition: transform @duration @animtation;
 }
 
