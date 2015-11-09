@@ -22,10 +22,36 @@
     clip: rect(0, 0, 0, 0);
 }
 
+.off-screen-trigger-spacer {
+    // hide spacer by default
+    display: none;
+}
+
 .off-screen-trigger-label {
     // hide label by default
     display: none;
     .off-screen-menu-transition();
+}
+
+//
+// Off screen menu header logo
+// ---
+.off-screen-header__logo {
+    min-width: 150px;
+    max-width: 250px;
+}
+
+.off-screen-header__logo__link {
+    height: @off-screen-logo-height;
+    max-height: @off-screen-logo-height;
+    max-width: @off-screen-logo-width;
+}
+
+.off-screen-header__logo__link__img {
+    vertical-align: middle;
+    zoom: 1;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 //
@@ -58,12 +84,17 @@
     }
 
     //
-    // Make trigger visible
+    // Make trigger and spacer visible
     // ---
+    .off-screen-trigger-spacer {
+        display: inline-block;
+        max-width: @off-screen-label-width;
+        margin-right: 1em;
+    }
+
     .off-screen-trigger-label {
         z-index: 2;
         display: block;
-        .position(absolute, (@off-screen-label-width /2), ~'', ~'', (@off-screen-label-width /2));
         width: @off-screen-label-width;
         margin: 0;
         text-align: center;
@@ -75,10 +106,9 @@
     }
 
     //
-    // add header element to make room for the trigger
+    // add header styling
     // ---
     .off-screen-header {
-        min-height: @off-screen-header-height;
         .box-shadow(0 0 @off-screen-shadow-blur @colour-grey-lighter);
         .off-screen-menu-transition();
     }
