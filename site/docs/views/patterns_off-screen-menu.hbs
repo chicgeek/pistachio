@@ -13,6 +13,8 @@
 <h2 class="cd-text cd-title">page header</h2>
 <p class="cd-text">This should be positioned at the top of the page directly after the opening <code>body</code> tag. This contains various elements such as the site logo and the off-screen menu trigger label.</p>
 
+<p class="cd-text">Please note the empty <code>onclick</code> attribute on the <code>&lt;label&gt;</code> is required to make it trigger the menu on ios < 6.0</p>
+
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/off-screen/off-screen-header.html' }}}
 {{/codeBlock}}
