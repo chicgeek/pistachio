@@ -221,7 +221,7 @@ label {
 // Feedback icon above a form-control
 .form-control-feedback {
     .position(absolute, 0, 0, ~'', ~'');
-    z-index: 2; // Ensure feedback is above input groups
+    z-index: @z-index-base; // Ensure feedback is above input groups
     display: block;
     height: @input-height-base;
     width: auto;

@@ -93,7 +93,7 @@
     }
 
     .off-screen-trigger-label {
-        z-index: 2;
+        z-index: @z-index-top;
         display: block;
         width: @off-screen-label-width;
         margin: 0;
@@ -122,7 +122,7 @@
         overflow-y: auto;
         left: -80%;
         .position(fixed, 0, 0, 0, -@off-screen-menu-width);
-        z-index: 2;
+        z-index: @z-index-top;
         width: @off-screen-menu-width;
         height: 100%;
         height: 100vh;
