@@ -18,6 +18,10 @@ var modules = {
     'accordion': moduleFactory('accordion', {
         module: require('./modules/accordion'),
         autoload: true
+    }),
+    'offScreen': moduleFactory('offScreen', {
+        module: require('./modules/off-screen-menu'),
+        autoload: true
     })
 };
 

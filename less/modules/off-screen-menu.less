@@ -59,6 +59,21 @@
 // ---
 @media (max-width: @screen-xs-max) {
     //
+    // Set up an active state for use in the javascript enhancement
+    // ---
+    .off-screen--active {
+        .translate(@off-screen-menu-width, 0);
+
+        &.off-screen-menu {
+            .box-shadow(0 0 @off-screen-shadow-blur @colour-grey-lighter);
+        }
+
+        &.page-wrapper {
+            position: fixed;
+        }
+    }
+
+    //
     // When trigger is checked, transition menu and page to active state
     // ---
     .off-screen-trigger {

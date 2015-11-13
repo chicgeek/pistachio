@@ -2,99 +2,53 @@
 // This ensures each module is testable
 module.exports = function($) {
     /**
-     * Accordion component.
-     * Sets up event listeners on title click to open/close accordion sections
+     * Off screen menu component.
+     * Sets up event listeners on title click to open/close the off screen menu
      *
      * @param  jQuery node $accordion
      *
      * @return object
      */
-    return function($accordion) {
-        // Setup accordion block
-        var accordionBlock = $accordion.block('accordion').data('p.block');
-
-        // Setup Breakpoints if specified
-        var accordionBlockBreakpoints = accordionBlock.getDataAttr('data-accordion-responsive');
-        var accordionBlockBreakpointsArray = accordionBlockBreakpoints ? accordionBlockBreakpoints.split(",") : null;
-
-        // Setup section block
-        var $section = accordionBlock.element('section').block('accordion__section');
-        var sectionBlock = $section.data('p.block');
+    return function($offScreen) {
+        // Setup
+        var $offScreenTrigger = $offScreen;
+        var $offScreenMenu = $('.off-screen-menu:first');
+        var $offScreenPageWrapper = $('.page-wrapper:first');
+        var $offScreenHeader = $('.off-screen-header:first');
 
         // Our returned programmtic API.
         // This allows us to do things beyond the scope of the module and let it
         // play nicely with other modules, elements, etc
         var api = {
             init: function() {
-                initAccordion();
+                initOffScreen();
             },
-            // Show a section
+            // Show off screen menu
             show: function($elem) {
-                $elem.data('p.block').addModifier('active');
+                $offScreenMenu.addClass('off-screen--active');
+                $offScreenPageWrapper.addClass('off-screen--active');
+                $offScreenHeader.addClass('off-screen--active');
             },
-            // Hide a section
+            // Hide off screen menu
             hide: function($elem) {
-                $elem.data('p.block').removeModifier('active');
-            },
-            // Toggle a section
-            toggle: function($elem) {
-                $elem.data('p.block').toggleModifier('active');
-            },
-            // Show all sections
-            showAll: function() {
-                $section.each(function() {
-                    $(this).data('p.block').addModifier('active');
-                });
-            },
-            // Hide all sections
-            hideAll: function() {
-                $section.each(function() {
-                    $(this).data('p.block').removeModifier('active');
-                });
-            },
-            // Get value of pseudo element appended to body tag in pistachio.css
-            getViewportSize: function() {
-                return window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
+                $offScreenMenu.removeClass('off-screen--active');
+                $offScreenPageWrapper.removeClass('off-screen--active');
+                $offScreenHeader.removeClass('off-screen--active');
             }
         }
 
-        function initAccordion() {
-            $section.each(function() {
-                // Remove previous bindings
-                $(this).off('click', sectionBlock.elementSelector('title') + ':first');
-
-                // Default state of accordion based on provided breakpoints
-                if(accordionBlockBreakpointsArray) {
-                    if ($.inArray(api.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
-                        api.hide($(this));
-                    } else {
-                        api.show($(this));
-                    }
-                }
-            });
-
+        function initOffScreen() {
             // Bind click event listener
-            $section.on('click', sectionBlock.elementSelector('title') + ':first', function(e) {
-                if(accordionBlockBreakpointsArray) {
-                    // Set up responsive accordion if breakpoints are specified
-                    if ($.inArray(api.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
-                        e.preventDefault();
-                        api.toggle($(this).parent(accordionBlock.elementSelector('section')));
-                    }
-                } else {
-                    // if no breakpoints specified, set up accordion at all viewport sizes
-                    e.preventDefault();
-                    api.toggle($(this).parent(accordionBlock.elementSelector('section')));
-                }
+            $offScreenTrigger.on('click', function(e) {
+                $offScreenMenu.toggleClass('off-screen--active');
+                $offScreenPageWrapper.toggleClass('off-screen--active');
+                $offScreenHeader.toggleClass('off-screen--active');
+
+                e.preventDefault();
             });
         }
 
-        // reinit on window resize
-        $(window).resize(function() {
-            initAccordion();
-        });
-
-        // initialise accordion
+        // initialise off screen menu
         api.init();
 
         return api;
