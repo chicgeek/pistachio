@@ -35,9 +35,7 @@
     // position for icons
     &:before {
         .icon();
-        position: absolute;
-        top: @dimension-spacing-default;
-        left: (@dimension-spacing-default / 2);
+        .position(absolute, @dimension-spacing-default, ~'', ~'', (@dimension-spacing-default / 2));
         .font-size(1.5);
     }
 }
@@ -73,9 +71,7 @@
 // Close button base styles - overriden in .alert-variant
 // ---
 .close {
-    position: absolute;
-    top: @dimension-spacing-default;
-    right: (@dimension-spacing-default / 2);
+    .position(absolute, @dimension-spacing-default, (@dimension-spacing-default / 2), ~'', ~'');
     .font-size(1.5);
     line-height: 1;
     color: inherit;

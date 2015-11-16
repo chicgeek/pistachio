@@ -475,3 +475,18 @@
           transition: transform @duration @animtation;
 }
 
+.off-screen-text-link() {
+    display: block;
+    padding-top: @dimension-padding-lg;
+    padding-bottom: @dimension-padding-lg;
+    padding-left: @dimension-padding-lg;
+    .font-size(1);
+
+    &:hover,
+    &:focus,
+    &:active {
+        .tab-focus(@colour-grey-lightest, @text-colour);
+        .focus-reset();
+    }
+}
+

@@ -1,66 +1,61 @@
 <h1 class="cd-text cd-title">accordion</h1>
-<p>documentation in progress - this is a responsive accordion that will only behave as an accordion at certain breakpoints</p>
 
-<div class="accordion" data-p-module="accordion" data-accordion-responsive="xxs,xs,sm">
-    <div class="accordion__section">
-        <div class="accordion__section__title">
-            <button class="button button--link">accordion xxs, xs, sm</button>
-        </div>
-        <div class="accordion__section__content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-</div>
+<p class="cd-text">The accordion functionality requires pistachio.js. In addition to the basic show/hide functionality, the accordion JavaScript also applies the following:</p>
 
-<div class="accordion" data-p-module="accordion" data-accordion-responsive="xs,sm,md">
-    <div class="accordion__section">
-        <div class="accordion__section__title">
-            <button class="button button--link">accordion xs, sm, md</button>
-        </div>
-        <div class="accordion__section__content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-</div>
+<ul class="cd-text">
+    <li>An animating icon</li>
+    <li>Numerous HTML5 and <code>aria</code> attributes to improve accessiblity</li>
+    <li>Keyboard controls - when focused an accordion element will activate on <code>space</code>or <code>enter</code> key press</li>
+</ul>
 
-<div class="accordion" data-p-module="accordion" data-accordion-responsive="lg">
-    <div class="accordion__section">
-        <div class="accordion__section__title">
-            <button class="button button--link">accordion lg</button>
-        </div>
-        <div class="accordion__section__content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-</div>
+<p class="cd-text">If JavaScript is unavailable for some reason, an accordion will default to being expanded and will appear as regular page content.</p>
 
-<div class="accordion" data-p-module="accordion">
-    <div class="accordion__section">
-        <div class="accordion__section__title">
-            <button class="button button--link">accordion with no breakpoints</button>
-        </div>
-        <div class="accordion__section__content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-</div>
+<h2 class="cd-text cd-title">single accordion</h2>
+<p class="cd-text">
+    Suitable for content that really should be hidden until the user specifically wants to see it such as extra info. Relies on the presence of the <code>data-p-module="accordion"</code> attribute along with the classes and markup order specified below.
+</p>
+
+{{{ getFile 'site/docs/views/examples/accordion/basic-accordion.html' }}}
+
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/accordion/basic-accordion.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">multi accordion</h2>
+<p class="cd-text">
+    The classic model for presenting a faq. This multi accordion can be used to make browsing content heavy pages a bit easier or to separate out different options on a page.
+</p>
+<p class="cd-text">
+    The markup for this is essentially the same as for a single accordion except you nest multiple <code>accordion__section</code>s inside a single <code>accordion</code> element.
+</p>
+
+{{{ getFile 'site/docs/views/examples/accordion/multi-accordion.html' }}}
+
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/accordion/multi-accordion.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">nested accordion</h2>
+<p class="cd-text">
+    Accordions can be nested inside each other but should never have more than one level of nesting or it can become quite unwieldy and complex to use.
+</p>
+
+{{{ getFile 'site/docs/views/examples/accordion/nested-accordion.html' }}}
+
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/accordion/nested-accordion.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">responsive accordion</h2>
+<p class="cd-text">
+    Applying a <code>data-accordion-responsive</code> attribute to the accordion element enables content to operate as an accordion only at certain breakpoints. The breakpoint definitions match up with those used in the <a href="grid-system">grid</a>.
+</p>
+<p class="cd-text">
+    In this example the content only operates as an accordion at the <code>xxs</code>, <code>xs</code>, and <code>sm</code> breakpoints which you can observe by resizing your browser.</code>
+</p>
+
+{{{ getFile 'site/docs/views/examples/accordion/responsive-accordion.html' }}}
+
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/accordion/responsive-accordion.html' }}}
+{{/codeBlock}}

@@ -6,13 +6,125 @@
 // Accordion
 // ===
 .experience-enhanced {
-    .accordion__section__content {
-        max-height: 1px;
-        overflow: hidden;
-        .transition(max-height .5s ease-in-out);
+    //
+    // Default state (when enabled)
+    // ---
+    .accordion__section--enabled {
+        > .accordion__section__content {
+            max-height: 0px;
+            overflow: hidden;
+        }
     }
 
-    .accordion__section--active > .accordion__section__content {
-        max-height: 999px;
+    //
+    // Default focus state of title
+    // ---
+    .accordion__section__title {
+        &:not(.button) {
+            &:focus {
+                .focus-reset();
+            }
+        }
+    }
+
+    //
+    // Active state
+    // ---
+    .accordion__section--active {
+        > .accordion__section__content {
+            max-height: 999px;
+        }
+
+        > .accordion__section__title--icon {
+            &:after {
+                .rotate(-180deg);
+            }
+        }
+    }
+
+    //
+    // List style with borders
+    // ---
+    .accordion--list {
+        .margins(0.5, 0, 0.5, 0);
+
+        //
+        // Active state only when enabled
+        // (accordions can be enabled only at certain viewport sizes)
+        // ---
+        .accordion__section--enabled {
+            border-top: 1px solid @border-colour;
+            border-bottom: 1px solid @border-colour;
+
+            .accordion__section__title {
+                margin: 0;
+                padding-top: @dimension-padding-lg;
+                padding-bottom: @dimension-padding-lg;
+                padding-left: @dimension-padding-lg;
+                font-weight: @font-weight-heading;
+
+                &:not(.button) {
+                    &:focus {
+                        background-color: @colour-grey-lightest;
+                    }
+                }
+            }
+
+            .accordion__section__content {
+                padding-left: @dimension-padding-lg;
+                padding-right: @dimension-padding-lg;
+
+                //
+                // Fix interactions with navigation module
+                // ---
+                &.nav {
+                    > li {
+                        margin: 0;
+
+                        .nav__item {
+                            margin: 0;
+                            padding: @dimension-padding-lg;
+                            border-radius: 0;
+                            border: 0;
+                            border-top: 1px solid @border-colour;
+                        }
+                    }
+                }
+            }
+
+            .accordion__section__content--bleed {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            ~ .accordion__section--enabled {
+                border-top: none;
+            }
+        }
+    }
+
+    //
+    // Adds a rotating icon to a title
+    // ---
+    .accordion__section__title--icon {
+        position: relative;
+        padding-right: 1.5em;
+
+        &:not(.button) {
+            color: @colour-brand;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:after {
+            .off-screen-menu-transition();
+            .icon();
+            content: "\f107";
+            .position(absolute, 50%, @dimension-padding-base, ~'', ~'');
+            margin-top: -.5em;
+            margin-left: .5em;
+        }
     }
 }

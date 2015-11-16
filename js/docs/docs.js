@@ -32,5 +32,9 @@
 
             $pageNav.children[1].innerHTML += '<li><a href="#' + $h2[i].id + '">' + $h2[i].innerText + '</a></li>';
         }
+
+        if ($('h1:first').length) {
+            $('.cd-page-nav').insertAfter('h1:first');
+        }
     }
 }(document));
