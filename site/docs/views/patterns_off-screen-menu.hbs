@@ -3,6 +3,12 @@
 
 <p class="cd-text">Any content placed inside the off screen menu will be moved off screen below 768px viewport width. At the same time, a label becomes visible with which the user can toggle the visibility of the off screen menu. It is intended to be used with <a href="navigation">navigation</a> elements to give you a mobile menu solution without writing additional markup.</p>
 
+<p class="cd-text">Some browsers do not support the css selectors used in this off-screen menu (<code>:checked</code> pseudo-class and <code>~</code> general sibling combinator) but this can be addressed by including pistachio.js. Affected browsers:</p>
+<ol class="cd-text">
+    <li>Android stock browser (all versions)</li>
+    <li>Safari on iOS below version 5 (iPhone 4 and below)</li>
+</ol>
+
 <h2 class="cd-text cd-title">menu trigger</h2>
 <p class="cd-text">A hidden checkbox input that is toggled by clicking the label. Must be a sibling of the menu content and page wrapper.</p>
 
