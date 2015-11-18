@@ -84,10 +84,11 @@
     }
 
     //
-    // Some browsers do not support combinations of checked and adjacent sibling selectors
+    // Some browsers do not support combinations of :checked and adjacent sibling (~) selectors
     // They also have a hard time with transforms so this is an alternative fallback which uses positioning instead
     // It's not ideal and performs fairly slowly but at least it works in lieu of a better solution
     //
+    // Affected browsers:
     // 1) Android stock browser (all versions)
     // 2) iOS safari < 5
     //
