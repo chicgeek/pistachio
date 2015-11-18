@@ -186,6 +186,7 @@
         // ---
         .nav {
             text-align: left;
+            text-align: start;
 
             > li {
                 display: block;
@@ -207,32 +208,22 @@
                 .nav__item {
                     display: block;
                     margin-bottom: 0;
-                    padding: 0.5em 0;
+                    padding-top: @dimension-padding-lg;
+                    padding-bottom: @dimension-padding-lg;
+                    padding-left: @dimension-padding-base;
                     border: none;
                     border-bottom: 1px solid @border-colour;
                     border-radius: 0;
-                    color: @colour-brand;
                     background-color: transparent;
+                    color: @colour-brand;
 
                     &:hover,
                     &:focus,
                     &:active {
+                        .tab-focus(@colour-grey-lightest, @text-colour);
+                        .focus-reset();
                         border: none;
                         border-bottom: 1px solid @border-colour;
-                        background-color: transparent;
-                    }
-                }
-
-                .nav__item--active {
-                    border: none;
-                    border-bottom: 1px solid @border-colour;
-
-                    &:hover,
-                    &:focus,
-                    &:active {
-                        border: none;
-                        border-bottom: 1px solid @border-colour;
-                        background-color: transparent;
                     }
                 }
 
@@ -250,73 +241,44 @@
         // warning - this gets very specific
         // ---
         .nav--dropdown-tabs {
-            .nav__item {
-                position: relative;
-
-                &:after {
-                    content: "\f105";
-                    position: absolute;
-                    top: 0.75em;
-                    right: 0;
-                    .off-screen-menu-transition();
-                }
-            }
-
             .nav__menu {
                 margin: 0;
                 padding: 0;
                 .box-shadow(none);
 
                 li {
+                    margin: 0;
                     padding: 0;
                 }
             }
 
-            .nav__sub-menu {
-                li {
-                    padding: .5em 0 0.5em 1em;
-                }
+            .nav__menu__footer {
+                border: none;
+                border-bottom: 1px solid #ccc;
 
-                li.nav__sub-menu__header {
-                    padding-left: 0.5em;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-
-                    &:after {
-                        .off-screen-menu-transition();
-                        .icon();
-                        content: "\f105";
-                        position: absolute;
-                        top: 0.75em;
-                        right: 0;
-                    }
-                }
-
-                li.nav__sub-menu__footer {
-                    margin-top: 1.5em;
-                    padding-bottom: 1em;
-                    border-top: none;
-                    border-bottom: 1px solid @border-colour;
+                a {
+                    .off-screen-text-link();
                 }
             }
 
+            .nav__sub-menu {
+                li.nav__sub-menu__header {
+                    border: none;
+
+                    a {
+                        .off-screen-text-link();
+                    }
+                }
+
+                > .nav__sub-menu {
+                    display: none;
+                }
+            }
+
+            // if the dropdown tabs are using an accordion, reset the positioning of the drop down menu content
             .accordion__section__content {
                 position: relative;
                 display: block;
-            }
-
-            .accordion__section--active {
-                > .accordion__section__title {
-                    &:after {
-                        .rotate(90deg);
-                    }
-                }
-
-                > .accordion__section {
-                    border-bottom: 1px solid @border-colour;
-                }
             }
         }
 

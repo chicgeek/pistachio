@@ -55,6 +55,7 @@ Requires Jquery which can be loaded via CDN or locally
 
 ### Optional Modules
 
+ - [Accordion](https://pistachio-cdn.graze.com/dev/css/accordion.css)
  - [Alerts](https://pistachio-cdn.graze.com/dev/css/alerts.css)
  - [Breadcrumb](https://pistachio-cdn.graze.com/dev/css/breadcrumb.css)
  - [Buttons](https://pistachio-cdn.graze.com/dev/css/buttons.css)
@@ -67,6 +68,10 @@ Requires Jquery which can be loaded via CDN or locally
  - [Progress](https://pistachio-cdn.graze.com/dev/css/progress.css)
  - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
  - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
+
+For versioned releases modify the url like so: `https://pistachio-cdn.graze.com/<version>/css/accordion.css`)
+
+[View Versioned Releases](https://github.com/graze/pistachio/releases)
 
 ## Style Guide
 

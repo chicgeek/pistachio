@@ -29,10 +29,9 @@
     &:after {
         content: '';
         .icon-loading-format();
-        background-color: @colour-brand;
-        position: absolute;
-        left: 150%;
+        .position(absolute, ~'', ~'', ~'', 150%);
         .animation-delay(.2s);
+        background-color: @colour-brand;
     }
 
     &:after {

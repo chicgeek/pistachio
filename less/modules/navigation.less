@@ -15,7 +15,7 @@
     display: block;
     margin: 0;
 
-    > li {
+    li {
         .margins(0.5, 0, 0.5, 0);
         vertical-align: middle;
     }
@@ -88,7 +88,7 @@
 // Block variant
 // ---
 .nav--block {
-    > li {
+    li {
         display: block;
         float: left;
         margin: 0;
@@ -103,7 +103,7 @@
 // Inverse block variant
 // ---
 .nav--inverse.nav--block {
-    > li {
+    li {
         .nav__item {
             .nav-item-style(
                 @colour-white,
@@ -133,7 +133,7 @@
 // Tabbed nav variant
 // ---
 .nav--tabs {
-    > li {
+    li {
         .margins(0.5, 0, 0, 0.5);
 
         .nav__item {
@@ -223,10 +223,6 @@
     padding: 1em 0;
     background-color: @colour-white;
     border-top: none;
-}
-
-.nav__sub-menu {
-    display: block;
 
     li {
         display: block;
@@ -236,18 +232,25 @@
         text-decoration: none;
     }
 
+    .nav__menu__footer {
+        padding-top: 1em;
+        padding-bottom: 0;
+        margin-top: 1em;
+        margin-bottom: 0;
+        border-top: 1px solid @border-colour;
+    }
+}
+
+.nav__sub-menu {
+    display: block;
+
     .nav__sub-menu__header {
         padding-bottom: 0.5em;
         margin-bottom: 0.5em;
+        .font-size(1.2);
         font-weight: @font-weight-strong;
         border-bottom: 1px solid @border-colour;
         color: @text-colour;
-    }
-
-    .nav__sub-menu__footer {
-        padding-top: 0.5em;
-        margin-top: 1em;
-        border-top: 1px solid @border-colour;
     }
 }
 
@@ -257,38 +260,12 @@
 .nav--vertical {
     display: block;
 
-    > li {
+    li {
         display: block;
     }
 
     .nav__item {
         display: block;
         margin-bottom: 0.5em;
-    }
-}
-
-//
-// Mobile nav--vertical styles
-// ---
-@media (max-width: @screen-xs-max) {
-    .nav--vertical {
-        > li {
-            margin: 0;
-            border-bottom: 1px solid @border-colour;
-
-            &:first-child {
-                border-top: 1px solid @border-colour;
-            }
-        }
-
-        .nav__item {
-            margin-bottom: 0;
-            border-radius: 0;
-            padding: 0.5em;
-        }
-
-        .nav__item--active {
-            border-bottom: none;
-        }
     }
 }

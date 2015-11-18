@@ -64,31 +64,39 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 cd-text cd-text--uppercase">
-            {{#if subpages }}
-            <ul class="nav nav--vertical">
-                {{#each subpages}}
-                    {{#if current}}
-                        <li>
-                            <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/{{ path }}">
-                                {{ name }}
-                            </a>
-                        </li>
-                    {{else}}
-                        <li>
-                            <a class="nav__item nav__item--pill" href="/{{ path }}">
-                                {{ name }}
-                            </a>
-                        </li>
+            <div class="accordion accordion--list" data-p-module="accordion" data-accordion-responsive="xxs,xs">
+                <div class="accordion__section">
+                    <p class="accordion__section__title visible-xxs-block visible-xs-block">
+                        categories
+                    </p>
+                    {{#if subpages }}
+                    <ul class="nav nav--vertical accordion__section__content accordion__section__content--bleed">
+                        {{#each subpages}}
+                            {{#if current}}
+                                <li>
+                                    <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/{{ path }}">
+                                        {{ name }}
+                                    </a>
+                                </li>
+                            {{else}}
+                                <li>
+                                    <a class="nav__item nav__item--pill" href="/{{ path }}">
+                                        {{ name }}
+                                    </a>
+                                </li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
                     {{/if}}
-                {{/each}}
-            </ul>
-            {{/if}}
+                </div>
+            </div>
         </div>
 
         <div class="col-sm-9">
             <div class="cd-page-nav">
-                <p class="cd-text cd-title">jump to:</p>
+                <p class="cd-text cd-title">contents:</p>
                 <ol class="cd-text cd-text--uppercase"></ol>
+                <hr>
             </div>
 
             {{{ body }}}

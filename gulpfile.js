@@ -22,6 +22,7 @@ var lessFileList = [
     './less/common.less',
 
     // Modules
+    './less/modules/accordion.less',
     './less/modules/alerts.less',
     './less/modules/breadcrumb.less',
     './less/modules/buttons.less',
@@ -30,6 +31,7 @@ var lessFileList = [
     './less/modules/page-sections.less',
     './less/modules/pagination.less',
     './less/modules/panels.less',
+    './less/modules/progress.less',
     './less/modules/tables.less',
     './less/modules/stickers.less',
     './less/modules/off-screen-menu.less',
