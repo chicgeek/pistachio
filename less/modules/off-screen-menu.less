@@ -84,6 +84,37 @@
     }
 
     //
+    // Some browsers do not support combinations of checked and adjacent sibling selectors
+    // They also have a hard time with transforms so this is an alternative fallback which uses positioning instead
+    // It's not ideal and performs fairly slowly but at least it works in lieu of a better solution
+    //
+    // 1) Android stock browser (all versions)
+    // 2) iOS safari < 5
+    //
+    // This sets up an active state class for use in the javascript enhancement off-screen-menu.js
+    // ---
+    .off-screen--active {
+        &.off-screen-trigger-label {
+            .translate(@off-screen-menu-width, 0);
+        }
+
+        &.off-screen-menu {
+            .box-shadow(0 0 @off-screen-shadow-blur @colour-grey-lighter);
+            .translate(0, 0);
+            .position(fixed, 0, auto, 0, 0);
+        }
+
+        &.off-screen-header {
+            .translate(@off-screen-menu-width, 0);
+            .box-shadow(0 0 @off-screen-shadow-blur @colour-grey-lighter);
+        }
+
+        &.page-wrapper {
+            .translate(@off-screen-menu-width, 0);
+        }
+    }
+
+    //
     // Make trigger and spacer visible
     // ---
     .off-screen-trigger-spacer {
