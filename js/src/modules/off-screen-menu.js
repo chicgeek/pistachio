@@ -14,39 +14,60 @@ module.exports = function($) {
      */
     return function($offScreen) {
         // Setup
-        var $offScreenTrigger = $offScreen;
+        var $offScreenTriggerLabel = $offScreen;
         var $offScreenMenu = $('.off-screen-menu:first');
         var $offScreenPageWrapper = $('.page-wrapper:first');
         var $offScreenHeader = $('.off-screen-header:first');
 
         // Our returned programmtic API
         var api = {
-            init: function() {
-                initOffScreen();
+            initOffScreenAndroidStock: function() {
+                initOffScreenAndroidStock();
             },
-            requiresJsSupport: function() {
-                if (detectAndroidStockBrowser() || iOSversion() < 5) {
+            initOffScreenIos: function() {
+                initOffScreenIos();
+            },
+            androidJsSupport: function() {
+                if (detectAndroidStockBrowser()) {
+                    return true;
+                }
+            },
+            iOSJsSupport: function() {
+                if (iOSversion() < 5) {
                     return true;
                 }
             }
         }
 
-        function initOffScreen() {
-            // Bind click event listener
-            $offScreenTrigger.on('click', function(e) {
+        function initOffScreenAndroidStock() {
+            // Android stock browser requires a new class added
+            $offScreenTriggerLabel.on('click', function(e) {
+                e.preventDefault();
                 $(this).toggleClass('off-screen--active');
                 $offScreenMenu.toggleClass('off-screen--active');
                 $offScreenPageWrapper.toggleClass('off-screen--active');
                 $offScreenHeader.toggleClass('off-screen--active');
+            });
+        }
 
-                e.preventDefault();
+        function initOffScreenIos() {
+            // even though :checked is not working in ios < 5 via css,
+            // as soon as we bind to click function it does work!
+            // So we remove the checked state from checkbox to avoid
+            // both :checked and .off-screen--active styles being applied
+            $offScreenTriggerLabel.on('click', function(e) {
+                $('#off-screen-trigger').removeAttr('checked');
+                $(this).toggleClass('off-screen--active');
+                $offScreenMenu.toggleClass('off-screen--active');
+                $offScreenPageWrapper.toggleClass('off-screen--active');
+                $offScreenHeader.toggleClass('off-screen--active');
             });
         }
 
         function iOSversion() {
             if (/iP(hone|od touch|ad)/.test(navigator.platform)) {
                 var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-                return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+                return parseInt(v[1], 10);
             }
         }
 
@@ -57,8 +78,12 @@ module.exports = function($) {
         }
 
         // Initialise off screen menu js for browsers that don't support the CSS only method
-        if (api.requiresJsSupport()) {
-            api.init();
+        if (api.androidJsSupport()) {
+            api.initOffScreenAndroidStock();
+        }
+
+        if (api.iOSJsSupport()) {
+            api.initOffScreenIos();
         }
 
         return api;
