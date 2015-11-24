@@ -103,7 +103,9 @@
     }
 
     &:focus {
-        color: @colour-white;
+        .focus-reset();
+        color: @link-colour;
+        background-color: transparent;
     }
 }
 
