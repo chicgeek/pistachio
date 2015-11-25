@@ -16,7 +16,7 @@
     margin: 0;
 
     li {
-        .margins(0.5, 0, 0.5, 0);
+        margin: @nav-spacing-xs 0;
         vertical-align: middle;
     }
 }
@@ -24,7 +24,7 @@
 .nav__item {
     .nav-item-style();
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: @nav-spacing-md @nav-spacing-lg;
 
 
     &:hover,
@@ -94,7 +94,7 @@
         margin: 0;
 
         .nav__item {
-            padding: 1em;
+            padding: @nav-spacing-lg;
         }
     }
 }
@@ -113,7 +113,6 @@
                 @colour-grey-lightest,
                 @colour-grey-lightest
             );
-            padding: 1em;
         }
 
         .nav__item--active {
@@ -130,11 +129,22 @@
 }
 
 //
+// Small block variant
+//
+.nav--block--sm {
+    li {
+        .nav__item {
+            padding: @nav-spacing-sm @nav-spacing-lg;
+        }
+    }
+}
+
+//
 // Tabbed nav variant
 // ---
 .nav--tabs {
     li {
-        .margins(0.5, 0, 0, 0.5);
+        margin: @nav-spacing-md 0 0 @nav-spacing-md;
 
         .nav__item {
             .nav-item-style(
@@ -145,7 +155,7 @@
                 @colour-grey-lightest,
                 @colour-grey-lightest
             );
-            padding: 0.5em 1em 1em;
+            padding: @nav-spacing-md @nav-spacing-lg @nav-spacing-lg;
             border-radius: @dimension-border-radius @dimension-border-radius 0 0;
         }
 
@@ -163,6 +173,19 @@
 }
 
 //
+// Small tabbed variant
+//
+.nav--tabs--sm {
+    li {
+        margin: @nav-spacing-xxs 0 0 @nav-spacing-xxs;
+
+        .nav__item {
+            padding: @nav-spacing-xxs @nav-spacing-md @nav-spacing-sm;
+        }
+    }
+}
+
+//
 // Tabbed nav with drop down menu
 // ---
 .nav-dropdown-wrapper {
@@ -173,7 +196,7 @@
     > li {
         display: block;
         float: left;
-        .margins(0.5, 0, 0, 0);
+        margin: @nav-spacing-md 0 0 0;
 
         .nav__item {
             padding: 0.5em 1em 1em;
