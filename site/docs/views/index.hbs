@@ -158,22 +158,13 @@
                             <div class="panel__body">
                                 <h4 class="cd-title">.experience-core .if-js</h4>
                                 <p class="if-js"><i class="icon-ok-circled"></i> Visible <b>without</b> compatible JS</p>
-                                <p><small>(not visible)</small></p>
+                                <p><small>(not visible in browsers that do not cut the mustard)</small></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="page-section page-section--alternate cd-text">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 page-section__content">
-                <h2 class="cd-title">Browser support list</h2>
-                <p>The baseline feature detection tells us that these browsers cut the mustard:</p>
+                <p>When building enhanced JavaScript functionality, you should only apply this enhanced functionality when the <code>.experience-enhanced</code> class is present in the <code>&lt;html&gt;</code> tag. Browsers that are not present in this list do not cut the mustard and should not recieve JavaScript enhancement:</p>
                 <ul>
                     <li>IE 9</li>
                     <li>Firefox 3.5</li>
@@ -186,7 +177,58 @@
                     <li>Chrome (all)</li>
                     <li>Mobile Firefox (all)</li>
                 </ul>
-                <p>We consider browsers on this list to be fully support for enhanced functionality and any browsers that fall outside of this list are considered supported for core functionality only. This means that we do not serve enhanced experience JavaScript to browsers that do not cut the mustard, with the exception of core business functionality which may include:</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section page-section--alternate cd-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 page-section__content">
+                <h2 class="cd-title">Browser support list</h2>
+                <p>The cuts the mustard test gives us a sensible baseline below which javascript enhancement is not provided. Further to this, based on analysis of our users, these are the browsers we fully support for all functionality and where we spend most of our development effort:</p>
+
+                <h3 class="cd-title">Windows 7 and Windows 10</h3>
+                <ul>
+                    <li>Firefox (latest version)</li>
+                    <li>Chrome (latest version)</li>
+                    <li>Internet Explorer 9/10/11</li>
+                    <li>Edge</li>
+                </ul>
+
+                <h3 class="cd-title">OSX</h3>
+                <ul>
+                    <li>Safari version 8 and higher</li>
+                    <li>Firefox (latest version)</li>
+                    <li>Chrome (latest version)</li>
+                </ul>
+
+                <h3 class="cd-title">iOS version 5.0 and higher</h3>
+                <ul>
+                    <li>Safari</li>
+                </ul>
+
+                <p>Included devices (earlier devices may be supported as long as they are running iOS version 5.0 or higher)</p>
+                <ul>
+                    <li>iPhone 4s and higher</li>
+                    <li>iPad 3rd generation and higher</li>
+                    <li>iPad air (all)</li>
+                    <li>iPad Mini (all)</li>
+                    <li>iPad Pro (all)</li>
+                </ul>
+                <p><a href="https://en.wikipedia.org/wiki/List_of_iOS_devices">A useful reference list</a>
+
+
+                <h3 class="cd-title">Android version 4.1 (Jelly Bean) and higher</h3>
+                <ul>
+                    <li>Stock android browser</li>
+                    <li>Chrome</li>
+                </ul>
+
+                <hr>
+
+                <p>Any browsers that fall outside of this list are considered not to be supported. The only exception to this is core business functionality which is supported in *all* browsers and includes:</p>
                 <ul>
                     <li>Placing an order</li>
                     <li>Providing payment details</li>
