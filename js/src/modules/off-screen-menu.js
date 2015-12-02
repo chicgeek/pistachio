@@ -19,7 +19,7 @@ module.exports = function($) {
         var $offScreenPageWrapper = $('.page-wrapper:first');
         var $offScreenHeader = $('.off-screen-header:first');
 
-        // Our returned programmtic API
+        // Our returned programmatic API
         var api = {
             initOffScreenAndroidStock: function() {
                 initOffScreenAndroidStock();

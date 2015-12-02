@@ -21,7 +21,7 @@ module.exports = function($) {
         var $section = accordionBlock.element('section').block('accordion__section');
         var sectionBlock = $section.data('p.block');
 
-        // Our returned programmtic API
+        // Our returned programmatic API
         var api = {
             init: function() {
                 initAccordion();
