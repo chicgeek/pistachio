@@ -12,9 +12,17 @@ domReady(function(window) {
     jasmine.executeSpecsInFolder({
         specFolders: [__dirname + '/specs'],
         isVerbose: true,
-        showColours: true,
-        onComplete: function(){
-            process.exit();
+        showColors: true,
+        onComplete: function(runner, log) {
+            process.stdout.write('\n');
+
+            if (runner.results().failedCount == 0) {
+                exitCode = 0;
+            } else {
+                exitCode = 1;
+            }
+
+            process.exit(exitCode);
         }
     });
 });
