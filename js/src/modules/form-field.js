@@ -1,3 +1,7 @@
+// Some general utils for user agent detection.
+// Could potentially be replaced by modernizr in future if it gets out of control
+var agentDetection = require('../utils/agent-detection')($);
+
 // Always export a function which takes jQuery as an argument
 // This ensures each module is testable
 module.exports = function($) {
@@ -54,7 +58,9 @@ module.exports = function($) {
             $items.each(function() {
                 // empty onclick handler for labels so labels work on ios safari < 6
                 // http://stackoverflow.com/questions/7358781/
-                $(this).on("click", function(e) {});
+                if (agentDetection.iOSversion() < 6) {
+                    $(this).on("click", function(e) {});
+                }
 
                 // set up initial appearance of checked inputs
                 if($(this).find('input[type="radio"], input[type="checkbox"]').is(':checked')) {
