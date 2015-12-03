@@ -6,7 +6,7 @@
  *
  * @return object
  */
-module.exports = function() {
+module.exports = function($) {
     var api = {
         iOSversion: function() {
             if (/iP(hone|od touch|ad)/.test(navigator.platform)) {

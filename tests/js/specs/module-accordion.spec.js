@@ -44,8 +44,6 @@ describe('Test accordion module:', function() {
             expect(accordionApi.show).toBeTypeOf('function');
             expect(accordionApi.hide).toBeTypeOf('function');
             expect(accordionApi.toggle).toBeTypeOf('function');
-            expect(accordionApi.showAll).toBeTypeOf('function');
-            expect(accordionApi.hideAll).toBeTypeOf('function');
         });
     });
 
@@ -56,14 +54,7 @@ describe('Test accordion module:', function() {
             accordionApi.show($section);
             expect($section.hasClass('accordion__section--active')).toBe(true);
 
-            accordionApi.showAll();
-            expect($section.hasClass('accordion__section--active')).toBe(true);
-
             accordionApi.hide($section);
-            expect($section.hasClass('accordion__section--active')).toBe(false);
-
-            accordionApi.showAll();
-            accordionApi.hideAll();
             expect($section.hasClass('accordion__section--active')).toBe(false);
         });
     });
@@ -72,15 +63,18 @@ describe('Test accordion module:', function() {
         it('Should show the accordion content', function() {
             var $section = accordionBlock.element('section:first');
             var sectionBlock = $section.block('accordion__section').data('p.block');
-            var $button = sectionBlock.element('title button');
+            var $button = sectionBlock.element('title');
 
-            accordionApi.hideAll();
-
-            $button.trigger('click');
-            expect($section.hasClass('accordion__section--active')).toBe(true);
+            expect(sectionBlock.hasModifier('enabled')).toBe(true);
+            expect(sectionBlock.hasModifier('active')).toBe(false);
 
             $button.trigger('click');
-            expect($section.hasClass('accordion__section--active')).toBe(false);
+
+            // TO DO - there must be a better way than using a timeout - investigate
+            setTimeout(function () {
+                expect(sectionBlock.hasModifier('active')).toBe(true);
+                done();
+            }, 500);
         });
     });
 });

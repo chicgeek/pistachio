@@ -1,7 +1,3 @@
-// Some general utils for user agent detection.
-// Could potentially be replaced by modernizr in future if it gets out of control
-var agentDetection = require('../utils/agent-detection')($);
-
 // Always export a function which takes jQuery as an argument
 // This ensures each module is testable
 module.exports = function($) {
@@ -13,6 +9,11 @@ module.exports = function($) {
      *
      * @return object
      */
+
+     // Some general utils for user agent detection.
+     // Could potentially be replaced by modernizr in future if it gets out of control
+     var agentDetection = require('../utils/agent-detection')($);
+
     return function($formField) {
         // Setup
         var formFieldBlock = $formField.block('form-select').data('p.block');
