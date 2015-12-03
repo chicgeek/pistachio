@@ -68,19 +68,6 @@ module.exports = function($) {
             });
         }
 
-        // function iOSversion() {
-        //     if (/iP(hone|od touch|ad)/.test(navigator.platform)) {
-        //         var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-        //         return parseInt(v[1], 10);
-        //     }
-        // }
-
-        // function detectAndroidStockBrowser() {
-        //     var nua = navigator.userAgent;
-        //     var isAndroid = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
-        //     return isAndroid;
-        // }
-
         // Initialise off screen menu js for browsers that don't support the CSS only method
         if (api.androidJsSupport()) {
             api.initOffScreenAndroidStock();
