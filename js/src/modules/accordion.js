@@ -9,6 +9,11 @@ module.exports = function($) {
      *
      * @return object
      */
+
+     // Some general utils for user agent detection.
+     // Could potentially be replaced by modernizr in future if it gets out of control
+     var agentDetection = require('../utils/agent-detection')($);
+
     return function($accordion) {
         // Setup accordion block
         var accordionBlock = $accordion.block('accordion').data('p.block');
@@ -21,7 +26,7 @@ module.exports = function($) {
         var $section = accordionBlock.element('section').block('accordion__section');
         var sectionBlock = $section.data('p.block');
 
-        // Our returned programmtic API
+        // Our returned programmatic API
         var api = {
             init: function() {
                 initAccordion();
@@ -135,12 +140,18 @@ module.exports = function($) {
         // Default initialise of accordion
         api.init();
 
-        // Reinitialise on window resize
-        var resizeEventId;
-        $(window).resize(function() {
-            clearTimeout(resizeEventId);
-            resizeEventId = setTimeout(api.init, 100);
-        });
+        // Check if we have a responsive accordion
+        if (accordionBlockBreakpointsArray) {
+            // Reinitialise accordion on window resize for all but Safari iOS < 6
+            // Because Safari iOS < 6 throws erroneous resize events all the time
+            if (! agentDetection.iOSversion() || agentDetection.iOSversion() > 6) {
+                var resizeEventId;
+                $(window).resize(function() {
+                    clearTimeout(resizeEventId);
+                    resizeEventId = setTimeout(api.init, 100);
+                });
+            }
+        }
 
         // Make api available
         return api;

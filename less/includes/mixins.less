@@ -247,20 +247,26 @@
 }
 
 //
-// Form states
+// Forms
 // ---
+.radio-checkbox-position() {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 4px \9; // ie9 hack
+}
+
 .form-control-validation(@text-colour: @text-colour; @border-colour: @border-colour; @background-color: #f5f5f5) {
     // Color the label and help text
     label,
     .form-group__help-block,
     .radio,
     .checkbox,
-    .radio-inline,
-    .checkbox-inline,
+    .radio--inline,
+    .checkbox--inline,
     &.radio label,
     &.checkbox label,
-    &.radio-inline label,
-    &.checkbox-inline label  {
+    &.radio--inline label,
+    &.checkbox--inline label  {
         color: @text-colour;
     }
 

@@ -12,6 +12,11 @@ module.exports = function($) {
      *
      * @return object
      */
+
+     // Some general utils for user agent detection.
+     // Could potentially be replaced by modernizr in future if it gets out of control
+     var agentDetection = require('../utils/agent-detection')($);
+
     return function($offScreen) {
         // Setup
         var $offScreenTriggerLabel = $offScreen;
@@ -19,7 +24,7 @@ module.exports = function($) {
         var $offScreenPageWrapper = $('.page-wrapper:first');
         var $offScreenHeader = $('.off-screen-header:first');
 
-        // Our returned programmtic API
+        // Our returned programmatic API
         var api = {
             initOffScreenAndroidStock: function() {
                 initOffScreenAndroidStock();
@@ -28,12 +33,12 @@ module.exports = function($) {
                 initOffScreenIos();
             },
             androidJsSupport: function() {
-                if (detectAndroidStockBrowser()) {
+                if (agentDetection.detectAndroidStockBrowser()) {
                     return true;
                 }
             },
             iOSJsSupport: function() {
-                if (iOSversion() < 5) {
+                if (agentDetection.iOSversion() < 5) {
                     return true;
                 }
             }
@@ -62,19 +67,6 @@ module.exports = function($) {
                 $offScreenPageWrapper.toggleClass('off-screen--active');
                 $offScreenHeader.toggleClass('off-screen--active');
             });
-        }
-
-        function iOSversion() {
-            if (/iP(hone|od touch|ad)/.test(navigator.platform)) {
-                var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-                return parseInt(v[1], 10);
-            }
-        }
-
-        function detectAndroidStockBrowser() {
-            var nua = navigator.userAgent;
-            var isAndroid = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
-            return isAndroid;
         }
 
         // Initialise off screen menu js for browsers that don't support the CSS only method
