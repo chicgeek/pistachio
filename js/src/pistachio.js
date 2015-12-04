@@ -22,6 +22,10 @@ var modules = {
     'offScreen': moduleFactory('offScreen', {
         module: require('./modules/off-screen-menu'),
         autoload: true
+    }),
+    'formField': moduleFactory('formField', {
+        module: require('./modules/form-field'),
+        autoload: true
     })
 };
 

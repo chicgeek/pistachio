@@ -17,7 +17,7 @@ input[type="search"] {
 // Position radios and checkboxes better
 input[type="radio"],
 input[type="checkbox"] {
-      margin: 4px 0 0;
+      margin: 4px @dimension-padding-base 0 0;
       margin-top: 1px \9; // IE8-9
       line-height: normal;
 }
@@ -262,8 +262,8 @@ label ~ .form-control-feedback {
 .checkbox {
     position: relative;
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 4px;
+    margin-bottom: @dimension-padding-base;
 
     label {
         min-height: @dimension-spacing-default; // Ensure the input doesn't jump when there is no text
@@ -275,12 +275,8 @@ label ~ .form-control-feedback {
 }
 
 .radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
-    position: absolute;
-    margin-left: -20px;
-    margin-top: 4px \9; // ie9 hack
+.checkbox input[type="checkbox"] {
+    .radio-checkbox-position()
 }
 
 .radio + .radio,
@@ -289,28 +285,43 @@ label ~ .form-control-feedback {
 }
 
 // Radios and checkboxes on same line
-.radio-inline,
-.checkbox-inline {
+.form-select__item {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    font-weight: normal;
     cursor: pointer;
     padding: @dimension-padding-base @dimension-padding-lg @dimension-padding-base ((@dimension-padding-base * 2) + 20);
     border-radius: @dimension-border-radius;
     border: 1px solid @input-border;
+    margin-top: @dimension-padding-base;
     margin-right: @dimension-padding-base;
     margin-bottom: @dimension-padding-base;
+    margin-left: 0;
+    font-weight: normal;
 
-    & + & {
-      margin-left: 0;
-      margin-right: @dimension-padding-base;
+    input[type="radio"],
+    input[type="checkbox"] {
+        .radio-checkbox-position();
+    }
+
+    &:hover {
+        background-color: @colour-grey-lightest;
     }
 }
-.radio-inline + .radio-inline,
-.checkbox-inline + .checkbox-inline {
-    margin-top: 0;
-    margin-left: @dimension-padding-base; // space out consecutive inline controls
+
+// Active state for labels when input is selected
+.form-select__item--active {
+    background-color: @colour-grey-lightest;
+    box-shadow: 0 0 0 2px @colour-accent;
+    .transition(~"box-shadow ease-in-out .15s");
+}
+
+// Large radio and checkbox sections
+.form-select--block {
+    .form-select__item {
+        display: block;
+        padding: @dimension-padding-lg @dimension-padding-lg @dimension-padding-lg ((@dimension-padding-base * 2) + 20);
+    }
 }
 
 // Apply same disabled cursor tweak as for inputs
@@ -323,25 +334,5 @@ input[type="checkbox"] {
     &.disabled,
     fieldset[disabled] & {
         cursor: @cursor-disabled;
-    }
-}
-
-// These classes are used directly on <label>s
-.radio-inline,
-.checkbox-inline {
-    &.disabled,
-    fieldset[disabled] & {
-        cursor: @cursor-disabled;
-    }
-}
-
-// These classes are used on elements with <label> descendants
-.radio,
-.checkbox {
-    &.disabled,
-    fieldset[disabled] & {
-        label {
-            cursor: @cursor-disabled;
-        }
     }
 }
