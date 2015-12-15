@@ -9,7 +9,6 @@
     "postinstall": "gulp build",
     "docs": "gulp build && node ./site/docs/app.js",
     "dev": "gulp dev",
-    "dev-docs": "gulp build && node ./site/dev/app.js",
     "start": "node ./site/docs/app.js"
   },
   "repository": {

@@ -4,56 +4,37 @@ Graze's front end framework and [style guide](http://pistachio.graze.com).
 
 <img src="http://i.giphy.com/104bRNqTMy2wE.gif" width="250">
 
-## Getting Started
+## Live site
 
-### Via NPM (quickest)
+[Live pistachio style guide](https://pistachio.graze.com)
 
-```bash
-$ npm install -g gulp
-$ npm install graze/pistachio
-```
+## CSS
 
-### Via git
+Pistachio CSS is available on the CloudFront CDN, with CORS support enabled. Available as a single framework, or as individual modules.
 
-```bash
-$ npm install -g gulp
-$ git clone https://github.com/graze/pistachio.git
-$ cd pistachio && npm install
-```
-
-## Content Delivery Network
-
-Pistachio is available on the CloudFront CDN, with CORS support enabled.
+### Versioned Releases
 
 [View Versioned Releases](https://github.com/graze/pistachio/releases)
 
-#### Development Release <small>(subject to change without notice)</small>
+### Development Release <small>(subject to change without notice)</small>
 
-A development release is available, uncached, and redeployed on every push to the master branch.
+A development release is available, uncached, and redeployed on every push to the master branch. Not recommended for use in live websites - use the latest versioned release instead.
 
 ```html
 <link href="https://pistachio-cdn.graze.com/dev/css/pistachio.css" rel="stylesheet">
 ```
 
-```html
-<script src="https://pistachio-cdn.graze.com/dev/js/pistachio.js"></script>
-```
+### Modular CSS
 
-## JS usage
+(For versioned releases of modules modify the url like so: `https://pistachio-cdn.graze.com/<version>/css/accordion.css`)
 
-Requires Jquery which can be loaded via CDN or locally
+[View Versioned Releases](https://github.com/graze/pistachio/releases)
 
-```html
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-```
-
-## Modular CSS
-
-### Core CSS
+#### Core CSS only
 
  - [Common](https://pistachio-cdn.graze.com/dev/css/common.css)
 
-### Optional Modules
+#### Optional Modules
 
  - [Accordion](https://pistachio-cdn.graze.com/dev/css/accordion.css)
  - [Alerts](https://pistachio-cdn.graze.com/dev/css/alerts.css)
@@ -69,37 +50,67 @@ Requires Jquery which can be loaded via CDN or locally
  - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
  - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
 
-For versioned releases modify the url like so: `https://pistachio-cdn.graze.com/<version>/css/accordion.css`)
+## JavaScript
+
+### Development Release <small>(subject to change without notice)</small>
+
+A development release is available, uncached, and redeployed on every push to the master branch. Not recommended for use in live websites - use the latest versioned release instead.
+
+```html
+<script src="https://pistachio-cdn.graze.com/dev/js/pistachio.js"></script>
+```
+
+### Versioned Releases
 
 [View Versioned Releases](https://github.com/graze/pistachio/releases)
 
-## Style Guide
+### Dependencies
 
-Once installed simply run to view the style guide locally:
+Requires Jquery which can be loaded via CDN or locally
+
+```html
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+```
+
+## Development
+
+### Getting Started
+
+```bash
+git clone https://github.com/graze/pistachio.git
+npm install gulp
+cd pistachio
+npm install
+```
+
+### Local style guide
+
+Once everything is installed simply run to view the style guide locally:
 
 ```
-$ npm run docs
+npm run docs
 ```
 
 Docs should now be visible on ```http://localhost:4000/```
 
-## Developing
+The style guide is a simple express app. 
+[More info about the express app](site/README.md).
+
+### LESS compilation
 
 To watch LESS for changes and recompile the CSS:
 
 ```
-$ npm run dev
+npm run docs
 ```
 
-There is also a dev sandbox where basic un-opinionated examples of markup can be seen:
+### JavaScript compilation
+
+To compile the JavaScript:
 
 ```
-$ npm run dev-docs
+gulp build:js
 ```
-
-Dev sandbox should now be visible on ```http://localhost:3000/```
-
-[More info about the sites](site/README.md)
 
 ## Deploying
 
