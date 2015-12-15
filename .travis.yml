@@ -11,8 +11,9 @@ script:
   - npm test
 
 deploy:
+  skip_cleanup: true
   provider: script
-  script: .travis.deploy.sh
+  script: gulp publish
   on:
     branch: master
 
