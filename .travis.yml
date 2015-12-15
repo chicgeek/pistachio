@@ -17,6 +17,10 @@ deploy:
   on:
     branch: master
 
+cache:
+  directories:
+    - node_modules/
+
 env:
   global:
     - secure: HiDLx1BffvWzgvkjcDc4Hl9tbEdT4MGIMgDhzOFuiJ8ttfy9DVF2HvC7JPe9pKl08dtr27iQBJv9fNDCHVRmoPX1kRJngoAr74qakioUDkpa0boO3gQ1K+v0YxLeOsKlJDORJYktjTpnzIudYzSY8V7x5v1W4CfeN2oC56u0ZQ9jYG0VZZFicweh8k5T5AX2kl2BTS1Jac4CnW2ocE3a7c8FcxOzdFRZXLedUylqvVAdHhwdC9yGR5DiLiAedk/0/5t8abn4V6m8tLnCmbzVqtbBb9syTuULw2+k0EoXM6pYLFghoJQUUeLKj4Rui1mwi6sq8PDe31MSBxaGZ225D5X+NoL7bY+Z7OF1FDjJM89/8Ewc+BMKJDB11dBHptIIfa63prVJITFVcuG+4bG3pGMCKAbvFeWQmGFM6HQnfv+Vxxj96VwAgvzgG87xtPLOhIoA6FjsBYcp+0pzzJHqG6qvHF/qXmiUs1eIHnBQl3ifKAx6DiZB0o75ixqswoxAQ3p04EJDXiD3Fl0W4HCSz/5ysXp37WXoL8uS+TLQkiVkL///9+f/n63h187Kb1mtl/CsBoqlkj1UEYnF1K0ObJgBj1dPuzH4Nafs6o0dMZb8c2IzJbzgeoKLBqHUg6ofpB3W5dWPtSYAp4JQZrQI0dw/3z7BkiN0ZyQr9I045MQ=
