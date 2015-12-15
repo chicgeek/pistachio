@@ -179,7 +179,7 @@ gulp.task('publish', ['build'], function() {
     if (version !== 'dev') {
         log.info('Computed HTML Resources:');
         log.info('<link href="https://pistachio-cdn.graze.com/' + version + '/css/pistachio.css" rel="stylesheet" integrity="sha256-' + checksum('./public/css/pistachio.css', 'sha256') + '" crossorigin="anonymous">');
-        log.info('<script src="https://pistachio-cdn.graze.com/' + version + '/js/pistachio.js" integrity="sha256-' + checksum('./public/css/pistachio.css', 'sha256') + '" crossorigin="anonymous"></script>');
+        log.info('<script src="https://pistachio-cdn.graze.com/' + version + '/js/pistachio.js" integrity="sha256-' + checksum('./public/js/pistachio.js', 'sha256') + '" crossorigin="anonymous"></script>');
     }
 
     // Find all files in the public folders.
