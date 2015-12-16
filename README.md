@@ -110,15 +110,13 @@ To compile the JavaScript:
 
 The projects documentation and style guide is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
 
-To deploy a new version to the CDN, first configure your aws credentials locally (at `~/.aws/credentials`).
-
-Then follow these six simple steps:
+Follow these simple steps to deploy a new version:
 
 1. Update `version` within `package.json`
 2. Commit the change to a new branch ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
 3. Push the new branch (`git push`)
-4. Open a pull request and get it merged
+4. [Open a pull request](https://github.com/graze/pistachio/pull/new/master) and get it merged
 5. Tag the change (`git tag v0.0.x` )
-6. Push new tag (`git push --tags`)
-7. Publish the release with `gulp publish --for-real` :rocket:
-8. [Update the release notes on GitHub](https://github.com/graze/pistachio/tags)
+6. Push the tag (`git push --tags`)
+7. Travis CI will publish the new version to CloudFront
+8. [Update the release notes on GitHub](https://github.com/graze/pistachio/releases)
