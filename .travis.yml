@@ -11,11 +11,17 @@ script:
   - npm test
 
 deploy:
-  skip_cleanup: true
-  provider: script
-  script: gulp publish
-  on:
-    branch: master
+  - provider: script
+    skip_cleanup: true
+    script: gulp publish
+    on:
+      branch: master
+  - provider: script
+    skip_cleanup: true
+    script: gulp publish --for-real
+    on:
+      tags: true
+      condition: "$TRAVIS_TAG = $(grep version package.json | awk '{ print $2 }' | sed 's/[\",]//g')"
 
 cache:
   directories:
