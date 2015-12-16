@@ -1,24 +1,25 @@
-# Pistachio [![Heroku](http://heroku-badge.herokuapp.com/?app=graze-pistachio&style=flat)](http://pistachio.graze.com)
+# Pistachio [![Travis][img-travis]][travis]
 
-Graze's front end framework and [style guide](http://pistachio.graze.com).
+[travis]: https://travis-ci.org/graze/pistachio
+[heroku]: http://pistachio.graze.com
+
+[img-travis]: https://img.shields.io/travis/graze/pistachio/master.svg
+
+The graze front end framework and [style guide](http://pistachio.graze.com).
 
 <img src="http://i.giphy.com/104bRNqTMy2wE.gif" width="250">
 
-## Live site
+## Versioned Releases
 
-[Live pistachio style guide](https://pistachio.graze.com)
+Pistachio is available on the CloudFront CDN, with CORS support enabled.
+
+[View Versioned Releases](https://github.com/graze/pistachio/releases).
 
 ## CSS
 
-Pistachio CSS is available on the CloudFront CDN, with CORS support enabled. Available as a single framework, or as individual modules.
+### Development Release
 
-### Versioned Releases
-
-[View Versioned Releases](https://github.com/graze/pistachio/releases)
-
-### Development Release <small>(subject to change without notice)</small>
-
-A development release is available, uncached, and redeployed on every push to the master branch. Not recommended for use in live websites - use the latest versioned release instead.
+A development release is available, uncached, and redeployed on every push to the master branch. Not recommended for use in live websites, use the [latest versioned release instead](https://github.com/graze/pistachio/releases).
 
 ```html
 <link href="https://pistachio-cdn.graze.com/dev/css/pistachio.css" rel="stylesheet">
@@ -26,9 +27,7 @@ A development release is available, uncached, and redeployed on every push to th
 
 ### Modular CSS
 
-(For versioned releases of modules modify the url like so: `https://pistachio-cdn.graze.com/<version>/css/accordion.css`)
-
-[View Versioned Releases](https://github.com/graze/pistachio/releases)
+For versioned releases of modules modify the url like so: `https://pistachio-cdn.graze.com/<version>/css/<module>.css`
 
 #### Core CSS only
 
@@ -52,21 +51,17 @@ A development release is available, uncached, and redeployed on every push to th
 
 ## JavaScript
 
-### Development Release <small>(subject to change without notice)</small>
+### Development Release
 
-A development release is available, uncached, and redeployed on every push to the master branch. Not recommended for use in live websites - use the latest versioned release instead.
+A development release is available, uncached, and redeployed on every push to the master branch. Not recommended for use in live websites, use the [latest versioned release instead](https://github.com/graze/pistachio/releases).
 
 ```html
 <script src="https://pistachio-cdn.graze.com/dev/js/pistachio.js"></script>
 ```
 
-### Versioned Releases
-
-[View Versioned Releases](https://github.com/graze/pistachio/releases)
-
 ### Dependencies
 
-Requires Jquery which can be loaded via CDN or locally
+Requires Jquery which can be loaded via CDN or locally.
 
 ```html
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -77,46 +72,45 @@ Requires Jquery which can be loaded via CDN or locally
 ### Getting Started
 
 ```bash
-git clone https://github.com/graze/pistachio.git
-npm install gulp
-cd pistachio
-npm install
+~$ git clone https://github.com/graze/pistachio.git
+~$ npm install -g gulp
+~$ cd pistachio
+~$ npm install
 ```
 
-### Local style guide
+### Local Style Guide
 
 Once everything is installed simply run to view the style guide locally:
 
-```
-npm run docs
+```bash
+~$ npm run docs
 ```
 
 Docs should now be visible on ```http://localhost:4000/```
 
-The style guide is a simple express app. 
-[More info about the express app](site/README.md).
+The style guide is a simple express app. More information about the express app can be found in the [site README](site/README.md).
 
-### LESS compilation
+### LESS Compilation
 
 To watch LESS for changes and recompile the CSS:
 
-```
-npm run docs
+```bash
+~$ npm run docs
 ```
 
-### JavaScript compilation
+### JavaScript Compilation
 
 To compile the JavaScript:
 
-```
-gulp build:js
+```bash
+~$ gulp build:js
 ```
 
 ## Deploying
 
 The projects documentation and style guide is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
 
-To deploy a new, cached, version to the CDN, first configure your aws credentials locally (at `~/.aws/credentials`).
+To deploy a new version to the CDN, first configure your aws credentials locally (at `~/.aws/credentials`).
 
 Then follow these six simple steps:
 
