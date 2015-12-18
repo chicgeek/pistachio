@@ -30,6 +30,6 @@ module.exports = {
             className = 'xml';
         }
 
-        return '<pre class="hljs ' + className + '">' + escapeHtml(options.fn(this)) +  '</pre>';
+        return '<pre class="hljs ' + className + '">' + escapeHtml(options.fn(this)).trim() +  '</pre>';
     }
 };
