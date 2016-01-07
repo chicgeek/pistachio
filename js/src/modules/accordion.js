@@ -128,9 +128,9 @@ module.exports = function($) {
             });
 
             // Bind click and keydown event listener
-            // valid keycodes are [1, 13, 32] - mouseclick, spacebar and enter key
+            // valid keycodes are [1, 13] - mouseclick and enter key
             $section.on('click keydown', sectionBlock.elementSelector('title') + ':first', function(e) {
-                if (sectionBlock.hasModifier('enabled') && [1, 13, 32].indexOf(e.which) > -1) {
+                if (sectionBlock.hasModifier('enabled') && [1, 13].indexOf(e.which) > -1) {
                     api.toggle($(this).parent(accordionBlock.elementSelector('section')));
                     e.preventDefault();
                 }
