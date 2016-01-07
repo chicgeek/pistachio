@@ -95,7 +95,7 @@ The style guide is a simple express app. More information about the express app 
 To watch LESS for changes and recompile the CSS:
 
 ```bash
-~$ npm run docs
+~$ npm run dev
 ```
 
 ### JavaScript Compilation
