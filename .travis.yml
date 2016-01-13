@@ -21,7 +21,7 @@ deploy:
     script: gulp publish --for-real
     on:
       tags: true
-      condition: "$TRAVIS_TAG = $(grep version package.json | awk '{ print $2 }' | sed 's/[\",]//g')"
+      condition: "$TRAVIS_TAG = $(grep version package.json | awk '{ print \"v\" $2 }' | sed 's/[\",]//g')"
 
 cache:
   directories:
