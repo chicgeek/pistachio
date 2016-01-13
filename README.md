@@ -112,8 +112,8 @@ The projects documentation and style guide is deployed to Heroku on every push t
 
 Follow these simple steps to deploy a new version:
 
-1. Update `version` within `package.json`
-2. Commit the change to a new branch ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
+1. Update `version` within `package.json` and run `npm shrinkwrap`
+2. Commit the changes to a new branch ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
 3. Push the new branch (`git push`)
 4. [Open a pull request](https://github.com/graze/pistachio/pull/new/master) and get it merged
 5. Tag the change (`git tag v0.0.x` )
