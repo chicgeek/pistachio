@@ -6,9 +6,8 @@
   "scripts": {
     "test": "gulp build && gulp dev:profile && npm run test:js",
     "test:js": "node ./tests/js/jasmine.js",
-    "docs": "npm install && gulp build && node ./site/docs/app.js",
-    "dev": "gulp dev",
-    "start": "node ./site/docs/app.js"
+    "start": "node ./site/docs/app.js",
+    "postinstall": "gulp build"
   },
   "repository": {
     "type": "git",

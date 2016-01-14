@@ -75,18 +75,20 @@ Requires Jquery which can be loaded via CDN or locally.
 ~$ git clone https://github.com/graze/pistachio.git
 ~$ npm install -g gulp
 ~$ cd pistachio
-~$ npm install
 ```
 
 ### Local Style Guide
 
-Once everything is installed simply run to view the style guide locally:
+To view the style guide locally:
 
 ```bash
-~$ npm run docs
+~$ npm install
+~$ npm start
 ```
 
-Docs should now be visible on ```http://localhost:4000/```
+Docs should now be visible on ```http://localhost:4000/```. 
+
+Make sure to regularly run `npm install` to keep your dependencies up to date.
 
 The style guide is a simple express app. More information about the express app can be found in the [site README](site/README.md).
 
@@ -95,7 +97,7 @@ The style guide is a simple express app. More information about the express app 
 To watch LESS for changes and recompile the CSS:
 
 ```bash
-~$ npm run dev
+~$ gulp dev
 ```
 
 ### JavaScript Compilation
