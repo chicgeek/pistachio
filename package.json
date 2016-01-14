@@ -4,10 +4,10 @@
   "description": "graze front end framework",
   "main": "index.js",
   "scripts": {
-    "test": "gulp build && gulp dev:profile && npm run test:js",
-    "test:js": "node ./tests/js/jasmine.js",
+    "postinstall": "gulp build",
     "start": "node ./site/docs/app.js",
-    "postinstall": "gulp build"
+    "test": "gulp build && gulp dev:profile && npm run test:js",
+    "test:js": "node ./tests/js/jasmine.js"
   },
   "repository": {
     "type": "git",
