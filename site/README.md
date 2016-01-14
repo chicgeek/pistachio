@@ -4,7 +4,7 @@ The public docs in the master branch make up the publicly available site here: [
 
 TL;DR
 ---
- - `npm run docs` to run style guide site
+ - `npm install && npm start` to run style guide site
  - If a new page is not showing, restart the app!
 
 File Structure
