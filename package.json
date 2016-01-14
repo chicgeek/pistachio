@@ -6,8 +6,7 @@
   "scripts": {
     "test": "gulp build && gulp dev:profile && npm run test:js",
     "test:js": "node ./tests/js/jasmine.js",
-    "postinstall": "gulp build",
-    "docs": "gulp build && node ./site/docs/app.js",
+    "docs": "npm install && gulp build && node ./site/docs/app.js",
     "dev": "gulp dev",
     "start": "node ./site/docs/app.js"
   },
@@ -45,7 +44,7 @@
     "mime": "^1.3.4",
     "minimist": "^1.1.2",
     "moment": "^2.10.6",
-    "reflex-grid": "^1.0.2",
+    "reflex-grid": "^1.0.8",
     "through2": "^2.0.0"
   }
 }
