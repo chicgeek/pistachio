@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "gulp build",
+    "start": "node ./site/docs/app.js",
     "test": "gulp build && gulp dev:profile && npm run test:js",
-    "test:js": "node ./tests/js/jasmine.js",
-    "start": "node ./site/docs/app.js"
+    "test:js": "node ./tests/js/jasmine.js"
   },
   "repository": {
     "type": "git",
