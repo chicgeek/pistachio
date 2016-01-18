@@ -88,7 +88,7 @@ To view the style guide locally:
 
 Docs should now be visible on ```http://localhost:4000/```. 
 
-Make sure to regularly run `npm install` to keep your dependencies up to date.
+Make sure to regularly run `npm update` to keep your dependencies up to date.
 
 The style guide is a simple express app. More information about the express app can be found in the [site README](site/README.md).
 
