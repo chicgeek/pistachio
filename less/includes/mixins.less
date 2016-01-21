@@ -23,6 +23,7 @@
 
 .form-focus(@colour: @colour-brand) {
     outline: none;
+    border-color: @colour;
     @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 0 2px @colour;
     .box-shadow(@shadow);
 }
@@ -174,7 +175,7 @@
     background-color: @colour;
     #gradient > .vertical(@colour-light, @colour);
     border-radius: @dimension-border-radius;
-    .box-shadow(inset 0 -.1em 0 @colour-shadow);
+    .box-shadow(~"inset 0 -.1em 0 @colour-shadow, 0 0 0 2px transparent");
 
     &:hover,
     &:focus {
@@ -191,8 +192,7 @@
     }
 
     &.button--active {
-        #gradient > .vertical(darken(@colour-light, 4%), @colour-dark);
-        .button-active(@border-focus);
+        .button-active(darken(@colour-dark, 10%));
         color: @text;
         pointer-events: none;
     }
