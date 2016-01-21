@@ -14,7 +14,7 @@
 
 .button-focus(@colour: @link-colour) {
     outline: none;
-    .box-shadow(0 0 0 2px @colour);
+    .box-shadow(~"inset 0 -.1em 0 transparent, 0 0 0 2px" @colour);
 }
 
 .button-active(@colour: @colour-grey-lighter) {
@@ -175,7 +175,7 @@
     background-color: @colour;
     #gradient > .vertical(@colour-light, @colour);
     border-radius: @dimension-border-radius;
-    .box-shadow(~"inset 0 -.1em 0 @colour-shadow, 0 0 0 2px transparent");
+    .box-shadow(~"inset 0 -.1em 0" @colour-shadow ~", 0 0 0 2px transparent");
 
     &:hover,
     &:focus {
