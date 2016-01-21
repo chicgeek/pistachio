@@ -3,7 +3,7 @@
 @import '../includes/mixins';
 
 //
-// Buttons
+// Default button
 // ===
 
 .button {
@@ -16,6 +16,7 @@
     font-weight: normal;
     text-align: center;
     padding: (@dimension-padding-base + 2) (@dimension-padding-lg + 4);
+    .transition(box-shadow ease-in-out .15s);
     .button-style();
 
     &:hover,
@@ -24,12 +25,40 @@
     }
 }
 
-// Button Colours
+//
+// Disabled button
+// ===
+
+// disabled attribute can be used on buttons
+// .disabled class should be used on links as links do not have a disabled attribute
+
+.button {
+    &.button--disabled,
+    &[disabled] {
+        pointer-events: none;
+        .button-style(@colour-grey-lightest, @colour-grey-light, @colour-grey-lighter, transparent);
+        #gradient > .vertical(transparent, transparent);
+        .box-shadow(none);
+
+        &:active,
+        &:hover,
+        &:focus {
+            .focus-reset();
+            #gradient > .vertical(transparent, transparent);
+        }
+    }
+}
+
+//
+// Button styles
+// ===
 .button--primary {
     .button-style(@colour-accent, @colour-white, darken(@colour-accent, 5%), @colour-accent);
 }
 
-// Button Sizing
+//
+// Button Sizes
+// ===
 .button--sm {
     .font-size(0.85);
     padding: @dimension-padding-base @dimension-padding-lg;
@@ -40,7 +69,9 @@
     padding: (@dimension-padding-lg - 2) (@dimension-padding-lg + 8);
 }
 
-// Bespoke buttons with icons
+//
+// Buttons with icons
+// ===
 .button--continue {
     .button-icon("\f054");
 
@@ -63,7 +94,9 @@
     }
 }
 
-// Block button (100% width)
+//
+// Block buttons
+// ===
 .button--block {
     .button-block();
 }
