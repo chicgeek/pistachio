@@ -3,7 +3,9 @@
 module.exports = function($) {
     /**
      * Off screen menu component.
-     * Sets up JavaScript enhahcement for browsers that don't support the CSS only method:
+     *
+     * a) Provides some limited js support for what is mostly a css only off screen menu
+     * b) Sets up JavaScript enhahcement for browsers that don't support the CSS only method:
      *
      * 1) Android stock browser (all versions)
      * 2) iOS safari < 5
