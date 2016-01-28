@@ -26,6 +26,9 @@ module.exports = function($) {
 
         // Our returned programmatic API
         var api = {
+            init: function() {
+                initOffScreen();
+            },
             initOffScreenAndroidStock: function() {
                 initOffScreenAndroidStock();
             },
@@ -41,6 +44,21 @@ module.exports = function($) {
                 if (agentDetection.iOSversion() < 5) {
                     return true;
                 }
+            }
+        }
+
+        function initOffScreen() {
+            // Set to position for page wrapper to use when position is fixed
+            $offScreenPageWrapper.css("top", $offScreenHeader.outerHeight(true));
+
+            // Initialise extra off screen menu js for android browsers that don't support the CSS only method
+            if (api.androidJsSupport()) {
+                api.initOffScreenAndroidStock();
+            }
+
+            // Initialise extra off screen menu js for iOS browsers that don't support the CSS only method
+            if (api.iOSJsSupport()) {
+                api.initOffScreenIos();
             }
         }
 
@@ -69,14 +87,7 @@ module.exports = function($) {
             });
         }
 
-        // Initialise off screen menu js for browsers that don't support the CSS only method
-        if (api.androidJsSupport()) {
-            api.initOffScreenAndroidStock();
-        }
-
-        if (api.iOSJsSupport()) {
-            api.initOffScreenIos();
-        }
+        api.init();
 
         return api;
     }
