@@ -113,7 +113,7 @@
 // ---
 .nav-item-style(
         @text: @colour-brand,
-        @hover-text: @colour-grey-dark,
+        @hover-text: @text-colour,
         @bg: transparent,
         @hover-bg: @colour-grey-lighter,
         @border: @colour-grey-lighter,
@@ -159,6 +159,28 @@
     &:focus {
         .focus-reset();
         border: 1px solid @focus-border;
+    }
+}
+
+.nav-item-off-screen-style() {
+    display: block;
+    margin-bottom: 0;
+    padding-top: @dimension-padding-lg;
+    padding-bottom: @dimension-padding-lg;
+    padding-left: @dimension-padding-base;
+    border: none;
+    border-bottom: 1px solid @border-colour;
+    border-radius: 0;
+    background-color: transparent;
+    color: @colour-brand;
+
+    &:hover,
+    &:focus,
+    &:active {
+        .tab-focus(@colour-grey-lightest, @text-colour);
+        .focus-reset();
+        border: none;
+        border-bottom: 1px solid @border-colour;
     }
 }
 
@@ -493,5 +515,10 @@
         .tab-focus(@colour-grey-lightest, @text-colour);
         .focus-reset();
     }
+}
+
+.clip-path(@clip-path) {
+    -webkit-clip-path: @clip-path;
+    clip-path: @clip-path;
 }
 

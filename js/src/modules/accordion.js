@@ -10,9 +10,8 @@ module.exports = function($) {
      * @return object
      */
 
-     // Some general utils for user agent detection.
-     // Could potentially be replaced by modernizr in future if it gets out of control
-     var agentDetection = require('../utils/agent-detection')($);
+    // Dependencies
+    var agentDetection = require('../utils/agent-detection')($);
 
     return function($accordion) {
         // Setup accordion block

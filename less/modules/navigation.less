@@ -16,7 +16,7 @@
     margin: 0;
 
     li {
-        margin: @nav-spacing-xs 0;
+        margin: @nav-base 0;
         vertical-align: middle;
     }
 }
@@ -188,74 +188,83 @@
 //
 // Tabbed nav with drop down menu
 // ---
-.nav-dropdown-wrapper {
-    position: relative;
-}
-
-.nav--dropdown-tabs {
-    > li {
+.nav--dropdown {
+    .nav__dropdown {
         display: block;
         float: left;
         margin: @nav-spacing-md 0 0 0;
 
-        .nav__item {
-            padding: 0.5em 1em 1em;
+        .nav__dropdown__item {
+            .nav-item-style(
+                @colour-white,
+                @text-colour,
+                @colour-brand,
+                @colour-grey-lightest,
+                @colour-grey-lightest,
+                @colour-grey-lightest
+            );
+            display: block;
+            background-color: transparent;
+            position: relative;
+            padding: @nav-spacing-md @nav-spacing-lg @nav-spacing-lg;
             border-radius: @dimension-border-radius @dimension-border-radius 0 0;
-            color: @colour-white;
+            .transition(all 0s @nav-dropdown-delay);
 
+            // down chevron icon for dropdowns
             &:after {
                 content: "\f107";
                 .icon();
                 margin-left: 0.5em;
             }
 
-            &:hover {
-                color: @colour-brand;
-                background: @colour-white;
-                border: 1px solid @colour-white;
-            }
-
+            // no delay on focus for better keyboard use
             &:focus {
-                color: @colour-white;
-                background: transparent;
-                border: 1px solid @colour-brand;
+                .transition-delay(0s);
             }
         }
 
-        &:hover {
-            .nav__item {
+        // show menu on hover or when active class is applied via js
+        &:hover,
+        &.nav__dropdown--active {
+            .nav__dropdown__item {
                 color: @colour-brand;
-                background: @colour-white;
+                background-color: @colour-white;
                 border: 1px solid @colour-white;
             }
 
-            .nav__menu {
-                display: block;
+            .nav__dropdown__menu {
+                visibility: visible;
             }
         }
     }
 }
 
-.nav__menu {
-    .drop-shadow.outside();
-    .border-bottom-radius(@dimension-border-radius);
-    display: none;
+.nav__dropdown__menu {
     z-index: @z-index-top;
-    .position(absolute, 100%, 0, ~'', 0);
-    margin-top: 0;
+    .drop-shadow.outside();
+    //.border-top-radius(@dimension-border-radius);
+    .border-bottom-radius(@dimension-border-radius);
+    visibility: hidden;
+    .position(absolute, ~'', 0, ~'', 0);
+    margin: 0;
     padding: 1em 0;
     background-color: @colour-white;
     border-top: none;
+    .transition(visibility 0s @nav-dropdown-delay);
 
-    li {
+    // invisible tolerance area around dropdown menu for better use with mouse
+    &:before {
+        content: '';
         display: block;
+        background-color: transparent;
+        .position(absolute, 0, -@nav-dropdown-buffer, -@nav-dropdown-buffer, -@nav-dropdown-buffer);
     }
 
     a {
         text-decoration: none;
     }
 
-    .nav__menu__footer {
+    .nav__dropdown__menu__footer {
         padding-top: 1em;
         padding-bottom: 0;
         margin-top: 1em;
@@ -264,16 +273,27 @@
     }
 }
 
-.nav__sub-menu {
-    display: block;
+.nav__dropdown__menu__sub__header {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    .font-size(1.2);
+    font-weight: @font-weight-strong;
+    border-bottom: 1px solid @border-colour;
+    color: @text-colour;
+}
 
-    .nav__sub-menu__header {
-        padding-bottom: 0.5em;
-        margin-bottom: 0.5em;
-        .font-size(1.2);
-        font-weight: @font-weight-strong;
-        border-bottom: 1px solid @border-colour;
-        color: @text-colour;
+.nav__dropdown__menu__sub {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__dropdown__menu__sub__content {
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: @nav-spacing-xxs 0 @nav-spacing-sm;
     }
 }
 

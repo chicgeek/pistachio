@@ -26,6 +26,10 @@ var modules = {
     'formField': moduleFactory('formField', {
         module: require('./modules/form-field'),
         autoload: true
+    }),
+    'dropDown': moduleFactory('dropDown', {
+        module: require('./modules/drop-down'),
+        autoload: true
     })
 };
 

@@ -18,6 +18,7 @@
 // ---
 .off-screen-trigger {
     // hide checkbox via clip so it's present on page but invisible
+    display: none;
     position: absolute;
     clip: rect(0, 0, 0, 0);
 }
@@ -66,6 +67,8 @@
     // When trigger is checked, transition menu and page to active state
     // ---
     .off-screen-trigger {
+        display: block;
+
         &:checked {
             & ~ .off-screen-trigger-label {
                 .translate(@off-screen-menu-width, 0);
@@ -218,25 +221,7 @@
                 }
 
                 .nav__item {
-                    display: block;
-                    margin-bottom: 0;
-                    padding-top: @dimension-padding-lg;
-                    padding-bottom: @dimension-padding-lg;
-                    padding-left: @dimension-padding-base;
-                    border: none;
-                    border-bottom: 1px solid @border-colour;
-                    border-radius: 0;
-                    background-color: transparent;
-                    color: @colour-brand;
-
-                    &:hover,
-                    &:focus,
-                    &:active {
-                        .tab-focus(@colour-grey-lightest, @text-colour);
-                        .focus-reset();
-                        border: none;
-                        border-bottom: 1px solid @border-colour;
-                    }
+                    .nav-item-off-screen-style()
                 }
 
                 .nav__heading {
@@ -249,48 +234,95 @@
         }
 
         //
-        // override nav-dropdown-tabs further for use with accordions
+        // override nav-dropdown-tabs
         // warning - this gets very specific
         // ---
-        .nav--dropdown-tabs {
-            .nav__menu {
+        .nav--dropdown {
+            .nav__dropdown {
+                display: block;
+                float: none;
+                margin: 0;
+
+                &.nav__dropdown--active {
+                    .nav__dropdown__menu {
+                        visibility: visible;
+                        display: block;
+                        max-height: 999px;
+                        border-bottom: 1px solid @border-colour;
+                    }
+
+                    .nav__dropdown__item {
+                        border: none;
+                        border-bottom: 1px solid @border-colour;
+
+                        &:after {
+                            .rotate(-180deg);
+                        }
+                    }
+                }
+            }
+
+            .nav__dropdown__item {
+                .nav-item-off-screen-style();
+                .transition(none);
+
+                &:before {
+                    display: none;
+                }
+
+                &:after {
+                    .position(absolute, 50%, @dimension-padding-base, ~'', ~'');
+                    margin-top: -.5em;
+                    margin-left: .5em;
+                    .off-screen-menu-transition();
+                }
+            }
+
+            .nav__dropdown__menu {
+                position: relative;
+                display: none;
+                visibility: hidden;
+                max-height: 0px;
                 margin: 0;
                 padding: 0;
+                border-radius: 0;
                 .box-shadow(none);
+                .transition(none);
 
                 li {
                     margin: 0;
                     padding: 0;
                 }
-            }
 
-            .nav__menu__footer {
-                border: none;
-                border-bottom: 1px solid #ccc;
-
-                a {
-                    .off-screen-text-link();
+                &:before {
+                    display: none;
                 }
-            }
 
-            .nav__sub-menu {
-                li.nav__sub-menu__header {
+                .nav__dropdown__menu__sub__header {
+                    margin-bottom: 0;
+                    .font-size(1);
+                }
+
+                .nav__dropdown__menu__sub__header,
+                .nav__dropdown__menu__footer {
                     border: none;
 
                     a {
-                        .off-screen-text-link();
+                        .nav-item-off-screen-style();
+                        color: @colour-accent;
+                        border: none;
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            border: none;
+                        }
                     }
                 }
 
-                > .nav__sub-menu {
+                .nav__dropdown__menu__sub__content {
                     display: none;
                 }
-            }
-
-            // if the dropdown tabs are using an accordion, reset the positioning of the drop down menu content
-            .accordion__section__content {
-                position: relative;
-                display: block;
             }
         }
 
