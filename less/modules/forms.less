@@ -77,7 +77,6 @@ legend {
     max-width: 100%; // Force IE8 to wrap long content
     margin-bottom: @dimension-padding-base;
     font-weight: @font-weight-strong;
-    .lowercase();
 }
 
 // add extra info after the label based on value of data-label-info
@@ -121,7 +120,7 @@ legend {
     color: @input-colour;
     background-color: @input-bg;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid @input-border;
+    border: @input-border;
     border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
     .drop-shadow.inside(@dimension-shadow-sm);
     .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
@@ -294,7 +293,7 @@ label ~ .form-control-feedback {
     cursor: pointer;
     padding: @dimension-padding-base @dimension-padding-lg @dimension-padding-base ((@dimension-padding-base * 2) + 20);
     border-radius: @dimension-border-radius;
-    border: 1px solid @input-border;
+    border: @input-border;
     margin-top: @dimension-padding-base;
     margin-right: @dimension-padding-base;
     margin-bottom: @dimension-padding-base;

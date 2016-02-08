@@ -26,7 +26,7 @@
 
     @media screen and (max-width: @screen-xs-max) {
         margin-bottom: @dimension-spacing-default;
-        border: 1px solid @table-border-colour;
+        border: @table-border;
 
         // Ensure the content doesn't wrap
         > thead,
@@ -60,7 +60,7 @@
                 padding: @dimension-padding-lg;
                 line-height: @line-height-base;
                 vertical-align: top;
-                border-top: 1px solid @table-border-colour;
+                border-top: @table-border;
             }
         }
     }
@@ -79,7 +79,7 @@
         > tr:last-child {
             > th,
             > td {
-                border-bottom: 1px solid @table-border-colour;
+                border-bottom: @table-border;
             }
         }
     }

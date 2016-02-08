@@ -207,12 +207,12 @@
 
                 &:first-of-type {
                     .nav__item {
-                        border-top: 1px solid @border-colour;
+                        border-top: @border-default;
 
                         &:hover,
                         &:focus,
                         &:active {
-                            border-top: 1px solid @border-colour;
+                            border-top: @border-default;
                         }
                     }
                 }
@@ -224,7 +224,7 @@
                     padding-bottom: @dimension-padding-lg;
                     padding-left: @dimension-padding-base;
                     border: none;
-                    border-bottom: 1px solid @border-colour;
+                    border-bottom: @border-default;
                     border-radius: 0;
                     background-color: transparent;
                     color: @colour-brand;
@@ -235,7 +235,7 @@
                         .tab-focus(@colour-grey-lightest, @text-colour);
                         .focus-reset();
                         border: none;
-                        border-bottom: 1px solid @border-colour;
+                        border-bottom: @border-default;
                     }
                 }
 
@@ -243,7 +243,7 @@
                     display: block;
                     .margins(2, 0, 0, 0);
                     padding-bottom: @dimension-padding-lg;
-                    border-bottom: 1px solid @border-colour;
+                    border-bottom: @border-default;
                 }
             }
         }
@@ -257,6 +257,7 @@
                 margin: 0;
                 padding: 0;
                 .box-shadow(none);
+                border-radius: 0;
 
                 li {
                     margin: 0;
