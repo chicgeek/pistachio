@@ -322,9 +322,17 @@
     font-size: .75em;
 }
 
+.lowercase() {
+    text-transform: lowercase;
+}
+
+.text-muted() {
+    color: @colour-grey-light;
+}
+
 .meta() {
     .font-size(.875);
-    color: @colour-grey-light;
+    .text-muted();
 }
 
 .lead() {
