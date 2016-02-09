@@ -1,15 +1,14 @@
 <h1 class="cd-text cd-title">forms</h1>
-<p class="cd-text">We've tried to stay close to default form styling to keep our form UI as familiar to users as possible whilst offering usibility tweaks to make them more mobile performant and accessible. Forms are for the user to submit information to us and should therefore be functional and useable above all else.</p>
+<p class="cd-text">We've tried to stay close to default form styling to keep our form UI as familiar to users as possible whilst offering various tweaks to make them easier to use and accessible. Forms are for the user to submit information to us and should therefore be functional and useable above all else.</p>
 
+<h2 class="cd-text cd-title">usage notes</h2>
 <div class="panel">
     <div class="panel__body">
         <h4 class="cd-text cd-title"><i>heads up!</i></h4>
         <p class="cd-text"><i>Form elements are not styled by default.  Please pay attention to different form classes and modifiers in order to style a form element.</i></p>
     </div>
 </div>
-
-<h2 class="cd-text cd-title">usage notes</h2>
-<p class="cd-text">The goal of a form is for a user to provide information. Therefore, we should make sure that the the user is guided as clearly as possible towards this goal. Above all else keep it simple!
+<p class="cd-text">The goal of a form is for a user to provide information. Therefore, we should make sure that the the user is guided as clearly as possible towards this goal. Above all else keep it simple!</p>
 <ol class="cd-text">
     <li><strong>Use succinct, unambiguous messaging</strong> to guide the user via combinations of labels, placeholders, contextual help messages, and validation.</li>
     <li><strong>Always ensure you have enough room</strong> for your fields. The user should be able to see what they have entered into a field at smaller viewport sizes. You can use bootstrap column classes in your form to have multiple inputs per row but remember useability is the most important concern here and you should not sacrifice that for the sake of fitting everything into a smaller space.</li>
@@ -22,27 +21,29 @@
             <li>"3 digits on back of card" for security number</li>
         </ul>
     </li>
-    <li><strong>Fieldsets are recommended for accessiblity but are unstyled</strong>. In addition, the legend tag is rendered the same as a label. Fieldsets are especially recommended for use with groups of radio buttons and checkboxes.</li>
+    <li><strong>Fieldsets are recommended for accessiblity but are unstyled and have no visible border</strong>. In addition, the legend tag is rendered the same as a label. Fieldsets are especially recommended for use with groups of radio buttons and checkboxes.</li>
+    <li><strong>Dropdowns (or <code>select</code> elements) are to be used sparingly</strong> because they have <a href="https://www.nngroup.com/articles/drop-down-menus-use-sparingly/">known usability issues</a>. As a rule of thumb, if you have less than 5 options, <a href="#checkboxes-and-radio-buttons">radio buttons</a> are preferred. For longer lists of options, consider using a regular <code>input</code> instead if possible.</li>
+    <li><strong>Avoid using the <code>size</code> attribute on individual inputs</strong> as you get more inconsistent results. Instead, use the various classes as defined in the example forms below.</li>
 </ol>
 
 <h2 class="cd-text cd-title">example form</h2>
-<p class="cd-text">Below is an example form to get you off on the right foot.</p>
+<p class="cd-text">A <code>.form-group</code> element should be used to wrap input/label group to ensure consistent spacing. The <code>.form-group</code> class can be applied to a <code>div</code> or a <code>fieldset</code>.</p>
+<p class="cd-text">All inputs should use the <code>.form-control</code> class which makes them fill the full width of their parent element. Ideally, most inputs would take up an entire row for clarity, but where inputs make sense to be grouped (as with the first and last name example below), you can use the <a href="grid-system#bootstrap-grid">bootstrap grid classes</a> to achieve this. Inspect the markup below for an example.</p>
 
 {{{ getFile 'site/docs/views/examples/forms/form.html' }}}
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/forms/form.html' }}}
 {{/codeBlock}}
 
-
 <h2 class="cd-text cd-title">example short form</h2>
-<p class="cd-text">Some forms are only small and suitable for a single line. Inputs line up with buttons for that reason.</p>
+<p class="cd-text">Some forms are only small and suitable for a single line. Inputs line up with buttons for that reason. Use the <a href="grid-system#bootstrap-grid">bootstrap grid classes</a> to achieve this. Inspect the example markup below for an example.</p>
 {{{ getFile 'site/docs/views/examples/forms/form-short.html' }}}
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/forms/form-short.html' }}}
 {{/codeBlock}}
 
-<h2 class="cd-text cd-title">example single line form</h2>
-<p class="cd-text">Single line forms are only to be used when a form has a single field.</p>
+<h2 class="cd-text cd-title">example inline form</h2>
+<p class="cd-text">Single line forms are only to be used when a form has a single field via the use of the <code>.form-group--inline</code> class. Inputs in an inline form will be sized to the browser's default width. To enforce size consistency, you can use an additional sizing class such as <code>form-control--sm</code>, <code>form-control--md</code> or <code>form-control--lg</code>.</p>
 {{{ getFile 'site/docs/views/examples/forms/form-short-line.html' }}}
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/forms/form-short-line.html' }}}
@@ -82,7 +83,7 @@
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/forms/dropdown.html' }}}
 {{/codeBlock}}
-<p class="cd-text"><b>Warning:</b> Use select boxes sparingly. Dropdowns have known usability issues and their use is discouraged where possible. Inline radio buttons are often a better solution.</p>
+<p class="cd-text"><strong>Dropdowns (or <code>select</code> elements) are to be used sparingly</strong> because they have <a href="https://www.nngroup.com/articles/drop-down-menus-use-sparingly/">known usability issues</a>. As a rule of thumb, if you have less than 5 options, <a href="#checkboxes-and-radio-buttons">radio buttons</a> are preferred. For longer lists of options, consider using a regular <code>input</code> instead if possible.</p>
 
 <h2 class="cd-text cd-title">checkboxes and radio buttons</h2>
 <p class="cd-text">Checkboxes and radio buttons should be used to allow users to select from a list of options with ease. We have a basic style for checkboxes and radio buttons normalized across multiple browsers and a version with an enhanced active state.</p>
