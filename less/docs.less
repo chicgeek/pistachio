@@ -83,28 +83,6 @@ code {
     background: @colour-grey-lightest;
     position: relative;
 
-    &:after {
-        content: 'copy';
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background: fade(black, 60%);
-        color: white;
-        border-radius: 2px;
-        padding: .2em .4em;
-        opacity: 0;
-        cursor: pointer;
-    }
-
-    &:hover:after {
-        opacity: .5;
-    }
-
-    &.copied:after {
-        content: 'copied!';
-        opacity: 1;
-    }
-
     code {
         background: none;
     }
