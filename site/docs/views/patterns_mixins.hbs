@@ -43,3 +43,41 @@ position: absolute;
 left: auto;
 right: auto;
 </pre>
+
+
+<h2 class="cd-text cd-title">at least</h2>
+<p class="cd-text">A quantity selector which applies styles based on the number of child elements.</p>
+
+<h3 class="cd-text cd-title">Syntax</h3>
+<code>.at-least(@quantity, @countTarget, @rules, @selectTarget: ~'');</code>
+
+<h3 class="cd-text cd-title">Example 1</h3>
+<p class="cd-text">Hide <code>.progress__bar__step</code> when there are three or more.</p>
+<code>
+.at-least(3, ~'.progress__bar__step', {
+    display: none;
+});
+</code>
+
+<p>Result:</p>
+<pre>
+.progress__bar__step:nth-last-child(n + 4),
+.progress__bar__step:nth-last-child(n + 4) ~ .progress__bar__step {
+    display: none;
+}
+</pre>
+
+<h3 class="cd-text cd-title">Example 2</h3>
+<p class="cd-text">When there are three or more <code>.progress__bar__step</code>, show the sibling <code>.progress__bar__step-count</code>.</p>
+<code>
+.at-least(3, ~'.progress__bar__step', {
+    display: block;
+}, ~'.progress__bar__step-count');
+</code>
+
+<p>Result:</p>
+<pre>
+.progress__bar__step:nth-last-child(n + 4) ~ .progress__bar__step-count} {
+    display: block;
+}
+</pre>

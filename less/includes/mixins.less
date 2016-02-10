@@ -461,6 +461,27 @@
 }
 
 //
+// Quantity selectors
+// ---
+.at-least(@quantity, @countTarget, @rules, @selectTarget: ~'') {
+    @lastChildQuantity: @quantity + 1;
+
+    // apply styles to the element we are counting when no 'select target' is given
+    @{countTarget}:nth-last-child(n + @{lastChildQuantity}) when (@selectTarget = ~'') {
+        @rules();
+    }
+
+    @{countTarget}:nth-last-child(n + @{lastChildQuantity}) ~ @{countTarget} when (@selectTarget = ~'') {
+        @rules();
+    }
+
+    // if a 'select target' is given apply the given styles to that element rather than the counted element
+    @{countTarget}:nth-last-child(n + @{lastChildQuantity}) ~ @{selectTarget} when not (@selectTarget = ~'') {
+        @rules();
+    }
+}
+
+//
 // Off-screen menu
 // ---
 .off-screen-menu-transition() {

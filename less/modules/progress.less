@@ -26,3 +26,43 @@
     background-color: @colour-brand;
     border-radius: 5px;
 }
+
+.progress__bar__step {
+    text-align: center;
+    margin-right: @dimension-padding-base;
+    margin-left: @dimension-padding-base;
+}
+
+.at-least(1, ~'.progress__bar__step', {
+    display: none;
+}, ~'.progress__bar__step-count');
+
+@media (max-width: @screen-xs-min) {
+    .at-least(3, ~'.progress__bar__step', {
+        display: none;
+    });
+
+    .at-least(3, ~'.progress__bar__step', {
+        display: block;
+    }, ~'.progress__bar__step-count');
+}
+
+@media (max-width: @screen-sm-min) {
+    .at-least(5, ~'.progress__bar__step', {
+        display: none;
+    });
+
+    .at-least(5, ~'.progress__bar__step', {
+        display: block;
+    }, ~'.progress__bar__step-count');
+}
+
+@media (max-width: @screen-lg-min) {
+    .at-least(7, ~'.progress__bar__step', {
+        display: none;
+    });
+
+    .at-least(7, ~'.progress__bar__step', {
+        display: block;
+    }, ~'.progress__bar__step-count');
+}
